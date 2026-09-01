@@ -3,9 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>오늘의 사주 | 무료 사주 만세력</title>
+
+<title>오늘의 사주 | 무료·상세 사주풀이</title>
 
 <style>
+
 *{
     box-sizing:border-box;
 }
@@ -38,7 +40,6 @@ body{
 .header p{
     margin:10px 0 0;
     color:#806f61;
-    font-size:15px;
 }
 
 .card{
@@ -48,17 +49,10 @@ body{
     box-shadow:0 6px 25px rgba(60,40,20,.08);
 }
 
-.form-title{
-    margin:0 0 20px;
-    color:#5b3927;
-    font-size:22px;
-}
-
 label{
     display:block;
     margin-top:16px;
     font-weight:bold;
-    color:#4b382c;
 }
 
 input,
@@ -70,7 +64,6 @@ select{
     border-radius:10px;
     background:#fff;
     font-size:16px;
-    color:#333;
 }
 
 button{
@@ -97,8 +90,6 @@ button:hover{
     margin-top:15px;
 }
 
-/* 결과 */
-
 .result{
     display:none;
     margin-top:35px;
@@ -106,7 +97,7 @@ button:hover{
 
 .result-header{
     text-align:center;
-    padding:20px 10px;
+    padding:22px 10px;
     background:#faf6ee;
     border-radius:16px;
 }
@@ -114,18 +105,14 @@ button:hover{
 .result-header h2{
     margin:0;
     color:#5b3927;
-    font-size:27px;
 }
 
 .result-header p{
-    margin:10px 0 0;
     color:#806f61;
 }
 
-/* 사주 네 기둥 */
-
 .section{
-    margin-top:28px;
+    margin-top:30px;
 }
 
 .section-title{
@@ -143,10 +130,10 @@ button:hover{
 }
 
 .pillar{
+    text-align:center;
     background:#faf6ee;
     border:1px solid #e3d8ca;
     border-radius:14px;
-    text-align:center;
     padding:18px 7px;
 }
 
@@ -168,8 +155,6 @@ button:hover{
     font-size:12px;
 }
 
-/* 기본 정보 */
-
 .info-box{
     background:#faf6ee;
     border-radius:14px;
@@ -177,8 +162,6 @@ button:hover{
     line-height:1.9;
     border:1px solid #e8ded2;
 }
-
-/* 일간 */
 
 .daymaster-box{
     text-align:center;
@@ -194,13 +177,6 @@ button:hover{
     color:#5b3927;
 }
 
-.daymaster-text{
-    margin-top:9px;
-    line-height:1.8;
-}
-
-/* 오행 */
-
 .element-grid{
     display:grid;
     grid-template-columns:repeat(5,1fr);
@@ -213,11 +189,6 @@ button:hover{
     border:1px solid #e3d8ca;
     border-radius:12px;
     background:#fff;
-}
-
-.element-name{
-    font-size:14px;
-    color:#76665a;
 }
 
 .element-number{
@@ -242,8 +213,6 @@ button:hover{
     border-radius:10px;
 }
 
-/* 해석 */
-
 .reading-box{
     background:#fffaf2;
     border:1px solid #e6d7c5;
@@ -259,14 +228,83 @@ button:hover{
     margin-bottom:8px;
 }
 
-.reading-box p{
-    margin:0;
+.free-badge{
+    display:inline-block;
+    padding:5px 10px;
+    border-radius:20px;
+    background:#e8ddcf;
+    color:#65452f;
+    font-size:12px;
+    font-weight:bold;
+    margin-bottom:10px;
 }
 
-/* 대운 */
+.premium-box{
+    background:linear-gradient(
+        135deg,
+        #fff9ed,
+        #f7ead6
+    );
+    border:1px solid #d9b97d;
+    border-radius:18px;
+    padding:24px;
+    text-align:center;
+}
 
-.daeyun-wrap{
-    overflow-x:auto;
+.premium-box h3{
+    margin-top:0;
+    color:#704820;
+}
+
+.premium-price{
+    font-size:28px;
+    font-weight:bold;
+    color:#704820;
+    margin:15px 0;
+}
+
+.premium-list{
+    text-align:left;
+    line-height:2;
+    margin:20px 0;
+}
+
+.premium-list div{
+    border-bottom:1px solid #eadbc4;
+    padding:5px 0;
+}
+
+.lock-box{
+    background:#fff;
+    border-radius:14px;
+    padding:20px;
+    margin-top:18px;
+    border:1px dashed #c9a66f;
+}
+
+.lock-icon{
+    font-size:38px;
+}
+
+.detail-content{
+    display:none;
+    text-align:left;
+    margin-top:20px;
+}
+
+.detail-card{
+    background:#fff;
+    border:1px solid #e2d3be;
+    border-radius:14px;
+    padding:20px;
+    margin-top:12px;
+    line-height:1.9;
+}
+
+.detail-card h4{
+    color:#68432e;
+    margin-top:0;
+    font-size:18px;
 }
 
 table{
@@ -287,24 +325,9 @@ th{
     color:#604532;
 }
 
-td{
-    color:#4a3a31;
+.daeyun-wrap{
+    overflow-x:auto;
 }
-
-/* 무료 표시 */
-
-.free-badge{
-    display:inline-block;
-    padding:5px 10px;
-    border-radius:20px;
-    background:#e8ddcf;
-    color:#65452f;
-    font-size:12px;
-    font-weight:bold;
-    margin-bottom:10px;
-}
-
-/* 안내 */
 
 .notice{
     margin-top:28px;
@@ -313,8 +336,6 @@ td{
     font-size:12px;
     line-height:1.7;
 }
-
-/* 모바일 */
 
 @media(max-width:650px){
 
@@ -338,18 +359,12 @@ td{
         grid-template-columns:repeat(5,1fr);
     }
 
-    .element-box{
-        padding:12px 2px;
-    }
-
     .element-number{
         font-size:21px;
     }
 
-    .pillar-value{
-        font-size:25px;
-    }
 }
+
 </style>
 </head>
 
@@ -358,568 +373,664 @@ td{
 
 <div class="container">
 
-    <div class="header">
+<div class="header">
 
-        <h1>오늘의 사주</h1>
+<h1>오늘의 사주</h1>
 
-        <p>
-            무료 사주 만세력 · 나의 사주를 간편하게 확인하세요
-        </p>
+<p>
+무료 사주 만세력 · 상세 사주풀이
+</p>
 
-    </div>
+</div>
 
 
-    <div class="card">
+<div class="card">
 
-        <h2 class="form-title">
-            사주 정보 입력
-        </h2>
+<label>이름</label>
 
+<input
+type="text"
+id="name"
+placeholder="이름을 입력하세요"
+>
 
-        <label>
-            이름
-        </label>
 
-        <input
-            type="text"
-            id="name"
-            placeholder="이름을 입력하세요"
-        >
+<label>양력 생년월일</label>
 
+<input
+type="date"
+id="birth"
+>
 
-        <label>
-            양력 생년월일
-        </label>
 
-        <input
-            type="date"
-            id="birth"
-        >
+<label>출생시간</label>
 
+<select id="hour">
 
-        <label>
-            출생시간
-        </label>
+<option value="">
+출생시간 모름
+</option>
 
-        <select id="hour">
+<option value="0">00:00</option>
+<option value="1">01:00</option>
+<option value="2">02:00</option>
+<option value="3">03:00</option>
+<option value="4">04:00</option>
+<option value="5">05:00</option>
+<option value="6">06:00</option>
+<option value="7">07:00</option>
+<option value="8">08:00</option>
+<option value="9">09:00</option>
+<option value="10">10:00</option>
+<option value="11">11:00</option>
+<option value="12">12:00</option>
+<option value="13">13:00</option>
+<option value="14">14:00</option>
+<option value="15">15:00</option>
+<option value="16">16:00</option>
+<option value="17">17:00</option>
+<option value="18">18:00</option>
+<option value="19">19:00</option>
+<option value="20">20:00</option>
+<option value="21">21:00</option>
+<option value="22">22:00</option>
+<option value="23">23:00</option>
 
-            <option value="">
-                출생시간 모름
-            </option>
+</select>
 
-            <option value="0">00:00</option>
-            <option value="1">01:00</option>
-            <option value="2">02:00</option>
-            <option value="3">03:00</option>
-            <option value="4">04:00</option>
-            <option value="5">05:00</option>
-            <option value="6">06:00</option>
-            <option value="7">07:00</option>
-            <option value="8">08:00</option>
-            <option value="9">09:00</option>
-            <option value="10">10:00</option>
-            <option value="11">11:00</option>
-            <option value="12">12:00</option>
-            <option value="13">13:00</option>
-            <option value="14">14:00</option>
-            <option value="15">15:00</option>
-            <option value="16">16:00</option>
-            <option value="17">17:00</option>
-            <option value="18">18:00</option>
-            <option value="19">19:00</option>
-            <option value="20">20:00</option>
-            <option value="21">21:00</option>
-            <option value="22">22:00</option>
-            <option value="23">23:00</option>
 
-        </select>
+<label>출생분</label>
 
+<select id="minute">
 
-        <label>
-            출생분
-        </label>
+<option value="0">00분</option>
+<option value="10">10분</option>
+<option value="20">20분</option>
+<option value="30">30분</option>
+<option value="40">40분</option>
+<option value="50">50분</option>
 
-        <select id="minute">
+</select>
 
-            <option value="0">00분</option>
-            <option value="10">10분</option>
-            <option value="20">20분</option>
-            <option value="30">30분</option>
-            <option value="40">40분</option>
-            <option value="50">50분</option>
 
-        </select>
+<label>성별</label>
 
+<select id="gender">
 
-        <label>
-            성별
-        </label>
+<option value="1">
+남성
+</option>
 
-        <select id="gender">
+<option value="0">
+여성
+</option>
 
-            <option value="1">
-                남성
-            </option>
+</select>
 
-            <option value="0">
-                여성
-            </option>
 
-        </select>
+<button onclick="calculateSaju()">
+무료 사주 확인하기
+</button>
 
 
-        <button onclick="calculateSaju()">
-            무료 사주 확인하기
-        </button>
+<div
+id="error"
+class="error"
+></div>
 
 
-        <div
-            id="error"
-            class="error"
-        ></div>
+<div
+id="result"
+class="result"
+>
 
 
-        <div
-            id="result"
-            class="result"
-        >
+<div class="result-header">
 
+<h2 id="resultTitle">
+사주 결과
+</h2>
 
-            <div class="result-header">
+<p id="resultSubtitle">
+입력하신 정보를 기준으로 계산되었습니다.
+</p>
 
-                <h2 id="resultTitle">
-                    사주 결과
-                </h2>
+</div>
 
-                <p id="resultSubtitle">
-                    입력하신 정보를 기준으로 계산되었습니다.
-                </p>
 
-            </div>
+<div class="section">
 
+<h3 class="section-title">
+나의 사주팔자
+</h3>
 
-            <!-- 사주 네 기둥 -->
 
-            <div class="section">
+<div class="pillars">
 
-                <h3 class="section-title">
-                    나의 사주팔자
-                </h3>
 
-                <div class="pillars">
+<div class="pillar">
 
+<div class="pillar-name">
+년주
+</div>
 
-                    <div class="pillar">
+<div
+class="pillar-value"
+id="yearPillar"
+>
+-
+</div>
 
-                        <div class="pillar-name">
-                            년주
-                        </div>
+<div class="pillar-desc">
+조상·가족
+</div>
 
-                        <div
-                            class="pillar-value"
-                            id="yearPillar"
-                        >
-                            -
-                        </div>
+</div>
 
-                        <div
-                            class="pillar-desc"
-                            id="yearDesc"
-                        >
-                            태어난 해
-                        </div>
 
-                    </div>
+<div class="pillar">
 
+<div class="pillar-name">
+월주
+</div>
 
-                    <div class="pillar">
+<div
+class="pillar-value"
+id="monthPillar"
+>
+-
+</div>
 
-                        <div class="pillar-name">
-                            월주
-                        </div>
+<div class="pillar-desc">
+사회·직업
+</div>
 
-                        <div
-                            class="pillar-value"
-                            id="monthPillar"
-                        >
-                            -
-                        </div>
+</div>
 
-                        <div
-                            class="pillar-desc"
-                            id="monthDesc"
-                        >
-                            태어난 달
-                        </div>
 
-                    </div>
+<div class="pillar">
 
+<div class="pillar-name">
+일주
+</div>
 
-                    <div class="pillar">
+<div
+class="pillar-value"
+id="dayPillar"
+>
+-
+</div>
 
-                        <div class="pillar-name">
-                            일주
-                        </div>
+<div class="pillar-desc">
+나 자신
+</div>
 
-                        <div
-                            class="pillar-value"
-                            id="dayPillar"
-                        >
-                            -
-                        </div>
+</div>
 
-                        <div
-                            class="pillar-desc"
-                            id="dayDesc"
-                        >
-                            나 자신
-                        </div>
 
-                    </div>
+<div class="pillar">
 
+<div class="pillar-name">
+시주
+</div>
 
-                    <div class="pillar">
+<div
+class="pillar-value"
+id="hourPillar"
+>
+-
+</div>
 
-                        <div class="pillar-name">
-                            시주
-                        </div>
+<div class="pillar-desc">
+말년·자녀
+</div>
 
-                        <div
-                            class="pillar-value"
-                            id="hourPillar"
-                        >
-                            -
-                        </div>
+</div>
 
-                        <div
-                            class="pillar-desc"
-                            id="hourDesc"
-                        >
-                            말년·자녀
-                        </div>
 
-                    </div>
+</div>
 
+</div>
 
-                </div>
 
-            </div>
+<div class="section">
 
+<h3 class="section-title">
+출생 정보
+</h3>
 
-            <!-- 출생 정보 -->
+<div
+class="info-box"
+id="birthInfo"
+></div>
 
-            <div class="section">
+</div>
 
-                <h3 class="section-title">
-                    출생 정보
-                </h3>
 
-                <div
-                    class="info-box"
-                    id="birthInfo"
-                ></div>
+<div class="section">
 
-            </div>
+<h3 class="section-title">
+나의 일간
+</h3>
 
+<div class="daymaster-box">
 
-            <!-- 일간 -->
+<div
+class="daymaster-character"
+id="dayMasterCharacter"
+>
+-
+</div>
 
-            <div class="section">
+<div
+id="dayMasterText"
+></div>
 
-                <h3 class="section-title">
-                    나의 일간
-                </h3>
+</div>
 
-                <div class="daymaster-box">
+</div>
 
-                    <div
-                        class="daymaster-character"
-                        id="dayMasterCharacter"
-                    >
-                        -
-                    </div>
 
-                    <div
-                        class="daymaster-text"
-                        id="dayMasterText"
-                    ></div>
+<div class="section">
 
-                </div>
+<h3 class="section-title">
+오행 분석
+</h3>
 
-            </div>
 
+<div class="element-grid">
 
-            <!-- 오행 -->
 
-            <div class="section">
+<div class="element-box">
 
-                <h3 class="section-title">
-                    오행 분석
-                </h3>
+목(木)
 
-                <div class="element-grid">
+<div
+class="element-number"
+id="wood"
+>
+0
+</div>
 
+<div class="element-bar">
 
-                    <div class="element-box">
+<div
+class="element-bar-inner"
+id="woodBar"
+></div>
 
-                        <div class="element-name">
-                            목(木)
-                        </div>
+</div>
 
-                        <div
-                            class="element-number"
-                            id="wood"
-                        >
-                            0
-                        </div>
+</div>
 
-                        <div class="element-bar">
-                            <div
-                                class="element-bar-inner"
-                                id="woodBar"
-                            ></div>
-                        </div>
 
-                    </div>
+<div class="element-box">
 
+화(火)
 
-                    <div class="element-box">
+<div
+class="element-number"
+id="fire"
+>
+0
+</div>
 
-                        <div class="element-name">
-                            화(火)
-                        </div>
+<div class="element-bar">
 
-                        <div
-                            class="element-number"
-                            id="fire"
-                        >
-                            0
-                        </div>
+<div
+class="element-bar-inner"
+id="fireBar"
+></div>
 
-                        <div class="element-bar">
-                            <div
-                                class="element-bar-inner"
-                                id="fireBar"
-                            ></div>
-                        </div>
+</div>
 
-                    </div>
+</div>
 
 
-                    <div class="element-box">
+<div class="element-box">
 
-                        <div class="element-name">
-                            토(土)
-                        </div>
+토(土)
 
-                        <div
-                            class="element-number"
-                            id="earth"
-                        >
-                            0
-                        </div>
+<div
+class="element-number"
+id="earth"
+>
+0
+</div>
 
-                        <div class="element-bar">
-                            <div
-                                class="element-bar-inner"
-                                id="earthBar"
-                            ></div>
-                        </div>
+<div class="element-bar">
 
-                    </div>
+<div
+class="element-bar-inner"
+id="earthBar"
+></div>
 
+</div>
 
-                    <div class="element-box">
+</div>
 
-                        <div class="element-name">
-                            금(金)
-                        </div>
 
-                        <div
-                            class="element-number"
-                            id="metal"
-                        >
-                            0
-                        </div>
+<div class="element-box">
 
-                        <div class="element-bar">
-                            <div
-                                class="element-bar-inner"
-                                id="metalBar"
-                            ></div>
-                        </div>
+금(金)
 
-                    </div>
+<div
+class="element-number"
+id="metal"
+>
+0
+</div>
 
+<div class="element-bar">
 
-                    <div class="element-box">
+<div
+class="element-bar-inner"
+id="metalBar"
+></div>
 
-                        <div class="element-name">
-                            수(水)
-                        </div>
+</div>
 
-                        <div
-                            class="element-number"
-                            id="water"
-                        >
-                            0
-                        </div>
+</div>
 
-                        <div class="element-bar">
-                            <div
-                                class="element-bar-inner"
-                                id="waterBar"
-                            ></div>
-                        </div>
 
-                    </div>
+<div class="element-box">
 
+수(水)
 
-                </div>
+<div
+class="element-number"
+id="water"
+>
+0
+</div>
 
+<div class="element-bar">
 
-                <div
-                    class="info-box"
-                    style="margin-top:12px"
-                    id="elementSummary"
-                ></div>
+<div
+class="element-bar-inner"
+id="waterBar"
+></div>
 
-            </div>
+</div>
 
+</div>
 
-            <!-- 무료 기본 풀이 -->
 
-            <div class="section">
+</div>
 
-                <h3 class="section-title">
-                    무료 사주풀이
-                </h3>
 
-                <div class="reading-box">
+<div
+class="info-box"
+style="margin-top:12px"
+id="elementSummary"
+></div>
 
-                    <span class="free-badge">
-                        FREE
-                    </span>
+</div>
 
-                    <div
-                        class="reading-title"
-                        id="freeTitle"
-                    >
-                        기본 성향
-                    </div>
 
-                    <p
-                        id="freeReading"
-                    ></p>
+<div class="section">
 
-                </div>
+<h3 class="section-title">
+무료 사주풀이
+</h3>
 
 
-                <div
-                    class="reading-box"
-                    style="margin-top:12px"
-                >
+<div class="reading-box">
 
-                    <div class="reading-title">
-                        오늘 확인할 핵심
-                    </div>
+<span class="free-badge">
+FREE
+</span>
 
-                    <p
-                        id="freeAdvice"
-                    ></p>
+<div
+class="reading-title"
+id="freeTitle"
+>
+기본 성향
+</div>
 
-                </div>
+<p id="freeReading"></p>
 
-            </div>
+</div>
 
 
-            <!-- 십신 -->
+<div
+class="reading-box"
+style="margin-top:12px"
+>
 
-            <div class="section">
+<div class="reading-title">
+무료 조언
+</div>
 
-                <h3 class="section-title">
-                    십신
-                </h3>
+<p id="freeAdvice"></p>
 
-                <div
-                    class="info-box"
-                    id="tenGods"
-                ></div>
+</div>
 
-            </div>
+</div>
 
 
-            <!-- 십이운성 -->
+<div class="section">
 
-            <div class="section">
+<h3 class="section-title">
+대운 흐름
+</h3>
 
-                <h3 class="section-title">
-                    십이운성
-                </h3>
 
-                <div
-                    class="info-box"
-                    id="lifeStages"
-                ></div>
+<div class="info-box">
 
-            </div>
+<div
+id="yunStart"
+style="margin-bottom:15px"
+></div>
 
 
-            <!-- 대운 -->
+<div class="daeyun-wrap">
 
-            <div class="section">
+<table>
 
-                <h3 class="section-title">
-                    대운 흐름
-                </h3>
+<thead>
 
-                <div class="info-box">
+<tr>
 
-                    <div
-                        id="yunStart"
-                        style="margin-bottom:15px"
-                    ></div>
+<th>
+순서
+</th>
 
-                    <div class="daeyun-wrap">
+<th>
+시작나이
+</th>
 
-                        <table>
+<th>
+시작연도
+</th>
 
-                            <thead>
+<th>
+대운
+</th>
 
-                                <tr>
-                                    <th>순서</th>
-                                    <th>시작나이</th>
-                                    <th>시작연도</th>
-                                    <th>대운</th>
-                                </tr>
+</tr>
 
-                            </thead>
+</thead>
 
-                            <tbody
-                                id="daeyunTable"
-                            ></tbody>
+<tbody
+id="daeyunTable"
+></tbody>
 
-                        </table>
+</table>
 
-                    </div>
+</div>
 
-                </div>
+</div>
 
-            </div>
+</div>
 
 
-            <div class="notice">
+<!-- 유료 상세풀이 -->
 
-                ※ 본 서비스는 전통 명리학을 바탕으로 한 참고용 서비스입니다.<br>
-                ※ 무료 사주풀이는 기본적인 성향과 오행을 중심으로 제공합니다.<br>
-                ※ 중요한 재산·건강·법률 등의 결정은 전문가의 별도 상담을 권합니다.
+<div class="section">
 
-            </div>
+<h3 class="section-title">
+상세 사주풀이
+</h3>
 
 
-        </div>
+<div class="premium-box">
 
-    </div>
+<h3>
+🔮 나만의 상세 사주풀이
+</h3>
+
+
+<p>
+무료 사주보다 훨씬 자세하게
+나의 인생 흐름을 살펴봅니다.
+</p>
+
+
+<div class="premium-price">
+상세풀이 서비스
+</div>
+
+
+<div class="premium-list">
+
+<div>
+💰 재물운 · 돈의 흐름과 재물 성향
+</div>
+
+<div>
+💼 직업운 · 직장·사업 방향
+</div>
+
+<div>
+❤️ 애정운 · 연애·배우자 성향
+</div>
+
+<div>
+👨‍👩‍👧 가족·대인관계
+</div>
+
+<div>
+📈 대운 · 인생의 큰 흐름
+</div>
+
+<div>
+⭐ 종합 사주풀이
+</div>
+
+</div>
+
+
+<div class="lock-box">
+
+<div class="lock-icon">
+🔒
+</div>
+
+<p>
+상세 사주풀이는 현재 잠겨 있습니다.
+</p>
+
+<button
+onclick="openDetailForTest()"
+>
+상세풀이 내용 보기
+</button>
+
+</div>
+
+
+<div
+id="detailContent"
+class="detail-content"
+>
+
+
+<div class="detail-card">
+
+<h4>
+💰 재물운 상세
+</h4>
+
+<p id="moneyDetail"></p>
+
+</div>
+
+
+<div class="detail-card">
+
+<h4>
+💼 직업·사업운 상세
+</h4>
+
+<p id="jobDetail"></p>
+
+</div>
+
+
+<div class="detail-card">
+
+<h4>
+❤️ 애정·배우자운 상세
+</h4>
+
+<p id="loveDetail"></p>
+
+</div>
+
+
+<div class="detail-card">
+
+<h4>
+👨‍👩‍👧 가족·대인관계 상세
+</h4>
+
+<p id="relationshipDetail"></p>
+
+</div>
+
+
+<div class="detail-card">
+
+<h4>
+📈 대운 상세
+</h4>
+
+<p id="yunDetail"></p>
+
+</div>
+
+
+<div class="detail-card">
+
+<h4>
+⭐ 종합 사주풀이
+</h4>
+
+<p id="totalDetail"></p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="notice">
+
+※ 현재 상세풀이 공개 버튼은 테스트용입니다.<br>
+※ 다음 단계에서 실제 결제 시스템과 연결합니다.<br>
+※ 사주풀이는 전통 명리학에 따른 참고용 서비스입니다.
+
+</div>
+
+
+</div>
+
+</div>
 
 </div>
 
@@ -929,789 +1040,1005 @@ td{
 
 <script>
 
+
+let currentEight = null;
+
+let currentElementSummary = "";
+
+let currentName = "";
+
+
 function calculateSaju(){
 
-    const error =
-        document.getElementById("error");
+const error =
+document.getElementById("error");
 
-    error.textContent="";
+error.textContent="";
 
 
-    const name =
-        document.getElementById("name").value.trim();
+const name =
+document.getElementById("name")
+.value
+.trim();
 
-    const birth =
-        document.getElementById("birth").value;
 
-    const hourValue =
-        document.getElementById("hour").value;
+const birth =
+document.getElementById("birth")
+.value;
 
-    const minute =
-        Number(
-            document.getElementById("minute").value
-        );
 
-    const gender =
-        Number(
-            document.getElementById("gender").value
-        );
+const hourValue =
+document.getElementById("hour")
+.value;
 
 
-    if(!birth){
+const minute =
+Number(
+document.getElementById("minute")
+.value
+);
 
-        error.textContent =
-            "생년월일을 입력해주세요.";
 
-        return;
-    }
+const gender =
+Number(
+document.getElementById("gender")
+.value
+);
 
 
-    if(typeof Solar==="undefined"){
+if(!birth){
 
-        error.textContent =
-            "만세력 계산 엔진을 불러오지 못했습니다. 인터넷 연결을 확인해주세요.";
+error.textContent =
+"생년월일을 입력해주세요.";
 
-        return;
-    }
-
-
-    const parts =
-        birth.split("-");
-
-
-    const year =
-        Number(parts[0]);
-
-    const month =
-        Number(parts[1]);
-
-    const day =
-        Number(parts[2]);
-
-
-    let hour=12;
-
-
-    if(hourValue!==""){
-
-        hour =
-            Number(hourValue);
-
-    }
-
-
-    try{
-
-        const solar =
-            Solar.fromYmdHms(
-                year,
-                month,
-                day,
-                hour,
-                minute,
-                0
-            );
-
-
-        const lunar =
-            solar.getLunar();
-
-
-        const eight =
-            lunar.getEightChar();
-
-
-        const yearPillar =
-            eight.getYear();
-
-        const monthPillar =
-            eight.getMonth();
-
-        const dayPillar =
-            eight.getDay();
-
-
-        let hourPillar =
-            "미입력";
-
-
-        if(hourValue!==""){
-
-            hourPillar =
-                eight.getTime();
-
-        }
-
-
-        document.getElementById(
-            "resultTitle"
-        ).textContent =
-            (name || "회원")+"님의 무료 사주";
-
-
-        document.getElementById(
-            "resultSubtitle"
-        ).textContent =
-            year+"년 "+
-            month+"월 "+
-            day+"일 기준";
-
-
-        document.getElementById(
-            "yearPillar"
-        ).textContent =
-            yearPillar;
-
-
-        document.getElementById(
-            "monthPillar"
-        ).textContent =
-            monthPillar;
-
-
-        document.getElementById(
-            "dayPillar"
-        ).textContent =
-            dayPillar;
-
-
-        document.getElementById(
-            "hourPillar"
-        ).textContent =
-            hourPillar;
-
-
-        document.getElementById(
-            "yearDesc"
-        ).textContent =
-            "조상·가족";
-
-
-        document.getElementById(
-            "monthDesc"
-        ).textContent =
-            "사회·직업";
-
-
-        document.getElementById(
-            "dayDesc"
-        ).textContent =
-            "나 자신";
-
-
-        document.getElementById(
-            "hourDesc"
-        ).textContent =
-            hourValue===""
-            ? "출생시간 미입력"
-            : "말년·자녀";
-
-
-        let birthText =
-            year+"년 "+
-            month+"월 "+
-            day+"일";
-
-
-        if(hourValue!==""){
-
-            birthText +=
-                "<br>출생시간: "+
-                hour+"시 "+
-                minute+"분";
-
-        }else{
-
-            birthText +=
-                "<br>출생시간: 모름";
-
-        }
-
-
-        birthText +=
-            "<br>성별: "+
-            (
-                gender===1
-                ? "남성"
-                : "여성"
-            );
-
-
-        document.getElementById(
-            "birthInfo"
-        ).innerHTML =
-            birthText;
-
-
-        const dayGan =
-            eight.getDayGan();
-
-
-        const dayZhi =
-            eight.getDayZhi();
-
-
-        document.getElementById(
-            "dayMasterCharacter"
-        ).textContent =
-            dayGan;
-
-
-        document.getElementById(
-            "dayMasterText"
-        ).innerHTML =
-            getDayMasterText(dayGan)+
-            "<br><br>"+
-            "일주: <strong>"+
-            dayPillar+
-            "</strong>";
-
-
-        calculateElements(
-            yearPillar+
-            monthPillar+
-            dayPillar+
-            (
-                hourValue===""
-                ? ""
-                : hourPillar
-            )
-        );
-
-
-        document.getElementById(
-            "tenGods"
-        ).innerHTML =
-            "년간: "+
-            safeValue(
-                function(){
-                    return eight.getYearShiShenGan();
-                }
-            )+
-            "<br>"+
-            "월간: "+
-            safeValue(
-                function(){
-                    return eight.getMonthShiShenGan();
-                }
-            )+
-            "<br>"+
-            "일간: "+
-            safeValue(
-                function(){
-                    return eight.getDayShiShenGan();
-                }
-            )+
-            "<br>"+
-            "시간: "+
-            (
-                hourValue===""
-                ? "미입력"
-                : safeValue(
-                    function(){
-                        return eight.getTimeShiShenGan();
-                    }
-                )
-            );
-
-
-        document.getElementById(
-            "lifeStages"
-        ).innerHTML =
-            "년주: "+
-            safeValue(
-                function(){
-                    return eight.getYearDiShi();
-                }
-            )+
-            "<br>"+
-            "월주: "+
-            safeValue(
-                function(){
-                    return eight.getMonthDiShi();
-                }
-            )+
-            "<br>"+
-            "일주: "+
-            safeValue(
-                function(){
-                    return eight.getDayDiShi();
-                }
-            )+
-            "<br>"+
-            "시주: "+
-            (
-                hourValue===""
-                ? "미입력"
-                : safeValue(
-                    function(){
-                        return eight.getTimeDiShi();
-                    }
-                )
-            );
-
-
-        makeFreeReading(
-            eight
-        );
-
-
-        makeDaYun(
-            eight,
-            gender
-        );
-
-
-        document.getElementById(
-            "result"
-        ).style.display =
-            "block";
-
-
-        document.getElementById(
-            "result"
-        ).scrollIntoView({
-            behavior:"smooth"
-        });
-
-    }
-    catch(e){
-
-        console.error(e);
-
-        error.textContent =
-            "사주 계산 중 오류가 발생했습니다. 입력 내용을 확인해주세요.";
-
-    }
+return;
 
 }
 
 
-function safeValue(fn){
+if(typeof Solar==="undefined"){
 
-    try{
+error.textContent =
+"만세력 계산 엔진을 불러오지 못했습니다. 인터넷 연결을 확인해주세요.";
 
-        const value =
-            fn();
+return;
 
-        return value || "-";
+}
 
-    }
-    catch(e){
 
-        return "-";
+const parts =
+birth.split("-");
 
-    }
+
+const year =
+Number(parts[0]);
+
+const month =
+Number(parts[1]);
+
+const day =
+Number(parts[2]);
+
+
+let hour=12;
+
+
+if(hourValue!==""){
+
+hour =
+Number(hourValue);
+
+}
+
+
+try{
+
+
+const solar =
+Solar.fromYmdHms(
+year,
+month,
+day,
+hour,
+minute,
+0
+);
+
+
+const lunar =
+solar.getLunar();
+
+
+const eight =
+lunar.getEightChar();
+
+
+currentEight =
+eight;
+
+currentName =
+name || "회원";
+
+
+const yearPillar =
+eight.getYear();
+
+const monthPillar =
+eight.getMonth();
+
+const dayPillar =
+eight.getDay();
+
+
+let hourPillar =
+"미입력";
+
+
+if(hourValue!==""){
+
+hourPillar =
+eight.getTime();
+
+}
+
+
+document.getElementById(
+"resultTitle"
+).textContent =
+currentName+
+"님의 무료 사주";
+
+
+document.getElementById(
+"resultSubtitle"
+).textContent =
+year+
+"년 "+
+month+
+"월 "+
+day+
+"일 기준";
+
+
+document.getElementById(
+"yearPillar"
+).textContent =
+yearPillar;
+
+
+document.getElementById(
+"monthPillar"
+).textContent =
+monthPillar;
+
+
+document.getElementById(
+"dayPillar"
+).textContent =
+dayPillar;
+
+
+document.getElementById(
+"hourPillar"
+).textContent =
+hourPillar;
+
+
+let birthText =
+year+
+"년 "+
+month+
+"월 "+
+day+
+"일";
+
+
+if(hourValue!==""){
+
+birthText +=
+"<br>출생시간: "+
+hour+
+"시 "+
+minute+
+"분";
+
+}else{
+
+birthText +=
+"<br>출생시간: 모름";
+
+}
+
+
+birthText +=
+"<br>성별: "+
+(
+gender===1
+?"남성"
+:"여성"
+);
+
+
+document.getElementById(
+"birthInfo"
+).innerHTML =
+birthText;
+
+
+const dayGan =
+eight.getDayGan();
+
+
+const dayZhi =
+eight.getDayZhi();
+
+
+document.getElementById(
+"dayMasterCharacter"
+).textContent =
+dayGan;
+
+
+document.getElementById(
+"dayMasterText"
+).innerHTML =
+getDayMasterText(dayGan)+
+"<br><br>"+
+"일주: <strong>"+
+dayPillar+
+"</strong>"+
+"<br>"+
+"일지: <strong>"+
+dayZhi+
+"</strong>";
+
+
+calculateElements(
+yearPillar+
+monthPillar+
+dayPillar+
+(
+hourValue===""
+?""
+:hourPillar
+)
+);
+
+
+makeFreeReading(
+eight
+);
+
+
+makeDaYun(
+eight,
+gender
+);
+
+
+document.getElementById(
+"detailContent"
+).style.display =
+"none";
+
+
+document.getElementById(
+"result"
+).style.display =
+"block";
+
+
+document.getElementById(
+"result"
+).scrollIntoView({
+behavior:"smooth"
+});
+
+
+}
+catch(e){
+
+console.error(e);
+
+error.textContent =
+"사주 계산 중 오류가 발생했습니다.";
+
+}
 
 }
 
 
 function calculateElements(text){
 
-    const count={
-        wood:0,
-        fire:0,
-        earth:0,
-        metal:0,
-        water:0
-    };
+const count={
+
+wood:0,
+fire:0,
+earth:0,
+metal:0,
+water:0
+
+};
 
 
-    const map={
+const map={
 
-        "甲":"wood",
-        "乙":"wood",
-        "寅":"wood",
-        "卯":"wood",
+"甲":"wood",
+"乙":"wood",
+"寅":"wood",
+"卯":"wood",
 
-        "丙":"fire",
-        "丁":"fire",
-        "巳":"fire",
-        "午":"fire",
+"丙":"fire",
+"丁":"fire",
+"巳":"fire",
+"午":"fire",
 
-        "戊":"earth",
-        "己":"earth",
-        "辰":"earth",
-        "丑":"earth",
-        "未":"earth",
-        "戌":"earth",
+"戊":"earth",
+"己":"earth",
+"辰":"earth",
+"丑":"earth",
+"未":"earth",
+"戌":"earth",
 
-        "庚":"metal",
-        "辛":"metal",
-        "申":"metal",
-        "酉":"metal",
+"庚":"metal",
+"辛":"metal",
+"申":"metal",
+"酉":"metal",
 
-        "壬":"water",
-        "癸":"water",
-        "子":"water",
-        "亥":"water"
+"壬":"water",
+"癸":"water",
+"子":"water",
+"亥":"water"
 
-    };
-
-
-    for(
-        let i=0;
-        i<text.length;
-        i++
-    ){
-
-        const c =
-            text.charAt(i);
+};
 
 
-        if(map[c]){
+for(
+let i=0;
+i<text.length;
+i++
+){
 
-            count[
-                map[c]
-            ]++;
-
-        }
-
-    }
-
-
-    document.getElementById(
-        "wood"
-    ).textContent =
-        count.wood;
+const c =
+text.charAt(i);
 
 
-    document.getElementById(
-        "fire"
-    ).textContent =
-        count.fire;
+if(map[c]){
 
+count[
+map[c]
+]++;
 
-    document.getElementById(
-        "earth"
-    ).textContent =
-        count.earth;
-
-
-    document.getElementById(
-        "metal"
-    ).textContent =
-        count.metal;
-
-
-    document.getElementById(
-        "water"
-    ).textContent =
-        count.water;
-
-
-    const total =
-        count.wood+
-        count.fire+
-        count.earth+
-        count.metal+
-        count.water;
-
-
-    setBar(
-        "woodBar",
-        count.wood,
-        total
-    );
-
-    setBar(
-        "fireBar",
-        count.fire,
-        total
-    );
-
-    setBar(
-        "earthBar",
-        count.earth,
-        total
-    );
-
-    setBar(
-        "metalBar",
-        count.metal,
-        total
-    );
-
-    setBar(
-        "waterBar",
-        count.water,
-        total
-    );
-
-
-    const list=[
-
-        ["목(木)",count.wood],
-
-        ["화(火)",count.fire],
-
-        ["토(土)",count.earth],
-
-        ["금(金)",count.metal],
-
-        ["수(水)",count.water]
-
-    ];
-
-
-    const sorted =
-        list.slice().sort(
-            function(a,b){
-                return a[1]-b[1];
-            }
-        );
-
-
-    document.getElementById(
-        "elementSummary"
-    ).innerHTML =
-
-        "현재 사주에서 가장 적게 나타나는 오행은 "+
-        "<strong>"+
-        sorted[0][0]+
-        "</strong>이며, "+
-        "가장 많이 나타나는 오행은 "+
-        "<strong>"+
-        sorted[sorted.length-1][0]+
-        "</strong>입니다.";
+}
 
 }
 
 
-function setBar(id,value,total){
-
-    const percent =
-        total===0
-        ? 0
-        : Math.round(
-            value/total*100
-        );
+document.getElementById(
+"wood"
+).textContent =
+count.wood;
 
 
-    document.getElementById(
-        id
-    ).style.width =
-        percent+"%";
+document.getElementById(
+"fire"
+).textContent =
+count.fire;
+
+
+document.getElementById(
+"earth"
+).textContent =
+count.earth;
+
+
+document.getElementById(
+"metal"
+).textContent =
+count.metal;
+
+
+document.getElementById(
+"water"
+).textContent =
+count.water;
+
+
+const total =
+count.wood+
+count.fire+
+count.earth+
+count.metal+
+count.water;
+
+
+setBar(
+"woodBar",
+count.wood,
+total
+);
+
+
+setBar(
+"fireBar",
+count.fire,
+total
+);
+
+
+setBar(
+"earthBar",
+count.earth,
+total
+);
+
+
+setBar(
+"metalBar",
+count.metal,
+total
+);
+
+
+setBar(
+"waterBar",
+count.water,
+total
+);
+
+
+const arr=[
+
+["목(木)",count.wood],
+["화(火)",count.fire],
+["토(土)",count.earth],
+["금(金)",count.metal],
+["수(水)",count.water]
+
+];
+
+
+arr.sort(
+function(a,b){
+return a[1]-b[1];
+}
+);
+
+
+currentElementSummary =
+"부족한 오행: "+
+arr[0][0]+
+" / 강한 오행: "+
+arr[arr.length-1][0];
+
+
+document.getElementById(
+"elementSummary"
+).innerHTML =
+"현재 사주에서 상대적으로 적게 나타나는 오행은 "+
+"<strong>"+
+arr[0][0]+
+"</strong>이며, 상대적으로 많이 나타나는 오행은 "+
+"<strong>"+
+arr[arr.length-1][0]+
+"</strong>입니다.";
+
+}
+
+
+function setBar(
+id,
+value,
+total
+){
+
+const percent =
+total===0
+?0
+:Math.round(
+value/total*100
+);
+
+
+document.getElementById(
+id
+).style.width =
+percent+
+"%";
 
 }
 
 
 function getDayMasterText(gan){
 
-    const texts={
+const texts={
 
-        "甲":
-        "갑목(甲木)은 큰 나무와 같은 기운으로 비유됩니다. 성장과 추진력, 원칙을 중요하게 생각하는 성향이 나타날 수 있습니다.",
+"甲":
+"갑목(甲木)은 큰 나무와 같은 기운으로 비유됩니다. 성장과 추진력, 원칙을 중요하게 생각하는 성향이 나타날 수 있습니다.",
 
-        "乙":
-        "을목(乙木)은 풀과 덩굴처럼 유연한 기운으로 비유됩니다. 적응력과 섬세함, 관계를 중요하게 생각하는 성향이 나타날 수 있습니다.",
+"乙":
+"을목(乙木)은 풀과 덩굴처럼 유연한 기운으로 비유됩니다. 적응력과 섬세함, 관계를 중요하게 생각하는 성향이 나타날 수 있습니다.",
 
-        "丙":
-        "병화(丙火)는 태양과 같은 밝은 기운으로 비유됩니다. 적극성과 표현력, 자신감이 중요한 특징으로 나타날 수 있습니다.",
+"丙":
+"병화(丙火)는 태양과 같은 밝은 기운으로 비유됩니다. 적극성과 표현력, 자신감이 중요한 특징으로 나타날 수 있습니다.",
 
-        "丁":
-        "정화(丁火)는 촛불과 같은 섬세한 불의 기운으로 비유됩니다. 집중력과 따뜻함, 세심함이 특징으로 나타날 수 있습니다.",
+"丁":
+"정화(丁火)는 촛불과 같은 섬세한 불의 기운으로 비유됩니다. 집중력과 따뜻함, 세심함이 특징으로 나타날 수 있습니다.",
 
-        "戊":
-        "무토(戊土)는 큰 산과 같은 안정적인 기운으로 비유됩니다. 책임감과 신뢰, 꾸준함을 중요하게 생각하는 성향이 나타날 수 있습니다.",
+"戊":
+"무토(戊土)는 큰 산과 같은 안정적인 기운으로 비유됩니다. 책임감과 신뢰, 꾸준함을 중요하게 생각하는 성향이 나타날 수 있습니다.",
 
-        "己":
-        "기토(己土)는 밭과 같은 기운으로 비유됩니다. 현실감각과 실용성, 주변을 살피는 능력이 특징으로 나타날 수 있습니다.",
+"己":
+"기토(己土)는 밭과 같은 기운으로 비유됩니다. 현실감각과 실용성, 주변을 살피는 능력이 특징으로 나타날 수 있습니다.",
 
-        "庚":
-        "경금(庚金)은 단단한 쇠와 같은 기운으로 비유됩니다. 결단력과 원칙, 추진력이 중요한 특징으로 나타날 수 있습니다.",
+"庚":
+"경금(庚金)은 단단한 쇠와 같은 기운으로 비유됩니다. 결단력과 원칙, 추진력이 중요한 특징으로 나타날 수 있습니다.",
 
-        "辛":
-        "신금(辛金)은 보석과 같은 섬세한 금의 기운으로 비유됩니다. 정확함과 세련됨, 판단력을 중요하게 생각하는 성향이 나타날 수 있습니다.",
+"辛":
+"신금(辛金)은 보석과 같은 섬세한 금의 기운으로 비유됩니다. 정확함과 세련됨, 판단력을 중요하게 생각하는 성향이 나타날 수 있습니다.",
 
-        "壬":
-        "임수(壬水)는 큰 강이나 바다와 같은 기운으로 비유됩니다. 사고의 폭과 유연성, 변화에 대응하는 힘이 특징으로 나타날 수 있습니다.",
+"壬":
+"임수(壬水)는 큰 강이나 바다와 같은 기운으로 비유됩니다. 사고의 폭과 유연성, 변화에 대응하는 힘이 특징으로 나타날 수 있습니다.",
 
-        "癸":
-        "계수(癸水)는 이슬과 비처럼 섬세한 물의 기운으로 비유됩니다. 직관력과 관찰력, 섬세한 사고가 특징으로 나타날 수 있습니다."
+"癸":
+"계수(癸水)는 이슬과 비처럼 섬세한 물의 기운으로 비유됩니다. 직관력과 관찰력, 섬세한 사고가 특징으로 나타날 수 있습니다."
 
-    };
+};
 
 
-    return texts[gan] ||
-        "일간을 중심으로 사주의 전체적인 균형을 살펴볼 수 있습니다.";
+return texts[gan] ||
+"일간을 중심으로 사주의 전체적인 균형을 살펴볼 수 있습니다.";
 
 }
 
 
 function makeFreeReading(eight){
 
-    const gan =
-        eight.getDayGan();
+const gan =
+eight.getDayGan();
 
 
-    const reading =
-        getDayMasterText(gan);
+document.getElementById(
+"freeReading"
+).textContent =
+getDayMasterText(gan);
 
 
-    document.getElementById(
-        "freeTitle"
-    ).textContent =
-        "나의 기본 성향";
+let advice="";
 
 
-    document.getElementById(
-        "freeReading"
-    ).textContent =
-        reading;
+if(
+gan==="甲"||
+gan==="乙"
+){
+
+advice =
+"새로운 일을 시작하거나 자신의 능력을 꾸준히 성장시키는 방향을 참고해볼 수 있습니다.";
+
+}
+else if(
+gan==="丙"||
+gan==="丁"
+){
+
+advice =
+"자신의 생각과 능력을 적극적으로 표현하고 사람들과 소통하는 방향을 참고해볼 수 있습니다.";
+
+}
+else if(
+gan==="戊"||
+gan==="己"
+){
+
+advice =
+"급하게 결과를 만들기보다 현실적인 계획을 세우고 꾸준히 실행하는 방향을 참고해볼 수 있습니다.";
+
+}
+else if(
+gan==="庚"||
+gan==="辛"
+){
+
+advice =
+"명확한 목표와 기준을 세우고 불필요한 일을 정리하는 방향을 참고해볼 수 있습니다.";
+
+}
+else{
+
+advice =
+"주변 상황을 관찰하면서 유연하게 대응하는 방향을 참고해볼 수 있습니다.";
+
+}
 
 
-    let advice="";
-
-
-    if(
-        gan==="甲"||
-        gan==="乙"
-    ){
-
-        advice =
-            "새로운 일을 시작하거나 자신의 능력을 꾸준히 성장시키는 방향이 잘 맞을 수 있습니다.";
-
-    }
-    else if(
-        gan==="丙"||
-        gan==="丁"
-    ){
-
-        advice =
-            "자신의 생각과 능력을 적극적으로 표현하고 사람들과 소통하는 것이 중요한 포인트가 될 수 있습니다.";
-
-    }
-    else if(
-        gan==="戊"||
-        gan==="己"
-    ){
-
-        advice =
-            "급하게 결과를 만들기보다 현실적인 계획을 세우고 꾸준히 실행하는 것이 도움이 될 수 있습니다.";
-
-    }
-    else if(
-        gan==="庚"||
-        gan==="辛"
-    ){
-
-        advice =
-            "명확한 목표와 기준을 세우고 불필요한 일을 정리하는 것이 자신의 장점을 살리는 데 도움이 될 수 있습니다.";
-
-    }
-    else{
-
-        advice =
-            "주변 상황을 잘 관찰하면서 유연하게 대응하는 것이 자신의 장점을 살리는 데 도움이 될 수 있습니다.";
-
-    }
-
-
-    document.getElementById(
-        "freeAdvice"
-    ).textContent =
-        advice;
+document.getElementById(
+"freeAdvice"
+).textContent =
+advice;
 
 }
 
 
 function makeDaYun(
-    eight,
-    gender
+eight,
+gender
 ){
 
-    const table =
-        document.getElementById(
-            "daeyunTable"
-        );
+const table =
+document.getElementById(
+"daeyunTable"
+);
 
-    table.innerHTML="";
-
-
-    try{
-
-        const yun =
-            eight.getYun(gender);
+table.innerHTML="";
 
 
-        document.getElementById(
-            "yunStart"
-        ).innerHTML =
+try{
 
-            "대운 시작: <strong>"+
-            yun.getStartYear()+
-            "년 "+
-            yun.getStartMonth()+
-            "개월 "+
-            yun.getStartDay()+
-            "일</strong><br>"+
-            "진행 방향: <strong>"+
-            (
-                yun.isForward()
-                ? "순행"
-                : "역행"
-            )+
-            "</strong>";
+const yun =
+eight.getYun(gender);
 
 
-        const list =
-            yun.getDaYun(10);
+document.getElementById(
+"yunStart"
+).innerHTML =
+
+"대운 시작: <strong>"+
+yun.getStartYear()+
+"년 "+
+yun.getStartMonth()+
+"개월 "+
+yun.getStartDay()+
+"일</strong><br>"+
+"진행 방향: <strong>"+
+(
+yun.isForward()
+?"순행"
+:"역행"
+)+
+"</strong>";
 
 
-        for(
-            let i=0;
-            i<list.length;
-            i++
-        ){
-
-            const d =
-                list[i];
+const list =
+yun.getDaYun(10);
 
 
-            const tr =
-                document.createElement(
-                    "tr"
-                );
+for(
+let i=0;
+i<list.length;
+i++
+){
+
+const d =
+list[i];
 
 
-            tr.innerHTML =
-
-                "<td>"+
-                d.getIndex()+
-                "</td>"+
-
-                "<td>"+
-                d.getStartAge()+
-                "세</td>"+
-
-                "<td>"+
-                d.getStartYear()+
-                "년</td>"+
-
-                "<td><strong>"+
-                d.getGanZhi()+
-                "</strong></td>";
+const tr =
+document.createElement(
+"tr"
+);
 
 
-            table.appendChild(tr);
+tr.innerHTML =
 
-        }
+"<td>"+
+d.getIndex()+
+"</td>"+
 
-    }
-    catch(e){
+"<td>"+
+d.getStartAge()+
+"세</td>"+
 
-        console.error(e);
+"<td>"+
+d.getStartYear()+
+"년</td>"+
 
-        table.innerHTML =
+"<td><strong>"+
+d.getGanZhi()+
+"</strong></td>";
 
-            "<tr>"+
-            "<td colspan='4'>"+
-            "대운 정보를 표시할 수 없습니다."+
-            "</td>"+
-            "</tr>";
 
-    }
+table.appendChild(tr);
+
+}
+
+}
+catch(e){
+
+console.error(e);
+
+table.innerHTML =
+"<tr>"+
+"<td colspan='4'>"+
+"대운 정보를 표시할 수 없습니다."+
+"</td>"+
+"</tr>";
+
+}
+
+}
+
+
+/*
+유료 상세풀이 콘텐츠
+현재는 테스트 공개입니다.
+3단계에서 실제 결제 완료 후에만
+이 함수가 실행되도록 변경합니다.
+*/
+
+function openDetailForTest(){
+
+if(!currentEight){
+
+alert(
+"먼저 무료 사주를 계산해주세요."
+);
+
+return;
+
+}
+
+
+const gan =
+currentEight.getDayGan();
+
+
+const dayPillar =
+currentEight.getDay();
+
+
+const money =
+makeMoneyDetail(gan);
+
+
+const job =
+makeJobDetail(gan);
+
+
+const love =
+makeLoveDetail(gan);
+
+
+const relationship =
+makeRelationshipDetail(gan);
+
+
+const yun =
+makeYunDetail();
+
+
+const total =
+makeTotalDetail(
+gan,
+dayPillar
+);
+
+
+document.getElementById(
+"moneyDetail"
+).textContent =
+money;
+
+
+document.getElementById(
+"jobDetail"
+).textContent =
+job;
+
+
+document.getElementById(
+"loveDetail"
+).textContent =
+love;
+
+
+document.getElementById(
+"relationshipDetail"
+).textContent =
+relationship;
+
+
+document.getElementById(
+"yunDetail"
+).textContent =
+yun;
+
+
+document.getElementById(
+"totalDetail"
+).textContent =
+total;
+
+
+document.getElementById(
+"detailContent"
+).style.display =
+"block";
+
+
+document.getElementById(
+"detailContent"
+).scrollIntoView({
+behavior:"smooth"
+});
+
+}
+
+
+function makeMoneyDetail(gan){
+
+if(
+gan==="甲"||
+gan==="乙"
+){
+
+return currentName+
+"님의 재물운은 성장과 확장을 중요하게 생각하는 흐름으로 해석할 수 있습니다. 한 번에 큰 결과를 얻으려 하기보다 자신의 능력과 경험을 단계적으로 키우면서 수입원을 넓혀가는 전략이 잘 맞을 수 있습니다. 특히 장기적인 계획과 꾸준한 관리가 중요합니다.";
+
+}
+
+
+if(
+gan==="丙"||
+gan==="丁"
+){
+
+return currentName+
+"님의 재물운은 활동성과 표현력을 활용할 때 기회를 만들기 쉬운 성향으로 볼 수 있습니다. 사람과의 연결이나 자신의 능력을 보여주는 일이 재물의 기회로 이어질 수 있습니다. 다만 순간적인 판단보다 지출과 투자에 기준을 세우는 것이 중요합니다.";
+
+}
+
+
+if(
+gan==="戊"||
+gan==="己"
+){
+
+return currentName+
+"님의 재물운은 안정성과 축적을 중요하게 보는 흐름으로 해석할 수 있습니다. 단기간의 큰 수익보다 꾸준한 현금흐름과 자산관리가 중요합니다. 계획 없이 돈을 움직이기보다 현실적인 목표를 세우는 것이 도움이 됩니다.";
+
+}
+
+
+if(
+gan==="庚"||
+gan==="辛"
+){
+
+return currentName+
+"님의 재물운은 판단력과 결단력을 활용하는 방향으로 해석할 수 있습니다. 자신의 전문성과 경쟁력을 높이면 경제적인 기회를 만들 수 있습니다. 다만 지나친 자신감으로 위험을 크게 가져가는 것은 피하는 것이 좋습니다.";
+
+}
+
+
+return currentName+
+"님의 재물운은 유연성과 정보 활용 능력을 중요하게 볼 수 있습니다. 다양한 기회를 비교하면서 자신에게 맞는 흐름을 선택하는 것이 중요합니다. 변화에 빠르게 대응하되 금전적인 결정에는 충분한 검토가 필요합니다.";
+
+}
+
+
+function makeJobDetail(gan){
+
+if(
+gan==="甲"||
+gan==="乙"
+){
+
+return "성장과 발전을 추구하는 성향을 살릴 수 있는 업무가 잘 맞을 수 있습니다. 조직 안에서 새로운 프로젝트를 추진하거나 장기적인 성과를 만드는 분야를 참고해볼 수 있습니다.";
+
+}
+
+
+if(
+gan==="丙"||
+gan==="丁"
+){
+
+return "표현력과 사람을 상대하는 능력을 활용할 수 있는 업무를 참고해볼 수 있습니다. 영업, 홍보, 교육, 콘텐츠, 서비스 등 사람과의 소통이 중요한 분야에서 강점을 활용할 수 있습니다.";
+
+}
+
+
+if(
+gan==="戊"||
+gan==="己"
+){
+
+return "관리와 운영, 책임감이 필요한 업무에서 장점을 활용할 수 있습니다. 건설, 부동산, 관리, 조직운영 등 현실적인 결과를 만들어내는 분야를 참고해볼 수 있습니다.";
+
+}
+
+
+if(
+gan==="庚"||
+gan==="辛"
+){
+
+return "판단과 결단, 전문성이 중요한 분야를 참고해볼 수 있습니다. 기술, 관리, 품질, 분석, 금융, 기획 등 명확한 기준과 전문성이 필요한 업무가 잘 맞을 수 있습니다.";
+
+}
+
+
+return "정보를 분석하고 상황에 따라 유연하게 움직이는 분야를 참고해볼 수 있습니다. 상담, 기획, 연구, 무역, 정보, 서비스 분야 등 변화가 많은 환경에서 장점을 활용할 수 있습니다.";
+
+}
+
+
+function makeLoveDetail(gan){
+
+if(
+gan==="甲"||
+gan==="乙"
+){
+
+return "관계에서 신뢰와 성장을 중요하게 생각하는 성향이 나타날 수 있습니다. 상대방의 발전을 존중하면서도 자신의 감정을 지나치게 참고만 있지 않는 것이 중요합니다.";
+
+}
+
+
+if(
+gan==="丙"||
+gan==="丁"
+){
+
+return "애정관계에서 표현과 소통이 중요한 편으로 볼 수 있습니다. 마음을 적극적으로 표현하는 장점이 있지만 상대방의 속도와 감정을 함께 살피는 것이 관계를 안정시키는 데 도움이 됩니다.";
+
+}
+
+
+if(
+gan==="戊"||
+gan==="己"
+){
+
+return "안정적인 관계와 신뢰를 중요하게 생각하는 성향이 나타날 수 있습니다. 한번 마음을 정하면 오래가는 장점이 있지만 자신의 감정을 표현하는 것도 중요합니다.";
+
+}
+
+
+if(
+gan==="庚"||
+gan==="辛"
+){
+
+return "관계에서도 기준과 신뢰를 중요하게 생각할 수 있습니다. 상대방에게 높은 기준을 요구하기보다 서로의 차이를 인정하는 것이 좋은 관계를 만드는 데 도움이 됩니다.";
+
+}
+
+
+return "상대방의 마음을 살피고 상황에 맞춰주는 능력이 장점이 될 수 있습니다. 다만 자신의 감정을 혼자 판단하지 말고 필요한 부분은 솔직하게 표현하는 것이 중요합니다.";
+
+}
+
+
+function makeRelationshipDetail(gan){
+
+return currentName+
+"님의 대인관계에서는 자신의 강점과 상대방의 차이를 함께 인정하는 것이 중요합니다. 가까운 사람일수록 지나친 기대나 오해가 생기지 않도록 자신의 생각을 차분하게 표현하는 것이 좋습니다. 사람을 많이 만나는 것보다 자신에게 도움이 되는 관계를 오래 유지하는 것이 중요합니다.";
+
+}
+
+
+function makeYunDetail(){
+
+return "대운은 약 10년 단위의 큰 흐름을 살펴보는 전통 명리학의 방법입니다. 각 대운의 간지와 본인의 일간 관계를 함께 살펴보면 시기별로 어떤 주제에 관심을 두어야 하는지 참고할 수 있습니다. 대운의 변화가 있다고 해서 결과가 자동으로 결정되는 것은 아니며, 실제 환경과 선택을 함께 고려해야 합니다.";
+
+}
+
+
+function makeTotalDetail(
+gan,
+dayPillar
+){
+
+return currentName+
+"님의 전체 사주를 종합하면 일간 "+
+gan+
+"을 중심으로 자신의 장점을 어떻게 현실에서 활용하느냐가 중요한 포인트입니다. "+
+"일주 "+
+dayPillar+
+"를 기준으로 자신만의 성향을 이해하고, 오행의 균형과 대운의 흐름을 함께 살펴보는 것이 좋습니다. "+
+"재물과 직업에서는 자신의 강점을 꾸준히 전문성으로 발전시키고, 인간관계에서는 자신의 기준과 상대방의 입장을 균형 있게 보는 것이 도움이 될 수 있습니다. "+
+"이 내용은 전통 명리학에 따른 참고용 해석이며 실제 인생의 결과는 본인의 선택과 환경에 따라 달라질 수 있습니다.";
 
 }
 
