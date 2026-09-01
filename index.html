@@ -3,58 +3,76 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>사주 만세력</title>
+<title>오늘의 사주 - 무료 만세력</title>
 
 <style>
+* {
+    box-sizing: border-box;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    background: #f5f1e8;
     margin: 0;
+    font-family: Arial, "Malgun Gothic", sans-serif;
+    background: #f5f1e8;
     color: #333;
 }
 
-.wrap {
+.container {
     max-width: 760px;
-    margin: 30px auto;
+    margin: 0 auto;
     padding: 20px;
 }
 
-.card {
-    background: #fff;
-    border-radius: 16px;
-    padding: 24px;
-    box-shadow: 0 4px 18px #0001;
+.header {
+    text-align: center;
+    padding: 25px 10px;
 }
 
-h1 {
-    text-align: center;
-    margin-top: 0;
+.header h1 {
+    margin: 0;
     color: #5b3a29;
+    font-size: 32px;
+}
+
+.header p {
+    color: #777;
+    margin-top: 10px;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 18px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
 }
 
 label {
     display: block;
-    margin-top: 14px;
+    margin-top: 16px;
     font-weight: bold;
 }
 
 input,
-select,
-button {
+select {
     width: 100%;
-    box-sizing: border-box;
-    padding: 12px;
-    margin-top: 6px;
+    padding: 13px;
+    margin-top: 7px;
     border: 1px solid #ccc;
-    border-radius: 8px;
+    border-radius: 9px;
     font-size: 16px;
+    background: white;
 }
 
 button {
+    width: 100%;
+    padding: 15px;
+    margin-top: 22px;
+    border: 0;
+    border-radius: 10px;
     background: #5b3a29;
     color: white;
-    border: 0;
-    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
     cursor: pointer;
 }
 
@@ -63,195 +81,262 @@ button:hover {
 }
 
 .result {
-    margin-top: 25px;
-    background: #faf7f0;
-    border-radius: 12px;
-    padding: 18px;
     display: none;
+    margin-top: 25px;
+}
+
+.result-title {
+    text-align: center;
+    color: #5b3a29;
 }
 
 .pillars {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 8px;
-    margin-top: 15px;
+    margin-top: 20px;
 }
 
 .pillar {
-    background: white;
-    border: 1px solid #ddd;
-    border-radius: 10px;
     text-align: center;
-    padding: 15px;
+    background: #faf7f0;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 15px 5px;
 }
 
-.pillar b {
-    display: block;
+.pillar-title {
+    font-size: 13px;
+    color: #777;
+}
+
+.pillar-value {
     font-size: 20px;
-    margin: 8px;
+    font-weight: bold;
+    color: #5b3a29;
+    margin-top: 8px;
+}
+
+.info {
+    margin-top: 20px;
+    padding: 18px;
+    background: #faf7f0;
+    border-radius: 12px;
+    line-height: 1.7;
 }
 
 .notice {
     text-align: center;
-    color: #777;
+    margin-top: 20px;
+    color: #888;
     font-size: 13px;
-    margin-top: 15px;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 12px;
+    }
+
+    .card {
+        padding: 18px;
+    }
+
+    .header h1 {
+        font-size: 27px;
+    }
+
+    .pillars {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 </style>
 </head>
 
 <body>
 
-<div class="wrap">
-<div class="card">
+<div class="container">
 
-<h1>사주 만세력</h1>
+    <div class="header">
+        <h1>오늘의 사주</h1>
+        <p>무료 사주 만세력</p>
+    </div>
 
-<p style="text-align:center">
-생년월일과 출생시간을 입력하면 기본 사주 정보를 확인할 수 있습니다.
-</p>
+    <div class="card">
 
-<label>이름</label>
-<input id="name" placeholder="이름을 입력하세요">
+        <label for="name">이름</label>
+        <input
+            type="text"
+            id="name"
+            placeholder="이름을 입력하세요"
+        >
 
-<label>생년월일</label>
-<input id="birth" type="date">
+        <label for="birth">생년월일</label>
+        <input
+            type="date"
+            id="birth"
+        >
 
-<label>출생시간</label>
+        <label for="hour">출생시간</label>
+        <select id="hour">
+            <option value="">출생시간 모름</option>
+            <option value="23">23:00</option>
+            <option value="0">00:00</option>
+            <option value="1">01:00</option>
+            <option value="2">02:00</option>
+            <option value="3">03:00</option>
+            <option value="4">04:00</option>
+            <option value="5">05:00</option>
+            <option value="6">06:00</option>
+            <option value="7">07:00</option>
+            <option value="8">08:00</option>
+            <option value="9">09:00</option>
+            <option value="10">10:00</option>
+            <option value="11">11:00</option>
+            <option value="12">12:00</option>
+            <option value="13">13:00</option>
+            <option value="14">14:00</option>
+            <option value="15">15:00</option>
+            <option value="16">16:00</option>
+            <option value="17">17:00</option>
+            <option value="18">18:00</option>
+            <option value="19">19:00</option>
+            <option value="20">20:00</option>
+            <option value="21">21:00</option>
+            <option value="22">22:00</option>
+        </select>
 
-<select id="hour">
-<option value="">출생시간 모름</option>
-<option>23:00</option>
-<option>00:00</option>
-<option>01:00</option>
-<option>02:00</option>
-<option>03:00</option>
-<option>04:00</option>
-<option>05:00</option>
-<option>06:00</option>
-<option>07:00</option>
-<option>08:00</option>
-<option>09:00</option>
-<option>10:00</option>
-<option>11:00</option>
-<option>12:00</option>
-<option>13:00</option>
-<option>14:00</option>
-<option>15:00</option>
-<option>16:00</option>
-<option>17:00</option>
-<option>18:00</option>
-<option>19:00</option>
-<option>20:00</option>
-<option>21:00</option>
-<option>22:00</option>
-</select>
+        <label for="gender">성별</label>
+        <select id="gender">
+            <option value="male">남성</option>
+            <option value="female">여성</option>
+        </select>
 
-<label>성별</label>
+        <button onclick="calculateSaju()">
+            사주 확인하기
+        </button>
 
-<select id="gender">
-<option value="male">남성</option>
-<option value="female">여성</option>
-</select>
+        <div class="result" id="result">
 
-<button onclick="showSaju()">
-사주 확인하기
-</button>
+            <h2 class="result-title" id="resultTitle">
+                사주 결과
+            </h2>
 
-<div class="result" id="result">
+            <div class="pillars">
 
-<h2 id="welcome"></h2>
+                <div class="pillar">
+                    <div class="pillar-title">년주</div>
+                    <div class="pillar-value" id="yearPillar">-</div>
+                </div>
 
-<p id="summary"></p>
+                <div class="pillar">
+                    <div class="pillar-title">월주</div>
+                    <div class="pillar-value" id="monthPillar">-</div>
+                </div>
 
-<div class="pillars">
+                <div class="pillar">
+                    <div class="pillar-title">일주</div>
+                    <div class="pillar-value" id="dayPillar">-</div>
+                </div>
 
-<div class="pillar">
-<small>년주</small>
-<b id="yearPillar">-</b>
-</div>
+                <div class="pillar">
+                    <div class="pillar-title">시주</div>
+                    <div class="pillar-value" id="hourPillar">-</div>
+                </div>
 
-<div class="pillar">
-<small>월주</small>
-<b>계산 준비</b>
-</div>
+            </div>
 
-<div class="pillar">
-<small>일주</small>
-<b>계산 준비</b>
-</div>
+            <div class="info" id="basicInfo"></div>
 
-<div class="pillar">
-<small>시주</small>
-<b>계산 준비</b>
-</div>
+            <p class="notice">
+                무료 기본 사주 서비스입니다.
+            </p>
 
-</div>
+        </div>
 
-<p class="notice">
-※ 현재 버전은 기본 입력 화면과 결과 표시 기능입니다.
-</p>
+    </div>
 
-</div>
-</div>
 </div>
 
 <script>
 
-function showSaju() {
+function calculateSaju() {
 
     const name =
-        document.getElementById('name').value.trim() || '회원';
+        document.getElementById("name").value.trim();
 
     const birth =
-        document.getElementById('birth').value;
+        document.getElementById("birth").value;
 
     const hour =
-        document.getElementById('hour').value;
+        document.getElementById("hour").value;
 
     const gender =
-        document.getElementById('gender').value;
+        document.getElementById("gender").value;
 
     if (!birth) {
-        alert('생년월일을 입력해주세요.');
+        alert("생년월일을 입력해주세요.");
         return;
     }
 
-    const y =
-        parseInt(birth.substring(0, 4));
+    const date = new Date(birth + "T12:00:00");
 
-    const animals = [
-        '쥐',
-        '소',
-        '호랑이',
-        '토끼',
-        '용',
-        '뱀',
-        '말',
-        '양',
-        '원숭이',
-        '닭',
-        '개',
-        '돼지'
+    const year = date.getFullYear();
+    const month = date.getMonth() + 1;
+    const day = date.getDate();
+
+    const animalList = [
+        "쥐",
+        "소",
+        "호랑이",
+        "토끼",
+        "용",
+        "뱀",
+        "말",
+        "양",
+        "원숭이",
+        "닭",
+        "개",
+        "돼지"
     ];
 
+    const animalIndex =
+        ((year - 4) % 12 + 12) % 12;
+
     const animal =
-        animals[(y - 4) % 12];
+        animalList[animalIndex];
 
-    document.getElementById('welcome').textContent =
-        name + '님의 사주';
+    const genderText =
+        gender === "male" ? "남성" : "여성";
 
-    document.getElementById('summary').textContent =
-        y + '년생 ' +
-        animal + '띠 · ' +
-        (gender === 'male' ? '남성' : '여성') +
-        (hour ? ' · 출생시간 ' + hour : ' · 출생시간 미입력');
+    document.getElementById("resultTitle").textContent =
+        (name || "회원") + "님의 사주";
 
-    document.getElementById('yearPillar').textContent =
-        y + '년 ' + animal + '띠';
+    document.getElementById("yearPillar").textContent =
+        year + "년";
 
-    document.getElementById('result').style.display =
-        'block';
+    document.getElementById("monthPillar").textContent =
+        month + "월";
+
+    document.getElementById("dayPillar").textContent =
+        day + "일";
+
+    document.getElementById("hourPillar").textContent =
+        hour === "" ? "모름" : hour + "시";
+
+    document.getElementById("basicInfo").innerHTML =
+        "<strong>기본 정보</strong><br>" +
+        year + "년 " +
+        animal + "띠 · " +
+        genderText +
+        "<br>생년월일: " +
+        year + "년 " +
+        month + "월 " +
+        day + "일" +
+        "<br>출생시간: " +
+        (hour === "" ? "입력하지 않음" : hour + "시");
+
+    document.getElementById("result").style.display =
+        "block";
 }
 
 </script>
