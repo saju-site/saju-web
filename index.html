@@ -1,24 +1,260 @@
-<script>
-function showResult(){
- const name=document.getElementById('name').value || '회원';
- const birth=document.getElementById('birth').value;
- const time=document.getElementById('time').value || '출생시간 미상';
- const gender=document.getElementById('gender').value;
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>사주 만세력</title>
 
- if(!birth){
-   alert('생년월일을 입력해주세요.');
-   return;
- }
-
- document.getElementById('result').style.display='block';
- document.getElementById('result').innerHTML=
- `<h3>${name}님의 사주 입력 정보</h3>
- <p>생년월일: <b>${birth}</b></p>
- <p>출생시간: <b>${time}</b></p>
- <p>성별: <b>${gender}</b></p>
- <hr>
- <p>기본 사주 분석 기능을 준비 중입니다.</p>`;
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f1e8;
+    margin: 0;
+    color: #333;
 }
+
+.wrap {
+    max-width: 760px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+.card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 4px 18px #0001;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 0;
+    color: #5b3a29;
+}
+
+label {
+    display: block;
+    margin-top: 14px;
+    font-weight: bold;
+}
+
+input,
+select,
+button {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    margin-top: 6px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+button {
+    background: #5b3a29;
+    color: white;
+    border: 0;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+.result {
+    margin-top: 25px;
+    background: #faf7f0;
+    border-radius: 12px;
+    padding: 18px;
+    display: none;
+}
+
+.pillars {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.pillar {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    text-align: center;
+    padding: 15px;
+}
+
+.pillar b {
+    display: block;
+    font-size: 20px;
+    margin: 8px;
+}
+
+.notice {
+    text-align: center;
+    color: #777;
+    font-size: 13px;
+    margin-top: 15px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="wrap">
+<div class="card">
+
+<h1>사주 만세력</h1>
+
+<p style="text-align:center">
+생년월일과 출생시간을 입력하면 기본 사주 정보를 확인할 수 있습니다.
+</p>
+
+<label>이름</label>
+<input id="name" placeholder="이름을 입력하세요">
+
+<label>생년월일</label>
+<input id="birth" type="date">
+
+<label>출생시간</label>
+
+<select id="hour">
+<option value="">출생시간 모름</option>
+<option>23:00</option>
+<option>00:00</option>
+<option>01:00</option>
+<option>02:00</option>
+<option>03:00</option>
+<option>04:00</option>
+<option>05:00</option>
+<option>06:00</option>
+<option>07:00</option>
+<option>08:00</option>
+<option>09:00</option>
+<option>10:00</option>
+<option>11:00</option>
+<option>12:00</option>
+<option>13:00</option>
+<option>14:00</option>
+<option>15:00</option>
+<option>16:00</option>
+<option>17:00</option>
+<option>18:00</option>
+<option>19:00</option>
+<option>20:00</option>
+<option>21:00</option>
+<option>22:00</option>
+</select>
+
+<label>성별</label>
+
+<select id="gender">
+<option value="male">남성</option>
+<option value="female">여성</option>
+</select>
+
+<button onclick="showSaju()">
+사주 확인하기
+</button>
+
+<div class="result" id="result">
+
+<h2 id="welcome"></h2>
+
+<p id="summary"></p>
+
+<div class="pillars">
+
+<div class="pillar">
+<small>년주</small>
+<b id="yearPillar">-</b>
+</div>
+
+<div class="pillar">
+<small>월주</small>
+<b>계산 준비</b>
+</div>
+
+<div class="pillar">
+<small>일주</small>
+<b>계산 준비</b>
+</div>
+
+<div class="pillar">
+<small>시주</small>
+<b>계산 준비</b>
+</div>
+
+</div>
+
+<p class="notice">
+※ 현재 버전은 기본 입력 화면과 결과 표시 기능입니다.
+</p>
+
+</div>
+</div>
+</div>
+
+<script>
+
+function showSaju() {
+
+    const name =
+        document.getElementById('name').value.trim() || '회원';
+
+    const birth =
+        document.getElementById('birth').value;
+
+    const hour =
+        document.getElementById('hour').value;
+
+    const gender =
+        document.getElementById('gender').value;
+
+    if (!birth) {
+        alert('생년월일을 입력해주세요.');
+        return;
+    }
+
+    const y =
+        parseInt(birth.substring(0, 4));
+
+    const animals = [
+        '쥐',
+        '소',
+        '호랑이',
+        '토끼',
+        '용',
+        '뱀',
+        '말',
+        '양',
+        '원숭이',
+        '닭',
+        '개',
+        '돼지'
+    ];
+
+    const animal =
+        animals[(y - 4) % 12];
+
+    document.getElementById('welcome').textContent =
+        name + '님의 사주';
+
+    document.getElementById('summary').textContent =
+        y + '년생 ' +
+        animal + '띠 · ' +
+        (gender === 'male' ? '남성' : '여성') +
+        (hour ? ' · 출생시간 ' + hour : ' · 출생시간 미입력');
+
+    document.getElementById('yearPillar').textContent =
+        y + '년 ' + animal + '띠';
+
+    document.getElementById('result').style.display =
+        'block';
+}
+
 </script>
+
 </body>
 </html>
