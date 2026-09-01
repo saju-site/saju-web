@@ -3,100 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>오늘의 사주</title>
+<title>사주 만세력</title>
 <style>
-*{box-sizing:border-box}
-body{
-margin:0;
-font-family:Arial,"Noto Sans KR",sans-serif;
-background:#f7f3ed;
-color:#333;
-}
-header{
-background:#3b245c;
-color:white;
-text-align:center;
-padding:28px 15px;
-}
-header h1{margin:0 0 8px;font-size:30px}
-header p{margin:0;font-size:15px}
-.container{
-max-width:700px;
-margin:30px auto;
-padding:0 18px;
-}
-.card{
-background:white;
-border-radius:18px;
-padding:25px;
-margin-bottom:20px;
-box-shadow:0 4px 15px rgba(0,0,0,.08);
-}
-h2{color:#3b245c;margin-top:0}
-label{
-display:block;
-margin-top:15px;
-font-weight:bold;
-}
-input,select{
-width:100%;
-padding:13px;
-margin-top:7px;
-border:1px solid #ddd;
-border-radius:10px;
-font-size:16px;
-}
-button{
-width:100%;
-padding:15px;
-margin-top:22px;
-border:0;
-border-radius:10px;
-background:#3b245c;
-color:white;
-font-size:17px;
-font-weight:bold;
-cursor:pointer;
-}
-button:hover{opacity:.9}
-.result{
-display:none;
-background:#fff8e8;
-border-radius:12px;
-padding:20px;
-margin-top:20px;
-line-height:1.7;
-}
-.free{
-border-left:5px solid #3b245c;
-padding-left:15px;
-}
-.paid{
-background:#f1e8ff;
-text-align:center;
-}
-.paid button{background:#b06acb}
-footer{
-text-align:center;
-padding:30px;
-color:#777;
-font-size:13px;
-}
+body{font-family:Arial,sans-serif;max-width:700px;margin:40px auto;padding:20px;line-height:1.6;background:#f7f4ef;color:#333}
+h1{text-align:center;color:#6b3f2a}
+.card{background:white;padding:25px;border-radius:14px;box-shadow:0 2px 10px #ddd}
+label{display:block;margin-top:14px;font-weight:bold}
+input,select,button{width:100%;box-sizing:border-box;padding:12px;margin-top:6px;border:1px solid #ccc;border-radius:8px;font-size:16px}
+button{margin-top:22px;background:#6b3f2a;color:white;border:0;cursor:pointer}
+#result{margin-top:20px;padding:15px;background:#faf7f2;border-radius:8px;display:none}
 </style>
 </head>
-
 <body>
-
-<header>
-<h1>🔮 오늘의 사주</h1>
-<p>생년월일로 알아보는 나의 운세</p>
-</header>
-
-<div class="container">
-
 <div class="card">
-<h2>무료 사주 간단풀이</h2>
-<p>생년월일과 태어난 시간을 입력해 주세요.</p>
+<h1>🔮 사주 만세력</h1>
+<p>생년월일과 출생시간을 입력해 주세요.</p>
 
 <label>이름</label>
 <input id="name" type="text" placeholder="이름을 입력하세요">
@@ -104,233 +25,41 @@ font-size:13px;
 <label>생년월일</label>
 <input id="birth" type="date">
 
-<label>태어난 시간</label>
+<label>출생시간</label>
 <select id="time">
-<option value="">선택하세요</option>
-<option>子時 (23:00~01:00)</option>
-<option>丑時 (01:00~03:00)</option>
-<option>寅時 (03:00~05:00)</option>
-<option>卯時 (05:00~07:00)</option>
-<option>辰時 (07:00~09:00)</option>
-<option>巳時 (09:00~11:00)</option>
-<option>午時 (11:00~13:00)</option>
-<option>未時 (13:00~15:00)</option>
-<option>申時 (15:00~17:00)</option>
-<option>酉時 (17:00~19:00)</option>
-<option>戌時 (19:00~21:00)</option>
-<option>亥時 (21:00~23:00)</option>
+<option value="">모름</option>
+<option>00:00 ~ 00:59</option><option>01:00 ~ 02:59</option>
+<option>03:00 ~ 04:59</option><option>05:00 ~ 06:59</option>
+<option>07:00 ~ 08:59</option><option>09:00 ~ 10:59</option>
+<option>11:00 ~ 12:59</option><option>13:00 ~ 14:59</option>
+<option>15:00 ~ 16:59</option><option>17:00 ~ 18:59</option>
+<option>19:00 ~ 20:59</option><option>21:00 ~ 22:59</option>
 </select>
 
-<button onclick="showResult()">무료 사주 결과 보기</button>
+<label>성별</label>
+<select id="gender">
+<option>남성</option><option>여성</option>
+</select>
 
-<div id="result" class="result">
-<strong>✨ 무료 사주 결과</strong>
-<p id="message"></p>
-</div>
-</div>
-
-<div class="card free">
-<h2>📌 무료로 확인할 수 있는 내용</h2>
-<p>• 기본 성향</p>
-<p>• 오늘의 운세</p>
-<p>• 재물운</p>
-<p>• 직업운</p>
-<p>• 인간관계운</p>
-</div>
-
-<div class="card paid">
-<h2>💎 프리미엄 상세 사주</h2>
-<p>나의 사주를 더 자세하게 분석해보세요.</p>
-<p>재물운 · 사업운 · 직업운 · 연애운 · 건강운 · 대운</p>
-<button onclick="alert('프리미엄 사주 서비스는 준비 중입니다.')">
-상세 사주 보기
-</button>
-</div>
-
-</div>
-
-<footer>
-오늘의 사주 © 2026<br>
-사주 결과는 참고용으로 제공됩니다.
-</footer>
-
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>오늘의 사주</title>
-
-<style>
-body {
-    font-family: Arial, sans-serif;
-    background: #f5f1e8;
-    margin: 0;
-    padding: 0;
-    color: #333;
-}
-
-.container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 30px 20px;
-    text-align: center;
-}
-
-h1 {
-    color: #7a4b24;
-    font-size: 32px;
-}
-
-.subtitle {
-    color: #666;
-    margin-bottom: 30px;
-}
-
-.box {
-    background: white;
-    padding: 25px;
-    border-radius: 15px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-}
-
-label {
-    display: block;
-    text-align: left;
-    margin-top: 15px;
-    font-weight: bold;
-}
-
-input {
-    width: 100%;
-    padding: 12px;
-    margin-top: 7px;
-    box-sizing: border-box;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 16px;
-}
-
-button {
-    width: 100%;
-    margin-top: 25px;
-    padding: 14px;
-    background: #7a4b24;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 18px;
-    cursor: pointer;
-}
-
-.result {
-    margin-top: 25px;
-    padding: 20px;
-    background: #faf7f0;
-    border-radius: 10px;
-    display: none;
-    text-align: left;
-}
-
-.menu {
-    margin-top: 25px;
-}
-
-.menu div {
-    background: white;
-    margin-top: 10px;
-    padding: 15px;
-    border-radius: 10px;
-    border: 1px solid #ddd;
-}
-</style>
-</head>
-
-<body>
-
-<div class="container">
-
-<h1>🔮 오늘의 사주</h1>
-
-<p class="subtitle">
-생년월일을 입력하고 나의 오늘 운세를 확인해보세요.
-</p>
-
-<div class="box">
-
-<label>이름</label>
-<input type="text" id="name" placeholder="이름을 입력하세요">
-
-<label>생년월일</label>
-<input type="date" id="birth">
-
-<label>태어난 시간</label>
-<input type="time" id="birthTime">
-
-<button onclick="showResult()">무료 사주 보기</button>
-
-<div class="result" id="result"></div>
-
-</div>
-
-<div class="menu">
-
-<div>🌟 무료 오늘의 운세</div>
-<div>❤️ 연애운</div>
-<div>💰 재물운</div>
-<div>💼 직업운</div>
-<div>🔮 정밀 사주풀이 — 유료</div>
-
-</div>
-
+<button onclick="showResult()">사주 확인하기</button>
+<div id="result"></div>
 </div>
 
 <script>
-
-function showResult() {
-
-    const name = document.getElementById("name").value;
-    const birth = document.getElementById("birth").value;
-    const birthTime = document.getElementById("birthTime").value;
-
-    if (!name || !birth) {
-        alert("이름과 생년월일을 입력해주세요.");
-        return;
-    }
-
-    const result = document.getElementById("result");
-
-    result.style.display = "block";
-
-    result.innerHTML = `
-        <h2>${name}님의 오늘의 운세</h2>
-
-        <p>✨ 오늘은 새로운 기회를 발견하기 좋은 날입니다.</p>
-
-        <p>💰 <b>재물운</b><br>
-        작은 기회가 큰 결과로 이어질 수 있습니다.
-        충동적인 지출은 조금 주의하세요.</p>
-
-        <p>❤️ <b>연애운</b><br>
-        가까운 사람과 솔직하게 대화하면 좋은 흐름이 생깁니다.</p>
-
-        <p>💼 <b>직업운</b><br>
-        지금까지 준비해온 일이 좋은 방향으로 움직일 가능성이 있습니다.</p>
-
-        <hr>
-
-        <p>
-        생년월일: ${birth}<br>
-        태어난 시간: ${birthTime || "미입력"}
-        </p>
-
-        <p><b>🔮 더 자세한 사주풀이를 원하시면 정밀 사주풀이를 이용해보세요.</b></p>
-    `;
+function showResult(){
+ const name=document.getElementById('name').value || '회원';
+ const birth=document.getElementById('birth').value;
+ const time=document.getElementById('time').value || '출생시간 미상';
+ const gender=document.getElementById('gender').value;
+ if(!birth){alert('생년월일을 입력해주세요.');return;}
+ document.getElementById('result').style.display='block';
+ document.getElementById('result').innerHTML=
+ `<h3>${name}님의 사주 입력 정보</h3>
+ <p>생년월일: <b>${birth}</b></p>
+ <p>출생시간: <b>${time}</b></p>
+ <p>성별: <b>${gender}</b></p>
+ <hr><p>기본 사주 분석 기능을 준비 중입니다.</p>`;
 }
-
 </script>
-
-</body>
-</html>
 </body>
 </html>
