@@ -1,9 +1,17 @@
+```html
 <!DOCTYPE html>
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>오늘의 사주 - 무료 사주풀이</title>
+
+  <!--
+    정확한 만세력 / 사주팔자 계산용
+    lunar-javascript 1.7.7
+  -->
+  <script src="https://cdn.jsdelivr.net/npm/lunar-javascript@1.7.7/lunar.js"></script>
 
   <style>
     * {
@@ -138,6 +146,68 @@
       padding: 10px;
     }
 
+    .saju-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    .saju-table th,
+    .saju-table td {
+      border: 1px solid #ddcfbd;
+      padding: 12px 6px;
+    }
+
+    .saju-table th {
+      background: #eee4d5;
+      color: #5b4030;
+      font-weight: bold;
+    }
+
+    .pillar {
+      font-size: 26px;
+      font-weight: bold;
+      color: #7d552c;
+    }
+
+    .pillar-label {
+      font-size: 13px;
+      color: #806f60;
+      margin-top: 3px;
+    }
+
+    .highlight {
+      font-weight: bold;
+      color: #8a602d;
+    }
+
+    .five-elements {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 7px;
+      margin-top: 12px;
+    }
+
+    .element-box {
+      background: #fff;
+      border: 1px solid #dfd2c1;
+      border-radius: 8px;
+      text-align: center;
+      padding: 10px 4px;
+    }
+
+    .element-name {
+      font-weight: bold;
+      color: #5b4030;
+    }
+
+    .element-count {
+      margin-top: 4px;
+      color: #8a602d;
+      font-weight: bold;
+    }
+
     .paid-card {
       border: 2px solid #d9bd8b;
       background: #fffdf8;
@@ -173,6 +243,23 @@
       line-height: 1.7;
     }
 
+    .error-box {
+      background: #fff0ed;
+      border: 1px solid #e3b5aa;
+      color: #8a4034;
+      border-radius: 10px;
+      padding: 14px;
+      line-height: 1.7;
+      margin-top: 14px;
+    }
+
+    .small-note {
+      font-size: 13px;
+      color: #806f60;
+      margin-top: 8px;
+      line-height: 1.6;
+    }
+
     @media (max-width: 600px) {
       .container {
         padding: 12px 10px 40px;
@@ -185,6 +272,24 @@
       .header h1 {
         font-size: 27px;
       }
+
+      .saju-table th,
+      .saju-table td {
+        padding: 9px 3px;
+      }
+
+      .pillar {
+        font-size: 22px;
+      }
+
+      .five-elements {
+        gap: 4px;
+      }
+
+      .element-box {
+        padding: 8px 2px;
+        font-size: 13px;
+      }
     }
   </style>
 </head>
@@ -193,16 +298,21 @@
 
   <div class="container">
 
+    <!-- 헤더 -->
     <header class="header">
       <h1>오늘의 사주</h1>
       <p>생년월일을 입력하고 나의 사주를 확인해보세요.</p>
     </header>
 
+
+    <!-- 사주 정보 입력 -->
     <section class="card">
+
       <h2>사주 정보 입력</h2>
 
       <div class="form-group">
         <label for="name">이름</label>
+
         <input
           type="text"
           id="name"
@@ -210,43 +320,107 @@
         >
       </div>
 
+
       <div class="form-group">
         <label for="birthDate">생년월일</label>
+
         <input
           type="date"
           id="birthDate"
         >
       </div>
 
+
       <div class="form-group">
         <label for="birthHour">태어난 시간</label>
 
         <select id="birthHour">
-          <option value="">시간을 선택하세요</option>
-          <option value="0">자시 (23:00~01:00)</option>
-          <option value="1">축시 (01:00~03:00)</option>
-          <option value="2">인시 (03:00~05:00)</option>
-          <option value="3">묘시 (05:00~07:00)</option>
-          <option value="4">진시 (07:00~09:00)</option>
-          <option value="5">사시 (09:00~11:00)</option>
-          <option value="6">오시 (11:00~13:00)</option>
-          <option value="7">미시 (13:00~15:00)</option>
-          <option value="8">신시 (15:00~17:00)</option>
-          <option value="9">유시 (17:00~19:00)</option>
-          <option value="10">술시 (19:00~21:00)</option>
-          <option value="11">해시 (21:00~23:00)</option>
+
+          <option value="">
+            시간을 선택하세요
+          </option>
+
+          <option value="0">
+            자시 (23:00~01:00)
+          </option>
+
+          <option value="1">
+            축시 (01:00~03:00)
+          </option>
+
+          <option value="2">
+            인시 (03:00~05:00)
+          </option>
+
+          <option value="3">
+            묘시 (05:00~07:00)
+          </option>
+
+          <option value="4">
+            진시 (07:00~09:00)
+          </option>
+
+          <option value="5">
+            사시 (09:00~11:00)
+          </option>
+
+          <option value="6">
+            오시 (11:00~13:00)
+          </option>
+
+          <option value="7">
+            미시 (13:00~15:00)
+          </option>
+
+          <option value="8">
+            신시 (15:00~17:00)
+          </option>
+
+          <option value="9">
+            유시 (17:00~19:00)
+          </option>
+
+          <option value="10">
+            술시 (19:00~21:00)
+          </option>
+
+          <option value="11">
+            해시 (21:00~23:00)
+          </option>
+
         </select>
+
+        <div class="small-note">
+          태어난 정확한 시각을 모르는 경우 가장 가까운 시간대를 선택해주세요.
+        </div>
+
       </div>
+
 
       <div class="form-group">
-        <label for="gender">성별</label>
+
+        <label for="gender">
+          성별
+        </label>
 
         <select id="gender">
-          <option value="">성별을 선택하세요</option>
-          <option value="male">남성</option>
-          <option value="female">여성</option>
+
+          <option value="">
+            성별을 선택하세요
+          </option>
+
+          <option value="male">
+            남성
+          </option>
+
+          <option value="female">
+            여성
+          </option>
+
         </select>
+
       </div>
+
 
       <button
         class="button free-button"
@@ -254,24 +428,36 @@
       >
         무료 사주 확인하기
       </button>
+
     </section>
 
 
+
+    <!-- 무료 사주 결과 -->
     <section
       id="freeResult"
       class="card result"
     >
 
-      <h2>무료 사주풀이</h2>
+      <h2>
+        무료 사주풀이
+      </h2>
 
+
+      <!-- 기본 정보 -->
       <div class="result-box">
+
         <div class="result-title">
           기본 정보
         </div>
 
         <div id="basicInfo"></div>
+
       </div>
 
+
+
+      <!-- 띠 -->
       <div class="result-box">
 
         <div class="result-title">
@@ -285,48 +471,130 @@
 
       </div>
 
+
+
+      <!-- 사주팔자 -->
+      <div class="result-box">
+
+        <div class="result-title">
+          나의 사주팔자
+        </div>
+
+        <div
+          id="sajuPillars"
+        ></div>
+
+      </div>
+
+
+
+      <!-- 음력 -->
+      <div class="result-box">
+
+        <div class="result-title">
+          음력 생년월일
+        </div>
+
+        <div id="lunarInfo"></div>
+
+      </div>
+
+
+
+      <!-- 일간 -->
+      <div class="result-box">
+
+        <div class="result-title">
+          일간
+        </div>
+
+        <div id="dayMasterInfo"></div>
+
+      </div>
+
+
+
+      <!-- 오행 -->
+      <div class="result-box">
+
+        <div class="result-title">
+          오행 구성
+        </div>
+
+        <div id="fiveElements"></div>
+
+      </div>
+
+
+
+      <!-- 년주 -->
+      <div class="result-box">
+
+        <div class="result-title">
+          년주
+        </div>
+
+        <div id="yearPillarInfo"></div>
+
+      </div>
+
+
+
+      <!-- 월주 -->
       <div class="result-box">
 
         <div class="result-title">
           월주
         </div>
 
-        <div>
-          기본 만세력 정보를 기준으로 확인할 수 있습니다.
-          보다 상세한 해석은 유료 사주풀이에서 제공합니다.
-        </div>
+        <div id="monthPillarInfo"></div>
 
       </div>
 
+
+
+      <!-- 일주 -->
       <div class="result-box">
 
         <div class="result-title">
           일주
         </div>
 
-        <div>
-          생년월일을 기준으로 한 기본 사주 정보입니다.
-          정확한 전체 명식과 상세 해석은 유료 사주풀이에서 제공합니다.
-        </div>
+        <div id="dayPillarInfo"></div>
 
       </div>
 
+
+
+      <!-- 시주 -->
       <div class="result-box">
 
         <div class="result-title">
           시주
         </div>
 
-        <div>
-          태어난 시간을 기준으로 시주를 확인합니다.
-          상세한 사주 분석은 유료 서비스에서 제공합니다.
+        <div id="timePillarInfo"></div>
+
+      </div>
+
+
+
+      <!-- 무료 해석 -->
+      <div class="result-box">
+
+        <div class="result-title">
+          무료 사주 해석
         </div>
+
+        <div id="freeInterpretation"></div>
 
       </div>
 
     </section>
 
 
+
+    <!-- 상세 사주풀이 -->
     <section class="card paid-card">
 
       <h2>
@@ -349,6 +617,7 @@
 
       </div>
 
+
       <button
         class="button paid-button"
         onclick="goToPayPal()"
@@ -356,13 +625,18 @@
         $9.99 USD 상세 사주풀이 결제하기
       </button>
 
+
       <div class="notice">
+
         결제 버튼을 누르면 PayPal 결제 페이지로 이동합니다.
+
       </div>
 
     </section>
 
 
+
+    <!-- 푸터 -->
     <footer class="footer">
 
       © 2026 오늘의 사주
@@ -377,34 +651,484 @@
   </div>
 
 
+
   <script>
 
     /*
-     * 띠 계산
+     * =========================================================
+     * 오늘의 사주
+     * 정확한 만세력 / 사주팔자 계산
+     * =========================================================
+     *
+     * 계산 순서
+     *
+     * 양력 생년월일/시간
+     *        ↓
+     * Solar
+     *        ↓
+     * Lunar
+     *        ↓
+     * EightChar
+     *        ↓
+     * 년주 / 월주 / 일주 / 시주
+     *
+     * lunar-javascript가 절기와 간지 계산을 담당합니다.
      */
-    function getZodiac(year) {
-
-      const animals = [
-        "원숭이띠",
-        "닭띠",
-        "개띠",
-        "돼지띠",
-        "쥐띠",
-        "소띠",
-        "호랑이띠",
-        "토끼띠",
-        "용띠",
-        "뱀띠",
-        "말띠",
-        "양띠"
-      ];
-
-      return animals[year % 12];
-    }
 
 
     /*
+     * ---------------------------------------------------------
+     * 시간대 선택값을 실제 시각으로 변환
+     * ---------------------------------------------------------
+     *
+     * 기존 화면의 12시진 선택 구조를 그대로 유지합니다.
+     *
+     * 0 = 자시
+     * 1 = 축시
+     * 2 = 인시
+     * ...
+     * 11 = 해시
+     *
+     * 계산에는 각 시간대의 대표 시각을 사용합니다.
+     *
+     * 자시는 00시를 대표값으로 사용합니다.
+     */
+    function getBirthHour(hourIndex) {
+
+      const hours = [
+        0,
+        2,
+        4,
+        6,
+        8,
+        10,
+        12,
+        14,
+        16,
+        18,
+        20,
+        22
+      ];
+
+      return hours[Number(hourIndex)];
+    }
+
+
+
+    /*
+     * ---------------------------------------------------------
+     * 띠
+     * ---------------------------------------------------------
+     *
+     * 단순히 양력 연도만 사용하는 것이 아니라
+     * 계산된 사주 년지의 지지를 기준으로 표시합니다.
+     */
+    function getZodiacFromZhi(zhi) {
+
+      const zodiacMap = {
+
+        "子": "쥐띠",
+        "丑": "소띠",
+        "寅": "호랑이띠",
+        "卯": "토끼띠",
+        "辰": "용띠",
+        "巳": "뱀띠",
+        "午": "말띠",
+        "未": "양띠",
+        "申": "원숭이띠",
+        "酉": "닭띠",
+        "戌": "개띠",
+        "亥": "돼지띠"
+
+      };
+
+      return zodiacMap[zhi] || "";
+    }
+
+
+
+    /*
+     * ---------------------------------------------------------
+     * 천간 오행
+     * ---------------------------------------------------------
+     */
+    function getStemElement(stem) {
+
+      const map = {
+
+        "甲": "목",
+        "乙": "목",
+
+        "丙": "화",
+        "丁": "화",
+
+        "戊": "토",
+        "己": "토",
+
+        "庚": "금",
+        "辛": "금",
+
+        "壬": "수",
+        "癸": "수"
+
+      };
+
+      return map[stem] || "";
+    }
+
+
+
+    /*
+     * ---------------------------------------------------------
+     * 천간 음양
+     * ---------------------------------------------------------
+     */
+    function getStemYinYang(stem) {
+
+      const map = {
+
+        "甲": "양",
+        "乙": "음",
+
+        "丙": "양",
+        "丁": "음",
+
+        "戊": "양",
+        "己": "음",
+
+        "庚": "양",
+        "辛": "음",
+
+        "壬": "양",
+        "癸": "음"
+
+      };
+
+      return map[stem] || "";
+    }
+
+
+
+    /*
+     * ---------------------------------------------------------
+     * 지지 오행
+     * ---------------------------------------------------------
+     */
+    function getBranchElement(branch) {
+
+      const map = {
+
+        "子": "수",
+        "丑": "토",
+
+        "寅": "목",
+        "卯": "목",
+
+        "辰": "토",
+        "巳": "화",
+
+        "午": "화",
+        "未": "토",
+
+        "申": "금",
+        "酉": "금",
+
+        "戌": "토",
+        "亥": "수"
+
+      };
+
+      return map[branch] || "";
+    }
+
+
+
+    /*
+     * ---------------------------------------------------------
+     * 오행 이름
+     * ---------------------------------------------------------
+     */
+    function getElementKorean(element) {
+
+      const map = {
+
+        "목": "木",
+        "화": "火",
+        "토": "土",
+        "금": "金",
+        "수": "水"
+
+      };
+
+      return map[element] || "";
+    }
+
+
+
+    /*
+     * ---------------------------------------------------------
+     * 오행 계산
+     * ---------------------------------------------------------
+     *
+     * 천간 4개와 지지 4개의 기본 오행을 합산합니다.
+     *
+     * 이것은 무료 화면에서 보여주는 기본 오행 구성입니다.
+     * 지장간의 세부 강약 분석은 유료 상세 풀이 단계에서
+     * 별도로 확장할 수 있습니다.
+     */
+    function calculateFiveElements(eightChar) {
+
+      const counts = {
+
+        "목": 0,
+        "화": 0,
+        "토": 0,
+        "금": 0,
+        "수": 0
+
+      };
+
+
+      const stems = [
+
+        eightChar.getYearGan(),
+        eightChar.getMonthGan(),
+        eightChar.getDayGan(),
+        eightChar.getTimeGan()
+
+      ];
+
+
+      const branches = [
+
+        eightChar.getYearZhi(),
+        eightChar.getMonthZhi(),
+        eightChar.getDayZhi(),
+        eightChar.getTimeZhi()
+
+      ];
+
+
+      stems.forEach(function(stem) {
+
+        const element = getStemElement(stem);
+
+        if (element) {
+          counts[element]++;
+        }
+
+      });
+
+
+      branches.forEach(function(branch) {
+
+        const element = getBranchElement(branch);
+
+        if (element) {
+          counts[element]++;
+        }
+
+      });
+
+
+      return counts;
+    }
+
+
+
+    /*
+     * ---------------------------------------------------------
+     * 오행 HTML
+     * ---------------------------------------------------------
+     */
+    function makeFiveElementsHtml(counts) {
+
+      const elements = [
+        ["목", "木"],
+        ["화", "火"],
+        ["토", "土"],
+        ["금", "金"],
+        ["수", "水"]
+      ];
+
+
+      let html = '<div class="five-elements">';
+
+
+      elements.forEach(function(item) {
+
+        const korean = item[0];
+        const chinese = item[1];
+
+        html +=
+          '<div class="element-box">' +
+            '<div class="element-name">' +
+              korean + ' (' + chinese + ')' +
+            '</div>' +
+            '<div class="element-count">' +
+              counts[korean] + '개' +
+            '</div>' +
+          '</div>';
+
+      });
+
+
+      html += '</div>';
+
+
+      return html;
+    }
+
+
+
+    /*
+     * ---------------------------------------------------------
+     * 일간 기본 설명
+     * ---------------------------------------------------------
+     */
+    function getDayMasterDescription(stem) {
+
+      const descriptions = {
+
+        "甲":
+          "갑목은 큰 나무와 같은 기운으로 성장과 개척, 원칙을 중요하게 보는 성향으로 해석합니다.",
+
+        "乙":
+          "을목은 풀과 꽃처럼 유연하고 섬세한 기운으로 적응력과 관계 감각을 중요하게 보는 성향으로 해석합니다.",
+
+        "丙":
+          "병화는 태양과 같은 밝은 기운으로 표현력과 추진력, 적극성을 중요하게 보는 성향으로 해석합니다.",
+
+        "丁":
+          "정화는 촛불과 등불과 같은 섬세한 화기로 집중력과 따뜻함, 세심함을 중요하게 보는 성향으로 해석합니다.",
+
+        "戊":
+          "무토는 큰 산이나 넓은 대지와 같은 기운으로 안정감과 책임감, 포용력을 중요하게 보는 성향으로 해석합니다.",
+
+        "己":
+          "기토는 논밭과 같은 기운으로 실용성과 세심함, 현실적인 판단을 중요하게 보는 성향으로 해석합니다.",
+
+        "庚":
+          "경금은 단단한 쇠와 같은 기운으로 결단력과 원칙, 추진력을 중요하게 보는 성향으로 해석합니다.",
+
+        "辛":
+          "신금은 보석과 같은 섬세한 금의 기운으로 정확성, 기준, 세련됨을 중요하게 보는 성향으로 해석합니다.",
+
+        "壬":
+          "임수는 큰 강이나 바다와 같은 기운으로 유연함과 활동성, 넓은 시야를 중요하게 보는 성향으로 해석합니다.",
+
+        "癸":
+          "계수는 이슬이나 비와 같은 섬세한 수의 기운으로 관찰력과 지혜, 섬세한 판단을 중요하게 보는 성향으로 해석합니다."
+
+      };
+
+
+      return descriptions[stem] || "";
+    }
+
+
+
+    /*
+     * ---------------------------------------------------------
+     * 무료 해석 생성
+     * ---------------------------------------------------------
+     */
+    function makeFreeInterpretation(eightChar, counts) {
+
+      const dayStem =
+        eightChar.getDayGan();
+
+      const dayElement =
+        getStemElement(dayStem);
+
+      const dayYinYang =
+        getStemYinYang(dayStem);
+
+      let strongestElement = "";
+      let strongestCount = -1;
+
+
+      Object.keys(counts).forEach(function(element) {
+
+        if (counts[element] > strongestCount) {
+
+          strongestCount =
+            counts[element];
+
+          strongestElement =
+            element;
+
+        }
+
+      });
+
+
+      let html = "";
+
+
+      html +=
+        "<p>" +
+        "<strong>일간:</strong> " +
+        dayStem +
+        " (" +
+        dayElement +
+        ", " +
+        dayYinYang +
+        ")" +
+        "</p>";
+
+
+      html +=
+        "<p>" +
+        getDayMasterDescription(dayStem) +
+        "</p>";
+
+
+      html +=
+        "<p>" +
+        "현재 계산된 기본 오행에서는 " +
+        "<strong>" +
+        strongestElement +
+        "</strong>" +
+        "의 기운이 가장 많이 나타납니다. " +
+        "다만 실제 사주 해석에서는 계절, 지장간, 십신, 용신과 희신 등을 함께 살펴야 하므로 오행 개수만으로 운세를 단정하지 않습니다." +
+        "</p>";
+
+
+      html +=
+        "<p>" +
+        "무료 풀이에서는 기본 명식과 일간의 특징을 확인할 수 있습니다. " +
+        "재물운·직업운·사업운·인간관계·연애운 등의 세부 분석은 상세 사주풀이에서 확장할 수 있습니다." +
+        "</p>";
+
+
+      return html;
+    }
+
+
+
+    /*
+     * ---------------------------------------------------------
+     * 안전한 HTML 처리
+     * ---------------------------------------------------------
+     */
+    function escapeHtml(text) {
+
+      const div =
+        document.createElement("div");
+
+      div.textContent =
+        text;
+
+      return div.innerHTML;
+    }
+
+
+
+    /*
+     * ---------------------------------------------------------
      * 무료 사주풀이
+     * ---------------------------------------------------------
      */
     function showFreeSaju() {
 
@@ -414,15 +1138,18 @@
           .value
           .trim();
 
+
       const birthDate =
         document
           .getElementById("birthDate")
           .value;
 
-      const birthHour =
+
+      const birthHourIndex =
         document
           .getElementById("birthHour")
           .value;
+
 
       const gender =
         document
@@ -430,6 +1157,10 @@
           .value;
 
 
+
+      /*
+       * 이름 확인
+       */
       if (!name) {
 
         alert("이름을 입력해주세요.");
@@ -442,6 +1173,10 @@
       }
 
 
+
+      /*
+       * 생년월일 확인
+       */
       if (!birthDate) {
 
         alert("생년월일을 입력해주세요.");
@@ -454,7 +1189,11 @@
       }
 
 
-      if (birthHour === "") {
+
+      /*
+       * 출생 시간 확인
+       */
+      if (birthHourIndex === "") {
 
         alert("태어난 시간을 선택해주세요.");
 
@@ -466,6 +1205,10 @@
       }
 
 
+
+      /*
+       * 성별 확인
+       */
       if (!gender) {
 
         alert("성별을 선택해주세요.");
@@ -478,85 +1221,737 @@
       }
 
 
-      const date =
-        new Date(
-          birthDate + "T00:00:00"
-        );
+
+      /*
+       * -------------------------------------------------------
+       * 날짜를 직접 분해
+       *
+       * new Date("YYYY-MM-DD") 방식의 시간대 문제를 피하고
+       * 연/월/일 숫자를 직접 사용합니다.
+       * -------------------------------------------------------
+       */
+      const parts =
+        birthDate.split("-");
 
 
       const year =
-        date.getFullYear();
+        Number(parts[0]);
+
 
       const month =
-        date.getMonth() + 1;
+        Number(parts[1]);
+
 
       const day =
-        date.getDate();
+        Number(parts[2]);
 
 
-      const genderText =
-        gender === "male"
-          ? "남성"
-          : "여성";
+      const hour =
+        getBirthHour(birthHourIndex);
 
 
-      document
-        .getElementById("basicInfo")
-        .innerHTML =
-          "<strong>이름:</strong> "
-          + escapeHtml(name)
-          + "<br>"
-          + "<strong>생년월일:</strong> "
-          + year
-          + "년 "
-          + month
-          + "월 "
-          + day
-          + "일<br>"
-          + "<strong>성별:</strong> "
-          + genderText;
+      const minute =
+        0;
 
 
-      document
-        .getElementById("zodiacResult")
-        .textContent =
-          getZodiac(year);
+      const second =
+        0;
 
 
-      document
-        .getElementById("freeResult")
-        .style.display =
-          "block";
+
+      /*
+       * 날짜 값 확인
+       */
+      if (
+        !year ||
+        !month ||
+        !day ||
+        isNaN(year) ||
+        isNaN(month) ||
+        isNaN(day)
+      ) {
+
+        alert("생년월일을 다시 확인해주세요.");
+
+        return;
+      }
 
 
-      document
-        .getElementById("freeResult")
-        .scrollIntoView({
-          behavior: "smooth",
-          block: "start"
-        });
+
+      /*
+       * -------------------------------------------------------
+       * lunar-javascript가 정상적으로 로드되었는지 확인
+       * -------------------------------------------------------
+       */
+      if (
+        typeof Solar === "undefined"
+      ) {
+
+        alert(
+          "만세력 계산 모듈을 불러오지 못했습니다. 인터넷 연결을 확인한 후 다시 시도해주세요."
+        );
+
+        return;
+      }
+
+
+
+      try {
+
+        /*
+         * -----------------------------------------------------
+         * 핵심 만세력 계산
+         * -----------------------------------------------------
+         *
+         * 양력 날짜/시간
+         *      ↓
+         * Solar
+         *      ↓
+         * Lunar
+         *      ↓
+         * EightChar
+         *
+         * EightChar에서
+         *
+         * 년주
+         * 월주
+         * 일주
+         * 시주
+         *
+         * 를 가져옵니다.
+         */
+        const solar =
+          Solar.fromYmdHms(
+            year,
+            month,
+            day,
+            hour,
+            minute,
+            second
+          );
+
+
+        const lunar =
+          solar.getLunar();
+
+
+        const eightChar =
+          lunar.getEightChar();
+
+
+
+        /*
+         * -----------------------------------------------------
+         * 사주 네 기둥
+         * -----------------------------------------------------
+         */
+        const yearPillar =
+          eightChar.getYear();
+
+
+        const monthPillar =
+          eightChar.getMonth();
+
+
+        const dayPillar =
+          eightChar.getDay();
+
+
+        const timePillar =
+          eightChar.getTime();
+
+
+
+        /*
+         * 천간 / 지지
+         */
+        const yearGan =
+          eightChar.getYearGan();
+
+        const yearZhi =
+          eightChar.getYearZhi();
+
+
+        const monthGan =
+          eightChar.getMonthGan();
+
+        const monthZhi =
+          eightChar.getMonthZhi();
+
+
+        const dayGan =
+          eightChar.getDayGan();
+
+        const dayZhi =
+          eightChar.getDayZhi();
+
+
+        const timeGan =
+          eightChar.getTimeGan();
+
+        const timeZhi =
+          eightChar.getTimeZhi();
+
+
+
+        /*
+         * 띠
+         */
+        const zodiac =
+          getZodiacFromZhi(
+            yearZhi
+          );
+
+
+
+        /*
+         * 성별
+         */
+        const genderText =
+          gender === "male"
+            ? "남성"
+            : "여성";
+
+
+
+        /*
+         * -----------------------------------------------------
+         * 기본 정보
+         * -----------------------------------------------------
+         */
+        document
+          .getElementById("basicInfo")
+          .innerHTML =
+
+            "<strong>이름:</strong> " +
+            escapeHtml(name) +
+
+            "<br>" +
+
+            "<strong>양력 생년월일:</strong> " +
+            year +
+            "년 " +
+            month +
+            "월 " +
+            day +
+            "일" +
+
+            "<br>" +
+
+            "<strong>출생 시각:</strong> " +
+            getBirthHourText(
+              birthHourIndex
+            ) +
+
+            "<br>" +
+
+            "<strong>성별:</strong> " +
+            genderText;
+
+
+
+        /*
+         * -----------------------------------------------------
+         * 띠
+         * -----------------------------------------------------
+         */
+        document
+          .getElementById("zodiacResult")
+          .textContent =
+            zodiac;
+
+
+
+        /*
+         * -----------------------------------------------------
+         * 사주팔자 표
+         * -----------------------------------------------------
+         */
+        document
+          .getElementById("sajuPillars")
+          .innerHTML =
+
+            '<table class="saju-table">' +
+
+              "<thead>" +
+                "<tr>" +
+                  "<th>구분</th>" +
+                  "<th>년주</th>" +
+                  "<th>월주</th>" +
+                  "<th>일주</th>" +
+                  "<th>시주</th>" +
+                "</tr>" +
+              "</thead>" +
+
+              "<tbody>" +
+
+                "<tr>" +
+
+                  "<th>천간</th>" +
+
+                  '<td>' +
+                    '<div class="pillar">' +
+                      yearGan +
+                    "</div>" +
+                  "</td>" +
+
+                  '<td>' +
+                    '<div class="pillar">' +
+                      monthGan +
+                    "</div>" +
+                  "</td>" +
+
+                  '<td>' +
+                    '<div class="pillar">' +
+                      dayGan +
+                    "</div>" +
+                  "</td>" +
+
+                  '<td>' +
+                    '<div class="pillar">' +
+                      timeGan +
+                    "</div>" +
+                  "</td>" +
+
+                "</tr>" +
+
+                "<tr>" +
+
+                  "<th>지지</th>" +
+
+                  '<td>' +
+                    '<div class="pillar">' +
+                      yearZhi +
+                    "</div>" +
+                  "</td>" +
+
+                  '<td>' +
+                    '<div class="pillar">' +
+                      monthZhi +
+                    "</div>" +
+                  "</td>" +
+
+                  '<td>' +
+                    '<div class="pillar">' +
+                      dayZhi +
+                    "</div>" +
+                  "</td>" +
+
+                  '<td>' +
+                    '<div class="pillar">' +
+                      timeZhi +
+                    "</div>" +
+                  "</td>" +
+
+                "</tr>" +
+
+                "<tr>" +
+
+                  "<th>사주</th>" +
+
+                  '<td>' +
+                    '<div class="pillar-label">' +
+                      yearPillar +
+                    "</div>" +
+                  "</td>" +
+
+                  '<td>' +
+                    '<div class="pillar-label">' +
+                      monthPillar +
+                    "</div>" +
+                  "</td>" +
+
+                  '<td>' +
+                    '<div class="pillar-label">' +
+                      dayPillar +
+                    "</div>" +
+                  "</td>" +
+
+                  '<td>' +
+                    '<div class="pillar-label">' +
+                      timePillar +
+                    "</div>" +
+                  "</td>" +
+
+                "</tr>" +
+
+              "</tbody>" +
+
+            "</table>";
+
+
+
+        /*
+         * -----------------------------------------------------
+         * 음력 정보
+         * -----------------------------------------------------
+         */
+        let lunarText = "";
+
+        try {
+
+          lunarText =
+            lunar.toString();
+
+        } catch (e) {
+
+          lunarText =
+            "음력 정보를 표시할 수 없습니다.";
+
+        }
+
+
+        document
+          .getElementById("lunarInfo")
+          .innerHTML =
+
+            "<strong>음력:</strong> " +
+            escapeHtml(lunarText) +
+
+            "<br><br>" +
+
+            "<strong>사주 년주:</strong> " +
+            yearPillar +
+
+            "<br>" +
+
+            "<strong>사주 월주:</strong> " +
+            monthPillar +
+
+            "<br>" +
+
+            "<strong>사주 일주:</strong> " +
+            dayPillar +
+
+            "<br>" +
+
+            "<strong>사주 시주:</strong> " +
+            timePillar;
+
+
+
+        /*
+         * -----------------------------------------------------
+         * 일간 정보
+         * -----------------------------------------------------
+         */
+        const dayElement =
+          getStemElement(dayGan);
+
+
+        const dayYinYang =
+          getStemYinYang(dayGan);
+
+
+        document
+          .getElementById("dayMasterInfo")
+          .innerHTML =
+
+            "<strong>일간:</strong> " +
+            dayGan +
+
+            "<br>" +
+
+            "<strong>오행:</strong> " +
+            dayElement +
+            " (" +
+            getElementKorean(dayElement) +
+            ")" +
+
+            "<br>" +
+
+            "<strong>음양:</strong> " +
+            dayYinYang +
+
+            "<br><br>" +
+
+            getDayMasterDescription(
+              dayGan
+            );
+
+
+
+        /*
+         * -----------------------------------------------------
+         * 오행
+         * -----------------------------------------------------
+         */
+        const fiveElements =
+          calculateFiveElements(
+            eightChar
+          );
+
+
+        document
+          .getElementById("fiveElements")
+          .innerHTML =
+            makeFiveElementsHtml(
+              fiveElements
+            );
+
+
+
+        /*
+         * -----------------------------------------------------
+         * 년주 설명
+         * -----------------------------------------------------
+         */
+        document
+          .getElementById("yearPillarInfo")
+          .innerHTML =
+
+            "<strong>년주:</strong> " +
+            yearPillar +
+
+            "<br>" +
+
+            "천간 " +
+            yearGan +
+            " (" +
+            getStemElement(yearGan) +
+            ")" +
+
+            " · 지지 " +
+            yearZhi +
+            " (" +
+            getBranchElement(yearZhi) +
+            ")" +
+
+            "<br><br>" +
+
+            "년주는 출생한 해의 기본적인 기운과 가문·초년의 환경을 살펴보는 기초 요소로 활용됩니다.";
+
+
+
+        /*
+         * -----------------------------------------------------
+         * 월주 설명
+         * -----------------------------------------------------
+         */
+        document
+          .getElementById("monthPillarInfo")
+          .innerHTML =
+
+            "<strong>월주:</strong> " +
+            monthPillar +
+
+            "<br>" +
+
+            "천간 " +
+            monthGan +
+            " (" +
+            getStemElement(monthGan) +
+            ")" +
+
+            " · 지지 " +
+            monthZhi +
+            " (" +
+            getBranchElement(monthZhi) +
+            ")" +
+
+            "<br><br>" +
+
+            "월주는 사주에서 계절의 기운과 사회적 환경, 성장 과정의 기운을 살펴보는 중요한 기준입니다.";
+
+
+
+        /*
+         * -----------------------------------------------------
+         * 일주 설명
+         * -----------------------------------------------------
+         */
+        document
+          .getElementById("dayPillarInfo")
+          .innerHTML =
+
+            "<strong>일주:</strong> " +
+            dayPillar +
+
+            "<br>" +
+
+            "천간 " +
+            dayGan +
+            " (" +
+            getStemElement(dayGan) +
+            ")" +
+
+            " · 지지 " +
+            dayZhi +
+            " (" +
+            getBranchElement(dayZhi) +
+            ")" +
+
+            "<br><br>" +
+
+            "<strong>일간 " +
+            dayGan +
+            "이 본인을 나타내는 중심 기운입니다.</strong>" +
+
+            "<br><br>" +
+
+            getDayMasterDescription(
+              dayGan
+            );
+
+
+
+        /*
+         * -----------------------------------------------------
+         * 시주 설명
+         * -----------------------------------------------------
+         */
+        document
+          .getElementById("timePillarInfo")
+          .innerHTML =
+
+            "<strong>시주:</strong> " +
+            timePillar +
+
+            "<br>" +
+
+            "천간 " +
+            timeGan +
+            " (" +
+            getStemElement(timeGan) +
+            ")" +
+
+            " · 지지 " +
+            timeZhi +
+            " (" +
+            getBranchElement(timeZhi) +
+            ")" +
+
+            "<br><br>" +
+
+            "시주는 태어난 시간의 기운을 나타내며 후반기 운과 활동 방향 등을 살펴보는 기초 요소로 활용됩니다.";
+
+
+
+        /*
+         * -----------------------------------------------------
+         * 무료 해석
+         * -----------------------------------------------------
+         */
+        document
+          .getElementById("freeInterpretation")
+          .innerHTML =
+
+            makeFreeInterpretation(
+              eightChar,
+              fiveElements
+            );
+
+
+
+        /*
+         * 결과 표시
+         */
+        document
+          .getElementById("freeResult")
+          .style.display =
+            "block";
+
+
+
+        /*
+         * 결과 위치로 이동
+         */
+        document
+          .getElementById("freeResult")
+          .scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+          });
+
+
+
+      } catch (error) {
+
+        console.error(
+          "만세력 계산 오류:",
+          error
+        );
+
+
+        document
+          .getElementById("freeResult")
+          .style.display =
+            "block";
+
+
+        document
+          .getElementById("freeResult")
+          .innerHTML =
+
+            '<h2>무료 사주풀이</h2>' +
+
+            '<div class="error-box">' +
+
+              "<strong>만세력 계산 중 오류가 발생했습니다.</strong>" +
+
+              "<br><br>" +
+
+              "입력한 생년월일과 태어난 시간을 다시 확인해주세요." +
+
+              "<br>" +
+
+              "문제가 계속되면 페이지를 새로고침한 후 다시 시도해주세요." +
+
+            "</div>";
+
+
+
+        document
+          .getElementById("freeResult")
+          .scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+          });
+
+      }
 
     }
 
 
+
     /*
-     * 입력값 안전 처리
+     * ---------------------------------------------------------
+     * 선택된 출생시간을 화면에 표시
+     * ---------------------------------------------------------
      */
-    function escapeHtml(text) {
+    function getBirthHourText(hourIndex) {
 
-      const div =
-        document.createElement("div");
+      const texts = [
 
-      div.textContent = text;
+        "자시 (23:00~01:00)",
+        "축시 (01:00~03:00)",
+        "인시 (03:00~05:00)",
+        "묘시 (05:00~07:00)",
+        "진시 (07:00~09:00)",
+        "사시 (09:00~11:00)",
+        "오시 (11:00~13:00)",
+        "미시 (13:00~15:00)",
+        "신시 (15:00~17:00)",
+        "유시 (17:00~19:00)",
+        "술시 (19:00~21:00)",
+        "해시 (21:00~23:00)"
 
-      return div.innerHTML;
+      ];
+
+
+      return texts[
+        Number(hourIndex)
+      ] || "";
     }
 
 
+
     /*
+     * ---------------------------------------------------------
      * PayPal 결제 링크
+     * ---------------------------------------------------------
      *
-     * 실제 PayPal에서 생성된 $9.99 결제 링크
+     * 기존에 연결되어 있던 실제 $9.99 PayPal 링크를 유지합니다.
      */
     function goToPayPal() {
 
@@ -566,36 +1961,51 @@
           .value
           .trim();
 
+
       const birthDate =
         document
           .getElementById("birthDate")
           .value;
 
 
+
       if (!name) {
 
-        alert("먼저 이름을 입력해주세요.");
+        alert(
+          "먼저 이름을 입력해주세요."
+        );
+
 
         document
           .getElementById("name")
           .focus();
 
+
         return;
       }
 
 
+
       if (!birthDate) {
 
-        alert("먼저 생년월일을 입력해주세요.");
+        alert(
+          "먼저 생년월일을 입력해주세요."
+        );
+
 
         document
           .getElementById("birthDate")
           .focus();
 
+
         return;
       }
 
 
+
+      /*
+       * 실제 PayPal $9.99 결제 링크
+       */
       const paypalUrl =
         "https://www.paypal.com/ncp/links/46T77XLF2APZA";
 
@@ -609,3 +2019,4 @@
 
 </body>
 </html>
+```
