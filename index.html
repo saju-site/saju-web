@@ -1,2048 +1,441 @@
+```html
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>오늘의 사주 - 무료 사주풀이</title>
 
-<title>오늘의 사주 | 무료·상세 사주풀이</title>
-
-<style>
-
-*{
-    box-sizing:border-box;
-}
-
-body{
-    margin:0;
-    background:#f4efe5;
-    color:#332820;
-    font-family:"Malgun Gothic",Arial,sans-serif;
-}
-
-.container{
-    width:100%;
-    max-width:900px;
-    margin:0 auto;
-    padding:20px;
-}
-
-.header{
-    text-align:center;
-    padding:30px 10px 24px;
-}
-
-.header h1{
-    margin:0;
-    font-size:34px;
-    color:#5b3927;
-}
-
-.header p{
-    margin:10px 0 0;
-    color:#806f61;
-}
-
-.card{
-    background:#fff;
-    border-radius:20px;
-    padding:28px;
-    box-shadow:0 6px 25px rgba(60,40,20,.08);
-}
-
-label{
-    display:block;
-    margin-top:16px;
-    font-weight:bold;
-}
-
-input,
-select{
-    width:100%;
-    padding:14px;
-    margin-top:7px;
-    border:1px solid #d8cec1;
-    border-radius:10px;
-    background:#fff;
-    font-size:16px;
-}
-
-button{
-    width:100%;
-    padding:16px;
-    margin-top:24px;
-    border:0;
-    border-radius:11px;
-    background:#68432e;
-    color:#fff;
-    font-size:18px;
-    font-weight:bold;
-    cursor:pointer;
-}
-
-button:hover{
-    opacity:.9;
-}
-
-.error{
-    text-align:center;
-    color:#b00020;
-    font-weight:bold;
-    margin-top:15px;
-}
-
-.result{
-    display:none;
-    margin-top:35px;
-}
-
-.result-header{
-    text-align:center;
-    padding:22px 10px;
-    background:#faf6ee;
-    border-radius:16px;
-}
-
-.result-header h2{
-    margin:0;
-    color:#5b3927;
-}
-
-.result-header p{
-    color:#806f61;
-}
-
-.section{
-    margin-top:30px;
-}
-
-.section-title{
-    color:#5b3927;
-    font-size:21px;
-    margin:0 0 13px;
-    padding-left:10px;
-    border-left:4px solid #8b6248;
-}
-
-.pillars{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:10px;
-}
-
-.pillar{
-    text-align:center;
-    background:#faf6ee;
-    border:1px solid #e3d8ca;
-    border-radius:14px;
-    padding:18px 7px;
-}
-
-.pillar-name{
-    color:#8a7768;
-    font-size:14px;
-}
-
-.pillar-value{
-    margin-top:9px;
-    font-size:29px;
-    font-weight:bold;
-    color:#5b3927;
-}
-
-.pillar-desc{
-    margin-top:7px;
-    color:#806f61;
-    font-size:12px;
-}
-
-.info-box{
-    background:#faf6ee;
-    border-radius:14px;
-    padding:19px;
-    line-height:1.9;
-    border:1px solid #e8ded2;
-}
-
-.daymaster-box{
-    text-align:center;
-    background:#f8f1e5;
-    border-radius:15px;
-    padding:23px;
-    border:1px solid #e4d4c2;
-}
-
-.daymaster-character{
-    font-size:42px;
-    font-weight:bold;
-    color:#5b3927;
-}
-
-.element-grid{
-    display:grid;
-    grid-template-columns:repeat(5,1fr);
-    gap:8px;
-}
-
-.element-box{
-    text-align:center;
-    padding:16px 5px;
-    border:1px solid #e3d8ca;
-    border-radius:12px;
-    background:#fff;
-}
-
-.element-number{
-    font-size:25px;
-    font-weight:bold;
-    color:#5b3927;
-    margin-top:6px;
-}
-
-.element-bar{
-    height:6px;
-    background:#e7dfd4;
-    border-radius:10px;
-    margin-top:8px;
-    overflow:hidden;
-}
-
-.element-bar-inner{
-    height:100%;
-    width:0;
-    background:#8b6248;
-    border-radius:10px;
-}
-
-.reading-box{
-    background:#fffaf2;
-    border:1px solid #e6d7c5;
-    border-radius:15px;
-    padding:21px;
-    line-height:1.9;
-}
-
-.reading-title{
-    font-size:17px;
-    font-weight:bold;
-    color:#68432e;
-    margin-bottom:8px;
-}
-
-.free-badge{
-    display:inline-block;
-    padding:5px 10px;
-    border-radius:20px;
-    background:#e8ddcf;
-    color:#65452f;
-    font-size:12px;
-    font-weight:bold;
-    margin-bottom:10px;
-}
-
-.premium-box{
-    background:linear-gradient(
-        135deg,
-        #fff9ed,
-        #f7ead6
-    );
-    border:1px solid #d9b97d;
-    border-radius:18px;
-    padding:24px;
-    text-align:center;
-}
-
-.premium-box h3{
-    margin-top:0;
-    color:#704820;
-}
-
-.premium-price{
-    font-size:28px;
-    font-weight:bold;
-    color:#704820;
-    margin:15px 0;
-}
-
-.premium-list{
-    text-align:left;
-    line-height:2;
-    margin:20px 0;
-}
-
-.premium-list div{
-    border-bottom:1px solid #eadbc4;
-    padding:5px 0;
-}
-
-.lock-box{
-    background:#fff;
-    border-radius:14px;
-    padding:20px;
-    margin-top:18px;
-    border:1px dashed #c9a66f;
-}
-
-.lock-icon{
-    font-size:38px;
-}
-
-.detail-content{
-    display:none;
-    text-align:left;
-    margin-top:20px;
-}
-
-.detail-card{
-    background:#fff;
-    border:1px solid #e2d3be;
-    border-radius:14px;
-    padding:20px;
-    margin-top:12px;
-    line-height:1.9;
-}
-
-.detail-card h4{
-    color:#68432e;
-    margin-top:0;
-    font-size:18px;
-}
-
-table{
-    width:100%;
-    border-collapse:collapse;
-    background:#fff;
-}
-
-th,
-td{
-    border:1px solid #e2d8cc;
-    padding:11px 8px;
-    text-align:center;
-}
-
-th{
-    background:#f7f0e6;
-    color:#604532;
-}
-
-.daeyun-wrap{
-    overflow-x:auto;
-}
-
-.notice{
-    margin-top:28px;
-    text-align:center;
-    color:#8c8076;
-    font-size:12px;
-    line-height:1.7;
-}
-
-@media(max-width:650px){
-
-    .container{
-        padding:12px;
+  <style>
+    * {
+      box-sizing: border-box;
     }
 
-    .card{
-        padding:18px;
+    body {
+      margin: 0;
+      font-family: Arial, "Noto Sans KR", sans-serif;
+      background: linear-gradient(135deg, #f7f3eb, #eee5d5);
+      color: #333;
     }
 
-    .header h1{
-        font-size:28px;
+    .container {
+      width: 100%;
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 24px 16px 60px;
     }
 
-    .pillars{
-        grid-template-columns:repeat(2,1fr);
+    .header {
+      text-align: center;
+      padding: 28px 10px 20px;
     }
 
-    .element-grid{
-        grid-template-columns:repeat(5,1fr);
+    .header h1 {
+      margin: 0;
+      font-size: 32px;
+      color: #4a3425;
     }
 
-    .element-number{
-        font-size:21px;
+    .header p {
+      margin: 10px 0 0;
+      color: #766557;
+      font-size: 15px;
     }
 
-}
+    .card {
+      background: #fff;
+      border-radius: 18px;
+      padding: 24px;
+      margin-top: 18px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    }
 
-</style>
+    .card h2 {
+      margin-top: 0;
+      color: #4a3425;
+      font-size: 22px;
+    }
+
+    .form-group {
+      margin-bottom: 17px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 7px;
+      font-weight: bold;
+      color: #594638;
+    }
+
+    input,
+    select {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #d8cec0;
+      border-radius: 10px;
+      font-size: 16px;
+      background: #fff;
+    }
+
+    input:focus,
+    select:focus {
+      outline: none;
+      border-color: #8b6b4d;
+    }
+
+    .button {
+      width: 100%;
+      border: 0;
+      border-radius: 10px;
+      padding: 15px;
+      font-size: 17px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 5px;
+    }
+
+    .free-button {
+      background: #5b4636;
+      color: white;
+    }
+
+    .free-button:hover {
+      background: #463426;
+    }
+
+    .paid-button {
+      background: #c49a5a;
+      color: white;
+    }
+
+    .paid-button:hover {
+      background: #a97e42;
+    }
+
+    .result {
+      display: none;
+    }
+
+    .result-box {
+      background: #faf7f1;
+      border-radius: 12px;
+      padding: 18px;
+      margin-top: 14px;
+      line-height: 1.8;
+    }
+
+    .result-title {
+      font-size: 19px;
+      font-weight: bold;
+      color: #5b4030;
+      margin-bottom: 8px;
+    }
+
+    .zodiac {
+      font-size: 24px;
+      font-weight: bold;
+      color: #9a6d32;
+      text-align: center;
+      padding: 10px;
+    }
+
+    .paid-card {
+      border: 2px solid #d9bd8b;
+      background: #fffdf8;
+    }
+
+    .price {
+      text-align: center;
+      font-size: 30px;
+      font-weight: bold;
+      color: #8a602d;
+      margin: 15px 0;
+    }
+
+    .paid-description {
+      line-height: 1.8;
+      color: #5d5147;
+      margin-bottom: 18px;
+    }
+
+    .notice {
+      font-size: 13px;
+      color: #806f60;
+      text-align: center;
+      margin-top: 12px;
+      line-height: 1.6;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 13px;
+      color: #87776a;
+      line-height: 1.7;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 12px 10px 40px;
+      }
+
+      .card {
+        padding: 18px;
+      }
+
+      .header h1 {
+        font-size: 27px;
+      }
+    }
+  </style>
 </head>
-
 
 <body>
 
-<div class="container">
+  <div class="container">
+
+    <header class="header">
+      <h1>오늘의 사주</h1>
+      <p>생년월일을 입력하고 나의 사주를 확인해보세요.</p>
+    </header>
+
+    <!-- 사주 입력 -->
+    <section class="card">
+      <h2>사주 정보 입력</h2>
+
+      <div class="form-group">
+        <label for="name">이름</label>
+        <input type="text" id="name" placeholder="이름을 입력하세요">
+      </div>
+
+      <div class="form-group">
+        <label for="birthDate">생년월일</label>
+        <input type="date" id="birthDate">
+      </div>
+
+      <div class="form-group">
+        <label for="birthHour">태어난 시간</label>
+        <select id="birthHour">
+          <option value="">시간을 선택하세요</option>
+          <option value="0">자시 (23:00~01:00)</option>
+          <option value="1">축시 (01:00~03:00)</option>
+          <option value="2">인시 (03:00~05:00)</option>
+          <option value="3">묘시 (05:00~07:00)</option>
+          <option value="4">진시 (07:00~09:00)</option>
+          <option value="5">사시 (09:00~11:00)</option>
+          <option value="6">오시 (11:00~13:00)</option>
+          <option value="7">미시 (13:00~15:00)</option>
+          <option value="8">신시 (15:00~17:00)</option>
+          <option value="9">유시 (17:00~19:00)</option>
+          <option value="10">술시 (19:00~21:00)</option>
+          <option value="11">해시 (21:00~23:00)</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="gender">성별</label>
+        <select id="gender">
+          <option value="">성별을 선택하세요</option>
+          <option value="male">남성</option>
+          <option value="female">여성</option>
+        </select>
+      </div>
+
+      <button class="button free-button" onclick="showFreeSaju()">
+        무료 사주 확인하기
+      </button>
+    </section>
+
+    <!-- 무료 결과 -->
+    <section id="freeResult" class="card result">
+
+      <h2>무료 사주풀이</h2>
+
+      <div class="result-box">
+        <div class="result-title">기본 정보</div>
+        <div id="basicInfo"></div>
+      </div>
+
+      <div class="result-box">
+        <div class="result-title">띠</div>
+        <div id="zodiacResult" class="zodiac"></div>
+      </div>
+
+      <div class="result-box">
+        <div class="result-title">월주</div>
+        <div>
+          기본 만세력 계산을 기준으로 월주를 확인할 수 있습니다.
+          보다 상세한 해석은 유료 사주풀이에서 제공됩니다.
+        </div>
+      </div>
+
+      <div class="result-box">
+        <div class="result-title">일주</div>
+        <div>
+          생년월일을 기준으로 한 기본 사주 정보입니다.
+          정확한 전체 명식과 상세 해석은 유료 서비스에서 제공합니다.
+        </div>
+      </div>
+
+      <div class="result-box">
+        <div class="result-title">시주</div>
+        <div>
+          태어난 시간을 기준으로 시주를 확인합니다.
+          상세한 사주 분석은 유료 사주풀이에서 제공합니다.
+        </div>
+      </div>
+
+    </section>
+
+    <!-- 유료 사주풀이 -->
+    <section class="card paid-card">
+
+      <h2>상세 사주풀이</h2>
+
+      <div class="price">$5 USD</div>
+
+      <div class="paid-description">
+        보다 자세한 사주풀이를 원하신다면 상세 사주풀이를 이용해보세요.
+        <br><br>
+        결제 후 상세한 사주 분석 서비스를 이용할 수 있습니다.
+        <br>
+        재물운 · 직업운 · 사업운 · 인간관계 · 연애운 · 건강운 등
+        다양한 내용을 상세하게 확인할 수 있습니다.
+      </div>
+
+      <button class="button paid-button" onclick="goToPayPal()">
+        $5 USD 상세 사주풀이 결제하기
+      </button>
 
-<div class="header">
+      <div class="notice">
+        결제 버튼을 누르면 PayPal 결제 페이지로 이동합니다.
+      </div>
 
-<h1>오늘의 사주</h1>
+    </section>
 
-<p>
-무료 사주 만세력 · 상세 사주풀이
-</p>
+    <footer class="footer">
+      © 2026 오늘의 사주<br>
+      본 서비스의 사주풀이는 전통 명리학을 바탕으로 한 참고용 콘텐츠입니다.
+    </footer>
+
+  </div>
 
-</div>
+  <script>
+
+    // 띠 계산
+    function getZodiac(year) {
 
+      const animals = [
+        "원숭이띠",
+        "닭띠",
+        "개띠",
+        "돼지띠",
+        "쥐띠",
+        "소띠",
+        "호랑이띠",
+        "토끼띠",
+        "용띠",
+        "뱀띠",
+        "말띠",
+        "양띠"
+      ];
 
-<div class="card">
+      return animals[year % 12];
+    }
 
-<label>이름</label>
 
-<input
-type="text"
-id="name"
-placeholder="이름을 입력하세요"
->
+    // 무료 사주풀이
+    function showFreeSaju() {
 
+      const name = document.getElementById("name").value.trim();
+      const birthDate = document.getElementById("birthDate").value;
+      const birthHour = document.getElementById("birthHour").value;
+      const gender = document.getElementById("gender").value;
 
-<label>양력 생년월일</label>
+      if (!name) {
+        alert("이름을 입력해주세요.");
+        return;
+      }
 
-<input
-type="date"
-id="birth"
->
+      if (!birthDate) {
+        alert("생년월일을 입력해주세요.");
+        return;
+      }
 
+      if (birthHour === "") {
+        alert("태어난 시간을 선택해주세요.");
+        return;
+      }
 
-<label>출생시간</label>
+      if (!gender) {
+        alert("성별을 선택해주세요.");
+        return;
+      }
 
-<select id="hour">
+      const date = new Date(birthDate + "T00:00:00");
 
-<option value="">
-출생시간 모름
-</option>
+      const year = date.getFullYear();
+      const month = date.getMonth() + 1;
+      const day = date.getDate();
 
-<option value="0">00:00</option>
-<option value="1">01:00</option>
-<option value="2">02:00</option>
-<option value="3">03:00</option>
-<option value="4">04:00</option>
-<option value="5">05:00</option>
-<option value="6">06:00</option>
-<option value="7">07:00</option>
-<option value="8">08:00</option>
-<option value="9">09:00</option>
-<option value="10">10:00</option>
-<option value="11">11:00</option>
-<option value="12">12:00</option>
-<option value="13">13:00</option>
-<option value="14">14:00</option>
-<option value="15">15:00</option>
-<option value="16">16:00</option>
-<option value="17">17:00</option>
-<option value="18">18:00</option>
-<option value="19">19:00</option>
-<option value="20">20:00</option>
-<option value="21">21:00</option>
-<option value="22">22:00</option>
-<option value="23">23:00</option>
+      const genderText = gender === "male" ? "남성" : "여성";
 
-</select>
+      document.getElementById("basicInfo").innerHTML =
+        "<strong>이름:</strong> " + escapeHtml(name) + "<br>" +
+        "<strong>생년월일:</strong> " + year + "년 " + month + "월 " + day + "일<br>" +
+        "<strong>성별:</strong> " + genderText;
 
+      document.getElementById("zodiacResult").textContent =
+        getZodiac(year);
 
-<label>출생분</label>
+      document.getElementById("freeResult").style.display = "block";
 
-<select id="minute">
+      document.getElementById("freeResult").scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+    }
 
-<option value="0">00분</option>
-<option value="10">10분</option>
-<option value="20">20분</option>
-<option value="30">30분</option>
-<option value="40">40분</option>
-<option value="50">50분</option>
 
-</select>
+    // 입력값 안전 처리
+    function escapeHtml(text) {
 
+      const div = document.createElement("div");
+      div.textContent = text;
+      return div.innerHTML;
+    }
 
-<label>성별</label>
 
-<select id="gender">
+    // PayPal 결제 페이지 이동
+    function goToPayPal() {
 
-<option value="1">
-남성
-</option>
+      const name = document.getElementById("name").value.trim();
+      const birthDate = document.getElementById("birthDate").value;
 
-<option value="0">
-여성
-</option>
+      if (!name) {
+        alert("먼저 이름을 입력해주세요.");
+        document.getElementById("name").focus();
+        return;
+      }
 
-</select>
+      if (!birthDate) {
+        alert("먼저 생년월일을 입력해주세요.");
+        document.getElementById("birthDate").focus();
+        return;
+      }
 
+      const paypalUrl =
+        "https://www.paypal.com/ncp/payment/46T77XLF2AAPZA";
 
-<button onclick="calculateSaju()">
-무료 사주 확인하기
-</button>
+      window.open(paypalUrl, "_blank");
+    }
 
-
-<div
-id="error"
-class="error"
-></div>
-
-
-<div
-id="result"
-class="result"
->
-
-
-<div class="result-header">
-
-<h2 id="resultTitle">
-사주 결과
-</h2>
-
-<p id="resultSubtitle">
-입력하신 정보를 기준으로 계산되었습니다.
-</p>
-
-</div>
-
-
-<div class="section">
-
-<h3 class="section-title">
-나의 사주팔자
-</h3>
-
-
-<div class="pillars">
-
-
-<div class="pillar">
-
-<div class="pillar-name">
-년주
-</div>
-
-<div
-class="pillar-value"
-id="yearPillar"
->
--
-</div>
-
-<div class="pillar-desc">
-조상·가족
-</div>
-
-</div>
-
-
-<div class="pillar">
-
-<div class="pillar-name">
-월주
-</div>
-
-<div
-class="pillar-value"
-id="monthPillar"
->
--
-</div>
-
-<div class="pillar-desc">
-사회·직업
-</div>
-
-</div>
-
-
-<div class="pillar">
-
-<div class="pillar-name">
-일주
-</div>
-
-<div
-class="pillar-value"
-id="dayPillar"
->
--
-</div>
-
-<div class="pillar-desc">
-나 자신
-</div>
-
-</div>
-
-
-<div class="pillar">
-
-<div class="pillar-name">
-시주
-</div>
-
-<div
-class="pillar-value"
-id="hourPillar"
->
--
-</div>
-
-<div class="pillar-desc">
-말년·자녀
-</div>
-
-</div>
-
-
-</div>
-
-</div>
-
-
-<div class="section">
-
-<h3 class="section-title">
-출생 정보
-</h3>
-
-<div
-class="info-box"
-id="birthInfo"
-></div>
-
-</div>
-
-
-<div class="section">
-
-<h3 class="section-title">
-나의 일간
-</h3>
-
-<div class="daymaster-box">
-
-<div
-class="daymaster-character"
-id="dayMasterCharacter"
->
--
-</div>
-
-<div
-id="dayMasterText"
-></div>
-
-</div>
-
-</div>
-
-
-<div class="section">
-
-<h3 class="section-title">
-오행 분석
-</h3>
-
-
-<div class="element-grid">
-
-
-<div class="element-box">
-
-목(木)
-
-<div
-class="element-number"
-id="wood"
->
-0
-</div>
-
-<div class="element-bar">
-
-<div
-class="element-bar-inner"
-id="woodBar"
-></div>
-
-</div>
-
-</div>
-
-
-<div class="element-box">
-
-화(火)
-
-<div
-class="element-number"
-id="fire"
->
-0
-</div>
-
-<div class="element-bar">
-
-<div
-class="element-bar-inner"
-id="fireBar"
-></div>
-
-</div>
-
-</div>
-
-
-<div class="element-box">
-
-토(土)
-
-<div
-class="element-number"
-id="earth"
->
-0
-</div>
-
-<div class="element-bar">
-
-<div
-class="element-bar-inner"
-id="earthBar"
-></div>
-
-</div>
-
-</div>
-
-
-<div class="element-box">
-
-금(金)
-
-<div
-class="element-number"
-id="metal"
->
-0
-</div>
-
-<div class="element-bar">
-
-<div
-class="element-bar-inner"
-id="metalBar"
-></div>
-
-</div>
-
-</div>
-
-
-<div class="element-box">
-
-수(水)
-
-<div
-class="element-number"
-id="water"
->
-0
-</div>
-
-<div class="element-bar">
-
-<div
-class="element-bar-inner"
-id="waterBar"
-></div>
-
-</div>
-
-</div>
-
-
-</div>
-
-
-<div
-class="info-box"
-style="margin-top:12px"
-id="elementSummary"
-></div>
-
-</div>
-
-
-<div class="section">
-
-<h3 class="section-title">
-무료 사주풀이
-</h3>
-
-
-<div class="reading-box">
-
-<span class="free-badge">
-FREE
-</span>
-
-<div
-class="reading-title"
-id="freeTitle"
->
-기본 성향
-</div>
-
-<p id="freeReading"></p>
-
-</div>
-
-
-<div
-class="reading-box"
-style="margin-top:12px"
->
-
-<div class="reading-title">
-무료 조언
-</div>
-
-<p id="freeAdvice"></p>
-
-</div>
-
-</div>
-
-
-<div class="section">
-
-<h3 class="section-title">
-대운 흐름
-</h3>
-
-
-<div class="info-box">
-
-<div
-id="yunStart"
-style="margin-bottom:15px"
-></div>
-
-
-<div class="daeyun-wrap">
-
-<table>
-
-<thead>
-
-<tr>
-
-<th>
-순서
-</th>
-
-<th>
-시작나이
-</th>
-
-<th>
-시작연도
-</th>
-
-<th>
-대운
-</th>
-
-</tr>
-
-</thead>
-
-<tbody
-id="daeyunTable"
-></tbody>
-
-</table>
-
-</div>
-
-</div>
-
-</div>
-
-
-<!-- 유료 상세풀이 -->
-
-<div class="section">
-
-<h3 class="section-title">
-상세 사주풀이
-</h3>
-
-
-<div class="premium-box">
-
-<h3>
-🔮 나만의 상세 사주풀이
-</h3>
-
-
-<p>
-무료 사주보다 훨씬 자세하게
-나의 인생 흐름을 살펴봅니다.
-</p>
-
-
-<div class="premium-price">
-상세풀이 서비스
-</div>
-
-
-<div class="premium-list">
-
-<div>
-💰 재물운 · 돈의 흐름과 재물 성향
-</div>
-
-<div>
-💼 직업운 · 직장·사업 방향
-</div>
-
-<div>
-❤️ 애정운 · 연애·배우자 성향
-</div>
-
-<div>
-👨‍👩‍👧 가족·대인관계
-</div>
-
-<div>
-📈 대운 · 인생의 큰 흐름
-</div>
-
-<div>
-⭐ 종합 사주풀이
-</div>
-
-</div>
-
-
-<div class="lock-box">
-
-<div class="lock-icon">
-🔒
-</div>
-
-<p>
-상세 사주풀이는 현재 잠겨 있습니다.
-</p>
-
-<button
-onclick="openDetailForTest()"
->
-상세풀이 내용 보기
-</button>
-
-</div>
-
-
-<div
-id="detailContent"
-class="detail-content"
->
-
-
-<div class="detail-card">
-
-<h4>
-💰 재물운 상세
-</h4>
-
-<p id="moneyDetail"></p>
-
-</div>
-
-
-<div class="detail-card">
-
-<h4>
-💼 직업·사업운 상세
-</h4>
-
-<p id="jobDetail"></p>
-
-</div>
-
-
-<div class="detail-card">
-
-<h4>
-❤️ 애정·배우자운 상세
-</h4>
-
-<p id="loveDetail"></p>
-
-</div>
-
-
-<div class="detail-card">
-
-<h4>
-👨‍👩‍👧 가족·대인관계 상세
-</h4>
-
-<p id="relationshipDetail"></p>
-
-</div>
-
-
-<div class="detail-card">
-
-<h4>
-📈 대운 상세
-</h4>
-
-<p id="yunDetail"></p>
-
-</div>
-
-
-<div class="detail-card">
-
-<h4>
-⭐ 종합 사주풀이
-</h4>
-
-<p id="totalDetail"></p>
-
-</div>
-
-
-</div>
-
-</div>
-
-</div>
-
-
-<div class="notice">
-
-※ 현재 상세풀이 공개 버튼은 테스트용입니다.<br>
-※ 다음 단계에서 실제 결제 시스템과 연결합니다.<br>
-※ 사주풀이는 전통 명리학에 따른 참고용 서비스입니다.
-
-</div>
-
-
-</div>
-
-</div>
-
-</div>
-
-
-<script src="https://cdn.jsdelivr.net/npm/lunar-javascript@1.7.7/lunar.js"></script>
-
-
-<script>
-
-
-let currentEight = null;
-
-let currentElementSummary = "";
-
-let currentName = "";
-
-
-function calculateSaju(){
-
-const error =
-document.getElementById("error");
-
-error.textContent="";
-
-
-const name =
-document.getElementById("name")
-.value
-.trim();
-
-
-const birth =
-document.getElementById("birth")
-.value;
-
-
-const hourValue =
-document.getElementById("hour")
-.value;
-
-
-const minute =
-Number(
-document.getElementById("minute")
-.value
-);
-
-
-const gender =
-Number(
-document.getElementById("gender")
-.value
-);
-
-
-if(!birth){
-
-error.textContent =
-"생년월일을 입력해주세요.";
-
-return;
-
-}
-
-
-if(typeof Solar==="undefined"){
-
-error.textContent =
-"만세력 계산 엔진을 불러오지 못했습니다. 인터넷 연결을 확인해주세요.";
-
-return;
-
-}
-
-
-const parts =
-birth.split("-");
-
-
-const year =
-Number(parts[0]);
-
-const month =
-Number(parts[1]);
-
-const day =
-Number(parts[2]);
-
-
-let hour=12;
-
-
-if(hourValue!==""){
-
-hour =
-Number(hourValue);
-
-}
-
-
-try{
-
-
-const solar =
-Solar.fromYmdHms(
-year,
-month,
-day,
-hour,
-minute,
-0
-);
-
-
-const lunar =
-solar.getLunar();
-
-
-const eight =
-lunar.getEightChar();
-
-
-currentEight =
-eight;
-
-currentName =
-name || "회원";
-
-
-const yearPillar =
-eight.getYear();
-
-const monthPillar =
-eight.getMonth();
-
-const dayPillar =
-eight.getDay();
-
-
-let hourPillar =
-"미입력";
-
-
-if(hourValue!==""){
-
-hourPillar =
-eight.getTime();
-
-}
-
-
-document.getElementById(
-"resultTitle"
-).textContent =
-currentName+
-"님의 무료 사주";
-
-
-document.getElementById(
-"resultSubtitle"
-).textContent =
-year+
-"년 "+
-month+
-"월 "+
-day+
-"일 기준";
-
-
-document.getElementById(
-"yearPillar"
-).textContent =
-yearPillar;
-
-
-document.getElementById(
-"monthPillar"
-).textContent =
-monthPillar;
-
-
-document.getElementById(
-"dayPillar"
-).textContent =
-dayPillar;
-
-
-document.getElementById(
-"hourPillar"
-).textContent =
-hourPillar;
-
-
-let birthText =
-year+
-"년 "+
-month+
-"월 "+
-day+
-"일";
-
-
-if(hourValue!==""){
-
-birthText +=
-"<br>출생시간: "+
-hour+
-"시 "+
-minute+
-"분";
-
-}else{
-
-birthText +=
-"<br>출생시간: 모름";
-
-}
-
-
-birthText +=
-"<br>성별: "+
-(
-gender===1
-?"남성"
-:"여성"
-);
-
-
-document.getElementById(
-"birthInfo"
-).innerHTML =
-birthText;
-
-
-const dayGan =
-eight.getDayGan();
-
-
-const dayZhi =
-eight.getDayZhi();
-
-
-document.getElementById(
-"dayMasterCharacter"
-).textContent =
-dayGan;
-
-
-document.getElementById(
-"dayMasterText"
-).innerHTML =
-getDayMasterText(dayGan)+
-"<br><br>"+
-"일주: <strong>"+
-dayPillar+
-"</strong>"+
-"<br>"+
-"일지: <strong>"+
-dayZhi+
-"</strong>";
-
-
-calculateElements(
-yearPillar+
-monthPillar+
-dayPillar+
-(
-hourValue===""
-?""
-:hourPillar
-)
-);
-
-
-makeFreeReading(
-eight
-);
-
-
-makeDaYun(
-eight,
-gender
-);
-
-
-document.getElementById(
-"detailContent"
-).style.display =
-"none";
-
-
-document.getElementById(
-"result"
-).style.display =
-"block";
-
-
-document.getElementById(
-"result"
-).scrollIntoView({
-behavior:"smooth"
-});
-
-
-}
-catch(e){
-
-console.error(e);
-
-error.textContent =
-"사주 계산 중 오류가 발생했습니다.";
-
-}
-
-}
-
-
-function calculateElements(text){
-
-const count={
-
-wood:0,
-fire:0,
-earth:0,
-metal:0,
-water:0
-
-};
-
-
-const map={
-
-"甲":"wood",
-"乙":"wood",
-"寅":"wood",
-"卯":"wood",
-
-"丙":"fire",
-"丁":"fire",
-"巳":"fire",
-"午":"fire",
-
-"戊":"earth",
-"己":"earth",
-"辰":"earth",
-"丑":"earth",
-"未":"earth",
-"戌":"earth",
-
-"庚":"metal",
-"辛":"metal",
-"申":"metal",
-"酉":"metal",
-
-"壬":"water",
-"癸":"water",
-"子":"water",
-"亥":"water"
-
-};
-
-
-for(
-let i=0;
-i<text.length;
-i++
-){
-
-const c =
-text.charAt(i);
-
-
-if(map[c]){
-
-count[
-map[c]
-]++;
-
-}
-
-}
-
-
-document.getElementById(
-"wood"
-).textContent =
-count.wood;
-
-
-document.getElementById(
-"fire"
-).textContent =
-count.fire;
-
-
-document.getElementById(
-"earth"
-).textContent =
-count.earth;
-
-
-document.getElementById(
-"metal"
-).textContent =
-count.metal;
-
-
-document.getElementById(
-"water"
-).textContent =
-count.water;
-
-
-const total =
-count.wood+
-count.fire+
-count.earth+
-count.metal+
-count.water;
-
-
-setBar(
-"woodBar",
-count.wood,
-total
-);
-
-
-setBar(
-"fireBar",
-count.fire,
-total
-);
-
-
-setBar(
-"earthBar",
-count.earth,
-total
-);
-
-
-setBar(
-"metalBar",
-count.metal,
-total
-);
-
-
-setBar(
-"waterBar",
-count.water,
-total
-);
-
-
-const arr=[
-
-["목(木)",count.wood],
-["화(火)",count.fire],
-["토(土)",count.earth],
-["금(金)",count.metal],
-["수(水)",count.water]
-
-];
-
-
-arr.sort(
-function(a,b){
-return a[1]-b[1];
-}
-);
-
-
-currentElementSummary =
-"부족한 오행: "+
-arr[0][0]+
-" / 강한 오행: "+
-arr[arr.length-1][0];
-
-
-document.getElementById(
-"elementSummary"
-).innerHTML =
-"현재 사주에서 상대적으로 적게 나타나는 오행은 "+
-"<strong>"+
-arr[0][0]+
-"</strong>이며, 상대적으로 많이 나타나는 오행은 "+
-"<strong>"+
-arr[arr.length-1][0]+
-"</strong>입니다.";
-
-}
-
-
-function setBar(
-id,
-value,
-total
-){
-
-const percent =
-total===0
-?0
-:Math.round(
-value/total*100
-);
-
-
-document.getElementById(
-id
-).style.width =
-percent+
-"%";
-
-}
-
-
-function getDayMasterText(gan){
-
-const texts={
-
-"甲":
-"갑목(甲木)은 큰 나무와 같은 기운으로 비유됩니다. 성장과 추진력, 원칙을 중요하게 생각하는 성향이 나타날 수 있습니다.",
-
-"乙":
-"을목(乙木)은 풀과 덩굴처럼 유연한 기운으로 비유됩니다. 적응력과 섬세함, 관계를 중요하게 생각하는 성향이 나타날 수 있습니다.",
-
-"丙":
-"병화(丙火)는 태양과 같은 밝은 기운으로 비유됩니다. 적극성과 표현력, 자신감이 중요한 특징으로 나타날 수 있습니다.",
-
-"丁":
-"정화(丁火)는 촛불과 같은 섬세한 불의 기운으로 비유됩니다. 집중력과 따뜻함, 세심함이 특징으로 나타날 수 있습니다.",
-
-"戊":
-"무토(戊土)는 큰 산과 같은 안정적인 기운으로 비유됩니다. 책임감과 신뢰, 꾸준함을 중요하게 생각하는 성향이 나타날 수 있습니다.",
-
-"己":
-"기토(己土)는 밭과 같은 기운으로 비유됩니다. 현실감각과 실용성, 주변을 살피는 능력이 특징으로 나타날 수 있습니다.",
-
-"庚":
-"경금(庚金)은 단단한 쇠와 같은 기운으로 비유됩니다. 결단력과 원칙, 추진력이 중요한 특징으로 나타날 수 있습니다.",
-
-"辛":
-"신금(辛金)은 보석과 같은 섬세한 금의 기운으로 비유됩니다. 정확함과 세련됨, 판단력을 중요하게 생각하는 성향이 나타날 수 있습니다.",
-
-"壬":
-"임수(壬水)는 큰 강이나 바다와 같은 기운으로 비유됩니다. 사고의 폭과 유연성, 변화에 대응하는 힘이 특징으로 나타날 수 있습니다.",
-
-"癸":
-"계수(癸水)는 이슬과 비처럼 섬세한 물의 기운으로 비유됩니다. 직관력과 관찰력, 섬세한 사고가 특징으로 나타날 수 있습니다."
-
-};
-
-
-return texts[gan] ||
-"일간을 중심으로 사주의 전체적인 균형을 살펴볼 수 있습니다.";
-
-}
-
-
-function makeFreeReading(eight){
-
-const gan =
-eight.getDayGan();
-
-
-document.getElementById(
-"freeReading"
-).textContent =
-getDayMasterText(gan);
-
-
-let advice="";
-
-
-if(
-gan==="甲"||
-gan==="乙"
-){
-
-advice =
-"새로운 일을 시작하거나 자신의 능력을 꾸준히 성장시키는 방향을 참고해볼 수 있습니다.";
-
-}
-else if(
-gan==="丙"||
-gan==="丁"
-){
-
-advice =
-"자신의 생각과 능력을 적극적으로 표현하고 사람들과 소통하는 방향을 참고해볼 수 있습니다.";
-
-}
-else if(
-gan==="戊"||
-gan==="己"
-){
-
-advice =
-"급하게 결과를 만들기보다 현실적인 계획을 세우고 꾸준히 실행하는 방향을 참고해볼 수 있습니다.";
-
-}
-else if(
-gan==="庚"||
-gan==="辛"
-){
-
-advice =
-"명확한 목표와 기준을 세우고 불필요한 일을 정리하는 방향을 참고해볼 수 있습니다.";
-
-}
-else{
-
-advice =
-"주변 상황을 관찰하면서 유연하게 대응하는 방향을 참고해볼 수 있습니다.";
-
-}
-
-
-document.getElementById(
-"freeAdvice"
-).textContent =
-advice;
-
-}
-
-
-function makeDaYun(
-eight,
-gender
-){
-
-const table =
-document.getElementById(
-"daeyunTable"
-);
-
-table.innerHTML="";
-
-
-try{
-
-const yun =
-eight.getYun(gender);
-
-
-document.getElementById(
-"yunStart"
-).innerHTML =
-
-"대운 시작: <strong>"+
-yun.getStartYear()+
-"년 "+
-yun.getStartMonth()+
-"개월 "+
-yun.getStartDay()+
-"일</strong><br>"+
-"진행 방향: <strong>"+
-(
-yun.isForward()
-?"순행"
-:"역행"
-)+
-"</strong>";
-
-
-const list =
-yun.getDaYun(10);
-
-
-for(
-let i=0;
-i<list.length;
-i++
-){
-
-const d =
-list[i];
-
-
-const tr =
-document.createElement(
-"tr"
-);
-
-
-tr.innerHTML =
-
-"<td>"+
-d.getIndex()+
-"</td>"+
-
-"<td>"+
-d.getStartAge()+
-"세</td>"+
-
-"<td>"+
-d.getStartYear()+
-"년</td>"+
-
-"<td><strong>"+
-d.getGanZhi()+
-"</strong></td>";
-
-
-table.appendChild(tr);
-
-}
-
-}
-catch(e){
-
-console.error(e);
-
-table.innerHTML =
-"<tr>"+
-"<td colspan='4'>"+
-"대운 정보를 표시할 수 없습니다."+
-"</td>"+
-"</tr>";
-
-}
-
-}
-
-
-/*
-유료 상세풀이 콘텐츠
-현재는 테스트 공개입니다.
-3단계에서 실제 결제 완료 후에만
-이 함수가 실행되도록 변경합니다.
-*/
-
-function openDetailForTest(){
-
-if(!currentEight){
-
-alert(
-"먼저 무료 사주를 계산해주세요."
-);
-
-return;
-
-}
-
-
-const gan =
-currentEight.getDayGan();
-
-
-const dayPillar =
-currentEight.getDay();
-
-
-const money =
-makeMoneyDetail(gan);
-
-
-const job =
-makeJobDetail(gan);
-
-
-const love =
-makeLoveDetail(gan);
-
-
-const relationship =
-makeRelationshipDetail(gan);
-
-
-const yun =
-makeYunDetail();
-
-
-const total =
-makeTotalDetail(
-gan,
-dayPillar
-);
-
-
-document.getElementById(
-"moneyDetail"
-).textContent =
-money;
-
-
-document.getElementById(
-"jobDetail"
-).textContent =
-job;
-
-
-document.getElementById(
-"loveDetail"
-).textContent =
-love;
-
-
-document.getElementById(
-"relationshipDetail"
-).textContent =
-relationship;
-
-
-document.getElementById(
-"yunDetail"
-).textContent =
-yun;
-
-
-document.getElementById(
-"totalDetail"
-).textContent =
-total;
-
-
-document.getElementById(
-"detailContent"
-).style.display =
-"block";
-
-
-document.getElementById(
-"detailContent"
-).scrollIntoView({
-behavior:"smooth"
-});
-
-}
-
-
-function makeMoneyDetail(gan){
-
-if(
-gan==="甲"||
-gan==="乙"
-){
-
-return currentName+
-"님의 재물운은 성장과 확장을 중요하게 생각하는 흐름으로 해석할 수 있습니다. 한 번에 큰 결과를 얻으려 하기보다 자신의 능력과 경험을 단계적으로 키우면서 수입원을 넓혀가는 전략이 잘 맞을 수 있습니다. 특히 장기적인 계획과 꾸준한 관리가 중요합니다.";
-
-}
-
-
-if(
-gan==="丙"||
-gan==="丁"
-){
-
-return currentName+
-"님의 재물운은 활동성과 표현력을 활용할 때 기회를 만들기 쉬운 성향으로 볼 수 있습니다. 사람과의 연결이나 자신의 능력을 보여주는 일이 재물의 기회로 이어질 수 있습니다. 다만 순간적인 판단보다 지출과 투자에 기준을 세우는 것이 중요합니다.";
-
-}
-
-
-if(
-gan==="戊"||
-gan==="己"
-){
-
-return currentName+
-"님의 재물운은 안정성과 축적을 중요하게 보는 흐름으로 해석할 수 있습니다. 단기간의 큰 수익보다 꾸준한 현금흐름과 자산관리가 중요합니다. 계획 없이 돈을 움직이기보다 현실적인 목표를 세우는 것이 도움이 됩니다.";
-
-}
-
-
-if(
-gan==="庚"||
-gan==="辛"
-){
-
-return currentName+
-"님의 재물운은 판단력과 결단력을 활용하는 방향으로 해석할 수 있습니다. 자신의 전문성과 경쟁력을 높이면 경제적인 기회를 만들 수 있습니다. 다만 지나친 자신감으로 위험을 크게 가져가는 것은 피하는 것이 좋습니다.";
-
-}
-
-
-return currentName+
-"님의 재물운은 유연성과 정보 활용 능력을 중요하게 볼 수 있습니다. 다양한 기회를 비교하면서 자신에게 맞는 흐름을 선택하는 것이 중요합니다. 변화에 빠르게 대응하되 금전적인 결정에는 충분한 검토가 필요합니다.";
-
-}
-
-
-function makeJobDetail(gan){
-
-if(
-gan==="甲"||
-gan==="乙"
-){
-
-return "성장과 발전을 추구하는 성향을 살릴 수 있는 업무가 잘 맞을 수 있습니다. 조직 안에서 새로운 프로젝트를 추진하거나 장기적인 성과를 만드는 분야를 참고해볼 수 있습니다.";
-
-}
-
-
-if(
-gan==="丙"||
-gan==="丁"
-){
-
-return "표현력과 사람을 상대하는 능력을 활용할 수 있는 업무를 참고해볼 수 있습니다. 영업, 홍보, 교육, 콘텐츠, 서비스 등 사람과의 소통이 중요한 분야에서 강점을 활용할 수 있습니다.";
-
-}
-
-
-if(
-gan==="戊"||
-gan==="己"
-){
-
-return "관리와 운영, 책임감이 필요한 업무에서 장점을 활용할 수 있습니다. 건설, 부동산, 관리, 조직운영 등 현실적인 결과를 만들어내는 분야를 참고해볼 수 있습니다.";
-
-}
-
-
-if(
-gan==="庚"||
-gan==="辛"
-){
-
-return "판단과 결단, 전문성이 중요한 분야를 참고해볼 수 있습니다. 기술, 관리, 품질, 분석, 금융, 기획 등 명확한 기준과 전문성이 필요한 업무가 잘 맞을 수 있습니다.";
-
-}
-
-
-return "정보를 분석하고 상황에 따라 유연하게 움직이는 분야를 참고해볼 수 있습니다. 상담, 기획, 연구, 무역, 정보, 서비스 분야 등 변화가 많은 환경에서 장점을 활용할 수 있습니다.";
-
-}
-
-
-function makeLoveDetail(gan){
-
-if(
-gan==="甲"||
-gan==="乙"
-){
-
-return "관계에서 신뢰와 성장을 중요하게 생각하는 성향이 나타날 수 있습니다. 상대방의 발전을 존중하면서도 자신의 감정을 지나치게 참고만 있지 않는 것이 중요합니다.";
-
-}
-
-
-if(
-gan==="丙"||
-gan==="丁"
-){
-
-return "애정관계에서 표현과 소통이 중요한 편으로 볼 수 있습니다. 마음을 적극적으로 표현하는 장점이 있지만 상대방의 속도와 감정을 함께 살피는 것이 관계를 안정시키는 데 도움이 됩니다.";
-
-}
-
-
-if(
-gan==="戊"||
-gan==="己"
-){
-
-return "안정적인 관계와 신뢰를 중요하게 생각하는 성향이 나타날 수 있습니다. 한번 마음을 정하면 오래가는 장점이 있지만 자신의 감정을 표현하는 것도 중요합니다.";
-
-}
-
-
-if(
-gan==="庚"||
-gan==="辛"
-){
-
-return "관계에서도 기준과 신뢰를 중요하게 생각할 수 있습니다. 상대방에게 높은 기준을 요구하기보다 서로의 차이를 인정하는 것이 좋은 관계를 만드는 데 도움이 됩니다.";
-
-}
-
-
-return "상대방의 마음을 살피고 상황에 맞춰주는 능력이 장점이 될 수 있습니다. 다만 자신의 감정을 혼자 판단하지 말고 필요한 부분은 솔직하게 표현하는 것이 중요합니다.";
-
-}
-
-
-function makeRelationshipDetail(gan){
-
-return currentName+
-"님의 대인관계에서는 자신의 강점과 상대방의 차이를 함께 인정하는 것이 중요합니다. 가까운 사람일수록 지나친 기대나 오해가 생기지 않도록 자신의 생각을 차분하게 표현하는 것이 좋습니다. 사람을 많이 만나는 것보다 자신에게 도움이 되는 관계를 오래 유지하는 것이 중요합니다.";
-
-}
-
-
-function makeYunDetail(){
-
-return "대운은 약 10년 단위의 큰 흐름을 살펴보는 전통 명리학의 방법입니다. 각 대운의 간지와 본인의 일간 관계를 함께 살펴보면 시기별로 어떤 주제에 관심을 두어야 하는지 참고할 수 있습니다. 대운의 변화가 있다고 해서 결과가 자동으로 결정되는 것은 아니며, 실제 환경과 선택을 함께 고려해야 합니다.";
-
-}
-
-
-function makeTotalDetail(
-gan,
-dayPillar
-){
-
-return currentName+
-"님의 전체 사주를 종합하면 일간 "+
-gan+
-"을 중심으로 자신의 장점을 어떻게 현실에서 활용하느냐가 중요한 포인트입니다. "+
-"일주 "+
-dayPillar+
-"를 기준으로 자신만의 성향을 이해하고, 오행의 균형과 대운의 흐름을 함께 살펴보는 것이 좋습니다. "+
-"재물과 직업에서는 자신의 강점을 꾸준히 전문성으로 발전시키고, 인간관계에서는 자신의 기준과 상대방의 입장을 균형 있게 보는 것이 도움이 될 수 있습니다. "+
-"이 내용은 전통 명리학에 따른 참고용 해석이며 실제 인생의 결과는 본인의 선택과 환경에 따라 달라질 수 있습니다.";
-
-}
-
-</script>
+  </script>
 
 </body>
 </html>
+```
