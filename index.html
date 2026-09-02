@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -174,10 +173,6 @@
       line-height: 1.7;
     }
 
-    .hidden {
-      display: none;
-    }
-
     @media (max-width: 600px) {
       .container {
         padding: 12px 10px 40px;
@@ -203,22 +198,29 @@
       <p>생년월일을 입력하고 나의 사주를 확인해보세요.</p>
     </header>
 
-    <!-- 사주 입력 -->
     <section class="card">
       <h2>사주 정보 입력</h2>
 
       <div class="form-group">
         <label for="name">이름</label>
-        <input type="text" id="name" placeholder="이름을 입력하세요">
+        <input
+          type="text"
+          id="name"
+          placeholder="이름을 입력하세요"
+        >
       </div>
 
       <div class="form-group">
         <label for="birthDate">생년월일</label>
-        <input type="date" id="birthDate">
+        <input
+          type="date"
+          id="birthDate"
+        >
       </div>
 
       <div class="form-group">
         <label for="birthHour">태어난 시간</label>
+
         <select id="birthHour">
           <option value="">시간을 선택하세요</option>
           <option value="0">자시 (23:00~01:00)</option>
@@ -238,6 +240,7 @@
 
       <div class="form-group">
         <label for="gender">성별</label>
+
         <select id="gender">
           <option value="">성별을 선택하세요</option>
           <option value="male">남성</option>
@@ -245,70 +248,112 @@
         </select>
       </div>
 
-      <button class="button free-button" onclick="showFreeSaju()">
+      <button
+        class="button free-button"
+        onclick="showFreeSaju()"
+      >
         무료 사주 확인하기
       </button>
     </section>
 
-    <!-- 무료 결과 -->
-    <section id="freeResult" class="card result">
+
+    <section
+      id="freeResult"
+      class="card result"
+    >
 
       <h2>무료 사주풀이</h2>
 
       <div class="result-box">
-        <div class="result-title">기본 정보</div>
+        <div class="result-title">
+          기본 정보
+        </div>
+
         <div id="basicInfo"></div>
       </div>
 
       <div class="result-box">
-        <div class="result-title">띠</div>
-        <div id="zodiacResult" class="zodiac"></div>
-      </div>
 
-      <div class="result-box">
-        <div class="result-title">월주</div>
-        <div>
-          기본 만세력 계산을 기준으로 월주를 확인할 수 있습니다.
-          보다 상세한 해석은 유료 사주풀이에서 제공됩니다.
+        <div class="result-title">
+          띠
         </div>
+
+        <div
+          id="zodiacResult"
+          class="zodiac"
+        ></div>
+
       </div>
 
       <div class="result-box">
-        <div class="result-title">일주</div>
+
+        <div class="result-title">
+          월주
+        </div>
+
+        <div>
+          기본 만세력 정보를 기준으로 확인할 수 있습니다.
+          보다 상세한 해석은 유료 사주풀이에서 제공합니다.
+        </div>
+
+      </div>
+
+      <div class="result-box">
+
+        <div class="result-title">
+          일주
+        </div>
+
         <div>
           생년월일을 기준으로 한 기본 사주 정보입니다.
-          정확한 전체 명식과 상세 해석은 유료 서비스에서 제공합니다.
+          정확한 전체 명식과 상세 해석은 유료 사주풀이에서 제공합니다.
         </div>
+
       </div>
 
       <div class="result-box">
-        <div class="result-title">시주</div>
+
+        <div class="result-title">
+          시주
+        </div>
+
         <div>
           태어난 시간을 기준으로 시주를 확인합니다.
-          상세한 사주 분석은 유료 사주풀이에서 제공합니다.
+          상세한 사주 분석은 유료 서비스에서 제공합니다.
         </div>
+
       </div>
 
     </section>
 
-    <!-- 유료 사주풀이 -->
+
     <section class="card paid-card">
 
-      <h2>상세 사주풀이</h2>
+      <h2>
+        상세 사주풀이
+      </h2>
 
-      <div class="price">$5 USD</div>
-
-      <div class="paid-description">
-        보다 자세한 사주풀이를 원하신다면 상세 사주풀이를 이용해보세요.
-        <br><br>
-        결제 후 상세한 사주 분석 서비스를 이용할 수 있습니다.
-        <br>
-        재물운 · 직업운 · 사업운 · 인간관계 · 연애운 · 건강운 등
-        다양한 내용을 상세하게 확인할 수 있습니다.
+      <div class="price">
+        $9.99 USD
       </div>
 
-      <button class="button paid-button" onclick="goToPayPal()">
-        $5 USD 상세 사주풀이 결제하기
+      <div class="paid-description">
+
+        무료 사주풀이보다 더 자세한 분석을 원하신다면
+        상세 사주풀이를 이용해보세요.
+
+        <br><br>
+
+        재물운 · 직업운 · 사업운 · 인간관계 · 연애운 ·
+        건강운 등 다양한 내용을 상세하게 확인할 수 있습니다.
+
+      </div>
+
+      <button
+        class="button paid-button"
+        onclick="goToPayPal()"
+      >
+        $9.99 USD 상세 사주풀이 결제하기
       </button>
 
       <div class="notice">
@@ -317,16 +362,26 @@
 
     </section>
 
+
     <footer class="footer">
-      © 2026 오늘의 사주<br>
-      본 서비스의 사주풀이는 전통 명리학을 바탕으로 한 참고용 콘텐츠입니다.
+
+      © 2026 오늘의 사주
+
+      <br>
+
+      본 서비스의 사주풀이는 전통 명리학을 바탕으로 한
+      참고용 콘텐츠입니다.
+
     </footer>
 
   </div>
 
+
   <script>
 
-    // 띠 계산
+    /*
+     * 띠 계산
+     */
     function getZodiac(year) {
 
       const animals = [
@@ -348,94 +403,209 @@
     }
 
 
-    // 무료 사주풀이
+    /*
+     * 무료 사주풀이
+     */
     function showFreeSaju() {
 
-      const name = document.getElementById("name").value.trim();
-      const birthDate = document.getElementById("birthDate").value;
-      const birthHour = document.getElementById("birthHour").value;
-      const gender = document.getElementById("gender").value;
+      const name =
+        document
+          .getElementById("name")
+          .value
+          .trim();
+
+      const birthDate =
+        document
+          .getElementById("birthDate")
+          .value;
+
+      const birthHour =
+        document
+          .getElementById("birthHour")
+          .value;
+
+      const gender =
+        document
+          .getElementById("gender")
+          .value;
+
 
       if (!name) {
+
         alert("이름을 입력해주세요.");
+
+        document
+          .getElementById("name")
+          .focus();
+
         return;
       }
+
 
       if (!birthDate) {
+
         alert("생년월일을 입력해주세요.");
+
+        document
+          .getElementById("birthDate")
+          .focus();
+
         return;
       }
+
 
       if (birthHour === "") {
+
         alert("태어난 시간을 선택해주세요.");
+
+        document
+          .getElementById("birthHour")
+          .focus();
+
         return;
       }
+
 
       if (!gender) {
+
         alert("성별을 선택해주세요.");
+
+        document
+          .getElementById("gender")
+          .focus();
+
         return;
       }
 
-      const date = new Date(birthDate + "T00:00:00");
 
-      const year = date.getFullYear();
-      const month = date.getMonth() + 1;
-      const day = date.getDate();
+      const date =
+        new Date(
+          birthDate + "T00:00:00"
+        );
 
-      const genderText = gender === "male" ? "남성" : "여성";
 
-      document.getElementById("basicInfo").innerHTML =
-        "<strong>이름:</strong> " + escapeHtml(name) + "<br>" +
-        "<strong>생년월일:</strong> " + year + "년 " + month + "월 " + day + "일<br>" +
-        "<strong>성별:</strong> " + genderText;
+      const year =
+        date.getFullYear();
 
-      document.getElementById("zodiacResult").textContent =
-        getZodiac(year);
+      const month =
+        date.getMonth() + 1;
 
-      document.getElementById("freeResult").style.display = "block";
+      const day =
+        date.getDate();
 
-      document.getElementById("freeResult").scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-      });
+
+      const genderText =
+        gender === "male"
+          ? "남성"
+          : "여성";
+
+
+      document
+        .getElementById("basicInfo")
+        .innerHTML =
+          "<strong>이름:</strong> "
+          + escapeHtml(name)
+          + "<br>"
+          + "<strong>생년월일:</strong> "
+          + year
+          + "년 "
+          + month
+          + "월 "
+          + day
+          + "일<br>"
+          + "<strong>성별:</strong> "
+          + genderText;
+
+
+      document
+        .getElementById("zodiacResult")
+        .textContent =
+          getZodiac(year);
+
+
+      document
+        .getElementById("freeResult")
+        .style.display =
+          "block";
+
+
+      document
+        .getElementById("freeResult")
+        .scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+
     }
 
 
-    // 입력값 안전 처리
+    /*
+     * 입력값 안전 처리
+     */
     function escapeHtml(text) {
 
-      const div = document.createElement("div");
+      const div =
+        document.createElement("div");
+
       div.textContent = text;
+
       return div.innerHTML;
     }
 
 
-    // PayPal 결제 페이지 이동
+    /*
+     * PayPal 결제 링크
+     *
+     * 실제 PayPal에서 생성된 $9.99 결제 링크
+     */
     function goToPayPal() {
 
-      const name = document.getElementById("name").value.trim();
-      const birthDate = document.getElementById("birthDate").value;
+      const name =
+        document
+          .getElementById("name")
+          .value
+          .trim();
+
+      const birthDate =
+        document
+          .getElementById("birthDate")
+          .value;
+
 
       if (!name) {
+
         alert("먼저 이름을 입력해주세요.");
-        document.getElementById("name").focus();
+
+        document
+          .getElementById("name")
+          .focus();
+
         return;
       }
+
 
       if (!birthDate) {
+
         alert("먼저 생년월일을 입력해주세요.");
-        document.getElementById("birthDate").focus();
+
+        document
+          .getElementById("birthDate")
+          .focus();
+
         return;
       }
 
-      const paypalUrl =
-        "https://www.paypal.com/ncp/payment/46T77XLF2AAPZA";
 
-      window.open(paypalUrl, "_blank");
+      const paypalUrl =
+        "https://www.paypal.com/ncp/links/46T77XLF2APZA";
+
+
+      window.location.href =
+        paypalUrl;
+
     }
 
   </script>
 
 </body>
 </html>
-```
