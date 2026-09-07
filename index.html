@@ -1880,19 +1880,13 @@ function goToPayPal() {
       .value
       .trim();
 
-
   const birthDate =
     document
       .getElementById("birthDate")
       .value;
 
-
-
   if (!name) {
-
-    alert(
-      "먼저 이름을 입력해주세요."
-    );
+    alert("먼저 이름을 입력해주세요.");
 
     document
       .getElementById("name")
@@ -1901,13 +1895,8 @@ function goToPayPal() {
     return;
   }
 
-
-
   if (!birthDate) {
-
-    alert(
-      "먼저 생년월일을 입력해주세요."
-    );
+    alert("먼저 생년월일을 입력해주세요.");
 
     document
       .getElementById("birthDate")
@@ -1916,15 +1905,44 @@ function goToPayPal() {
     return;
   }
 
+  fetch("https://throbbing-darkness-a709.myungsoo1974.workers.dev/api/create-order", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      name: name,
+      birthDate: birthDate
+    })
+  })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("결제 주문 생성 실패");
+      }
 
+      return response.json();
+    })
+    .then(data => {
 
-  const paypalUrl =
-    "https://www.paypal.com/ncp/links/46T77XLF2APZA";
+      if (!data.orderId || !data.approvalUrl) {
+        throw new Error("PayPal 결제 주소를 받지 못했습니다.");
+      }
 
+      sessionStorage.setItem(
+        "paypalOrderId",
+        data.orderId
+      );
 
-  window.location.href =
-    paypalUrl;
+      window.location.href = data.approvalUrl;
+    })
+    .catch(error => {
 
+      console.error("PayPal 오류:", error);
+
+      alert(
+        "결제 연결 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요."
+      );
+    });
 }
 
 </script>
