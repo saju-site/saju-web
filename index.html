@@ -1912,7 +1912,8 @@ function goToPayPal() {
     },
     body: JSON.stringify({
       name: name,
-      birthDate: birthDate
+      birthDate: birthDate,birthHour: birthHour,
+gender: gender
     })
   })
     .then(response => {
