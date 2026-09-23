@@ -296,6 +296,247 @@
         font-size: 13px;
       }
     }
+    /* ===== 오늘의 사주 새로운 디자인 ===== */
+
+body {
+  margin: 0;
+  font-family: "Noto Sans KR", "Malgun Gothic", Arial, sans-serif;
+  color: #3f352c;
+  background:
+    radial-gradient(circle at 15% 15%, rgba(255,255,255,.85), transparent 28%),
+    radial-gradient(circle at 85% 10%, rgba(210,190,155,.22), transparent 30%),
+    linear-gradient(135deg, #f5eee1 0%, #e8dcc8 48%, #f8f3ea 100%);
+  min-height: 100vh;
+}
+
+.container {
+  width: calc(100% - 32px);
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 30px 16px 70px;
+}
+
+.header {
+  text-align: center;
+  padding: 34px 20px 26px;
+  position: relative;
+}
+
+.header::before {
+  content: "☯";
+  display: block;
+  font-size: 42px;
+  color: #8b6f4e;
+  margin-bottom: 8px;
+  opacity: .8;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 38px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: #4b3929;
+  text-shadow: 0 2px 8px rgba(80,60,40,.12);
+}
+
+.header p {
+  margin: 12px 0 0;
+  color: #806b56;
+  font-size: 15px;
+  letter-spacing: 1px;
+}
+
+form,
+.form-section,
+.input-section,
+.card {
+  background: rgba(255,255,255,.78);
+  border: 1px solid rgba(139,111,78,.18);
+  border-radius: 24px;
+  box-shadow: 0 14px 35px rgba(80,60,40,.12);
+}
+
+.form-section,
+.input-section {
+  padding: 28px;
+  margin-bottom: 24px;
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #5b4938;
+}
+
+input,
+select {
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 50px;
+  padding: 12px 15px;
+  border: 1px solid #d8c7ae;
+  border-radius: 14px;
+  background: #fffdf9;
+  color: #40362e;
+  font-size: 15px;
+  outline: none;
+  transition: .2s;
+}
+
+input:focus,
+select:focus {
+  border-color: #9b7b55;
+  box-shadow: 0 0 0 3px rgba(155,123,85,.12);
+}
+
+button,
+.button {
+  border: 0;
+  border-radius: 15px;
+  min-height: 52px;
+  padding: 13px 22px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform .15s, box-shadow .15s;
+}
+
+button:hover,
+.button:hover {
+  transform: translateY(-2px);
+}
+
+.free-button {
+  width: 100%;
+  background: linear-gradient(135deg, #765b40, #9b7b55);
+  color: white;
+  box-shadow: 0 8px 18px rgba(100,75,45,.22);
+}
+
+.free-button:hover {
+  box-shadow: 0 12px 24px rgba(100,75,45,.28);
+}
+
+#freeResult,
+#detailResult {
+  margin-top: 24px;
+  background: rgba(255,255,255,.88);
+  border: 1px solid rgba(139,111,78,.2);
+  border-radius: 22px;
+  padding: 26px;
+  box-shadow: 0 12px 30px rgba(80,60,40,.1);
+}
+
+#freeResult h2,
+#detailResult h2 {
+  color: #5b4028;
+  margin-top: 0;
+}
+
+.paid-section,
+.paid-box,
+.payment-section {
+  margin-top: 26px;
+  padding: 28px;
+  border-radius: 24px;
+  background: linear-gradient(145deg, #fffaf0, #eee0c9);
+  border: 1px solid #d5b98e;
+  box-shadow: 0 14px 32px rgba(92,67,40,.15);
+}
+
+.paid-section h2,
+.paid-box h2,
+.payment-section h2 {
+  color: #61452d;
+  margin-top: 0;
+}
+
+.paid-button,
+.payment-button,
+#paidButton {
+  width: 100%;
+  background: linear-gradient(135deg, #4e3928, #80613f);
+  color: #fff;
+  box-shadow: 0 10px 22px rgba(70,50,30,.25);
+}
+
+.saju-table {
+  width: 100%;
+  border-collapse: collapse;
+  overflow: hidden;
+  border-radius: 14px;
+  background: rgba(255,255,255,.7);
+}
+
+.saju-table th {
+  background: #e8d8c0;
+  color: #59432f;
+  padding: 11px 8px;
+}
+
+.saju-table td {
+  background: rgba(255,255,255,.7);
+  color: #4a4037;
+  padding: 11px 8px;
+  border-bottom: 1px solid #eadfce;
+}
+
+.pillar {
+  color: #765435;
+  font-weight: 700;
+}
+
+.five-elements {
+  display: grid;
+  gap: 8px;
+}
+
+.element-box {
+  background: #fffaf2;
+  border: 1px solid #dfcfb8;
+  border-radius: 12px;
+  padding: 10px;
+}
+
+@media (max-width: 600px) {
+  .container {
+    width: calc(100% - 20px);
+    padding: 18px 10px 50px;
+  }
+
+  .header {
+    padding: 25px 12px 20px;
+  }
+
+  .header h1 {
+    font-size: 29px;
+    letter-spacing: 2px;
+  }
+
+  .form-section,
+  .input-section,
+  #freeResult,
+  #detailResult,
+  .paid-section,
+  .paid-box,
+  .payment-section {
+    padding: 20px 16px;
+    border-radius: 18px;
+  }
+
+  input,
+  select {
+    min-height: 48px;
+  }
+}
+
+/* ===== 새로운 디자인 끝 ===== */
   </style>
 </head>
 
