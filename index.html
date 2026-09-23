@@ -604,6 +604,43 @@ select:focus {
 
 .card {
     padding: 32px 30px 34px;
+}.hero-small {
+  font-family: "Noto Serif KR", "Batang", serif;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 4px;
+  color: #5b4028;
+  margin-bottom: 8px;
+}
+
+.header h1 {
+  font-family: "Noto Serif KR", "Batang", serif;
+  font-size: 42px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: #3f2b1f;
+  margin: 8px 0 14px;
+}
+
+.header h1 span {
+  display: inline-block;
+  font-size: 22px;
+  margin-left: 6px;
+  color: #a34f3f;
+  border: 1px solid #a34f3f;
+  padding: 2px 4px;
+}
+
+.header p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #766557;
+}
+
+.hero-divider {
+  font-size: 22px;
+  color: #9b7b55;
+  margin: 12px 0;
 }
   </style>
 </head>
@@ -612,10 +649,13 @@ select:focus {
 
 <div class="container">
 
-  <header class="header">
-    <h1>오늘의 사주</h1>
-    <p>생년월일을 입력하고 나만의 사주를 확인해보세요.</p>
-  </header>
+ <header class="header">
+    <div class="hero-small">사주로 보는</div>
+    <h1>오늘의 사주 <span>福</span></h1>
+    <p>당신의 오늘이 더 좋은 내일로 이어지길</p>
+    <div class="hero-divider">✧</div>
+    <p>생년월일을 입력하고<br>나만의 사주를 확인해보세요.</p>
+</header>
 
 
   <section class="card">
