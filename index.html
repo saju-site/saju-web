@@ -571,13 +571,26 @@ select:focus {
         0 0 0 3px rgba(155, 123, 85, 0.12),
         0 4px 12px rgba(80, 60, 40, 0.08);
 }* ===== 새로운 디자인 끝 ===== */
-   .card h2 {
-    color: #5b4028;
-    font-size: 24px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-align: center;
-    margin: 0 0 24px;
+  .card h2 {
+  color: #5b4028;
+  font-family: "Noto Serif KR", "Batang", serif;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-align: center;
+  margin: 0 0 24px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(155, 123, 85, 0.35);
+  position: relative;
+}
+
+.card h2::after {
+  content: "☯";
+  display: block;
+  font-size: 14px;
+  color: #9b7b55;
+  margin-top: 8px;
+  opacity: 0.8;
 }
 
 .form-group {
