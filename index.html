@@ -706,7 +706,354 @@ header p {
 .input-section {
   background: rgba(255, 250, 240, 0.88) !important;
 } 
-  </style>
+ /* ===== 사진 기준 전체 메인 화면 디자인 ===== */
+
+body {
+  background: url('./saju-bg.png') center top / cover fixed no-repeat !important;
+  color: #3d3027 !important;
+  font-family: "Noto Serif KR", "Nanum Myeongjo", serif !important;
+}
+
+/* 상단 왼쪽 로고 */
+body::before {
+  content: "☯ 오늘의 사주\A당신의 하루가 더 빛나도록";
+  white-space: pre;
+  position: absolute;
+  top: 22px;
+  left: 28px;
+  z-index: 20;
+  color: #3d3027;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.45;
+}
+
+/* 상단 메뉴 */
+.top-nav {
+  position: absolute !important;
+  top: 28px !important;
+  right: 28px !important;
+  display: flex !important;
+  gap: 24px !important;
+  padding: 0 !important;
+  background: transparent !important;
+}
+
+.top-nav a {
+  color: #4a382b !important;
+  text-decoration: none !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+}
+
+/* 전체 폭 */
+.container {
+  width: 100% !important;
+  max-width: 900px !important;
+  padding: 105px 24px 60px !important;
+  margin: 0 auto !important;
+}
+
+/* 메인 제목 */
+.header {
+  padding: 20px 10px 28px !important;
+  text-align: center !important;
+  background: transparent !important;
+}
+
+.header::before {
+  content: "" !important;
+  display: none !important;
+}
+
+.hero-small {
+  font-size: 20px !important;
+  letter-spacing: 3px !important;
+  color: #4e3a2b !important;
+  margin-bottom: 4px !important;
+}
+
+.header h1 {
+  font-size: 43px !important;
+  letter-spacing: 2px !important;
+  color: #38271d !important;
+  margin: 4px 0 12px !important;
+  text-shadow: none !important;
+}
+
+.header h1 span {
+  font-size: 19px !important;
+  color: #a14b3d !important;
+  border: 1px solid #a14b3d !important;
+  padding: 2px 4px !important;
+  margin-left: 5px !important;
+}
+
+.header p {
+  color: #695648 !important;
+  font-size: 15px !important;
+  line-height: 1.7 !important;
+}
+
+.hero-divider {
+  color: #92704d !important;
+  margin: 8px 0 !important;
+}
+
+/* 사주 입력 카드 */
+.container > .card {
+  width: 520px !important;
+  max-width: calc(100% - 20px) !important;
+  margin: 12px auto 28px !important;
+  padding: 25px 25px 28px !important;
+  background: rgba(255, 252, 246, 0.92) !important;
+  border: 1px solid rgba(130, 95, 62, 0.15) !important;
+  border-radius: 20px !important;
+  box-shadow: 0 8px 25px rgba(75, 52, 32, 0.12) !important;
+}
+
+.container > .card h2 {
+  text-align: left !important;
+  font-size: 21px !important;
+  color: #493529 !important;
+  letter-spacing: 0 !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 0 20px !important;
+}
+
+.container > .card h2::after {
+  display: none !important;
+}
+
+/* 입력창 */
+.form-group {
+  margin-bottom: 15px !important;
+}
+
+.form-group label {
+  font-size: 14px !important;
+  color: #4d3b2e !important;
+  margin-bottom: 6px !important;
+}
+
+input,
+select {
+  min-height: 43px !important;
+  padding: 10px 12px !important;
+  border: 1px solid #ddd2c5 !important;
+  border-radius: 9px !important;
+  background: #fff !important;
+  font-size: 14px !important;
+}
+
+/* 무료 버튼 */
+.free-button {
+  min-height: 48px !important;
+  border-radius: 9px !important;
+  background: #63462f !important;
+  box-shadow: none !important;
+  font-size: 16px !important;
+}
+
+.free-button:hover {
+  background: #513823 !important;
+  transform: none !important;
+}
+
+/* 무료 결과 */
+#freeResult {
+  width: 520px !important;
+  max-width: calc(100% - 20px) !important;
+  margin: 20px auto !important;
+}
+
+/* 유료 영역 */
+.paid-card {
+  width: 620px !important;
+  max-width: calc(100% - 20px) !important;
+  margin: 25px auto !important;
+  background: rgba(255, 249, 238, 0.92) !important;
+  border: 1px solid #dfcaa9 !important;
+  border-radius: 18px !important;
+}
+
+/* 유료 가격 */
+.paid-card .price {
+  font-size: 25px !important;
+  color: #60422d !important;
+}
+
+/* 유료 버튼 */
+.paid-card .paid-button {
+  background: #63462f !important;
+  border-radius: 9px !important;
+  box-shadow: none !important;
+}
+
+.paid-card .paid-button:hover {
+  background: #513823 !important;
+  transform: none !important;
+}
+
+/* 하단 */
+.footer {
+  color: #766557 !important;
+  font-size: 12px !important;
+  margin-top: 35px !important;
+}
+
+/* 모바일 */
+@media (max-width: 600px) {
+
+  body::before {
+    top: 14px;
+    left: 16px;
+    font-size: 14px;
+  }
+
+  .top-nav {
+    top: 17px !important;
+    right: 12px !important;
+    gap: 10px !important;
+  }
+
+  .top-nav a {
+    font-size: 10px !important;
+  }
+
+  .container {
+    padding: 82px 10px 45px !important;
+  }
+
+  .header h1 {
+    font-size: 32px !important;
+  }
+
+  .hero-small {
+    font-size: 16px !important;
+  }
+
+  .header p {
+    font-size: 13px !important;
+  }
+
+  .container > .card {
+    width: calc(100% - 4px) !important;
+    padding: 20px 17px 22px !important;
+  }
+
+  .paid-card {
+    width: calc(100% - 4px) !important;
+  }
+}   
+  /* ===== 사진과 같은 4개 카드 ===== */
+
+.feature-cards {
+  width: 620px;
+  max-width: calc(100% - 20px);
+  margin: 10px auto 28px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.feature-card {
+  background: rgba(255, 252, 246, 0.90);
+  border: 1px solid rgba(130, 95, 62, 0.15);
+  border-radius: 14px;
+  padding: 18px 10px;
+  text-align: center;
+  box-shadow: 0 5px 18px rgba(75, 52, 32, 0.10);
+}
+
+.feature-icon {
+  font-size: 22px;
+  color: #8b6545;
+  margin-bottom: 8px;
+}
+
+.feature-card h3 {
+  margin: 0 0 7px;
+  font-size: 14px;
+  color: #493529;
+  font-weight: 700;
+}
+
+.feature-card p {
+  margin: 0;
+  font-size: 11px;
+  line-height: 1.6;
+  color: #756458;
+}
+
+/* 모바일 */
+@media (max-width: 600px) {
+  .feature-cards {
+    width: calc(100% - 20px);
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .feature-card {
+    padding: 15px 8px;
+  }
+}/* ===== 상세 사주풀이 디자인 ===== */
+
+.paid-card {
+  width: 620px !important;
+  max-width: calc(100% - 20px) !important;
+  margin: 28px auto 35px !important;
+  padding: 28px 24px !important;
+  text-align: center !important;
+  background: rgba(255, 252, 246, 0.92) !important;
+  border: 1px solid rgba(130, 95, 62, 0.18) !important;
+  border-radius: 18px !important;
+  box-shadow: 0 7px 22px rgba(75, 52, 32, 0.10) !important;
+}
+
+.paid-card h2 {
+  margin: 0 0 12px !important;
+  font-size: 20px !important;
+  color: #493529 !important;
+  border: none !important;
+}
+
+.paid-card .price {
+  margin: 8px 0 14px !important;
+  font-size: 24px !important;
+  font-weight: 700 !important;
+  color: #63462f !important;
+}
+
+.paid-card .paid-description {
+  color: #756458 !important;
+  font-size: 13px !important;
+  line-height: 1.8 !important;
+}
+
+.paid-card .paid-button {
+  margin-top: 18px !important;
+  min-height: 48px !important;
+  padding: 0 24px !important;
+  border: none !important;
+  border-radius: 9px !important;
+  background: #63462f !important;
+  color: #fff !important;
+  font-size: 15px !important;
+  cursor: pointer !important;
+}
+
+@media (max-width: 600px) {
+  .paid-card {
+    width: calc(100% - 20px) !important;
+    padding: 22px 16px !important;
+  }
+
+  .paid-card h2 {
+    font-size: 18px !important;
+  }
+}</style>
 </head>
 
 <body>
@@ -847,7 +1194,33 @@ header p {
 
 
 
-  <section
+  <!-- 사진과 같은 4개 사주 정보 카드 -->
+<div class="feature-cards">
+  <div class="feature-card">
+    <div class="feature-icon">☯</div>
+    <h3>인생의 흐름</h3>
+    <p>오늘의 운세와<br>인생의 흐름을 알아보세요</p>
+  </div>
+
+  <div class="feature-card">
+    <div class="feature-icon">♡</div>
+    <h3>사랑과 인간관계</h3>
+    <p>소중한 인연과<br>사람 사이의 흐름을 살펴보세요</p>
+  </div>
+
+  <div class="feature-card">
+    <div class="feature-icon">◆</div>
+    <h3>직업과 재물운</h3>
+    <p>일과 재물에 관한<br>오늘의 흐름을 확인해보세요</p>
+  </div>
+
+  <div class="feature-card">
+    <div class="feature-icon">✦</div>
+    <h3>건강과 운세</h3>
+    <p>건강과 생활 속<br>오늘의 운을 살펴보세요</p>
+  </div>
+</div>
+<section
     id="freeResult"
     class="card result"
   >
@@ -994,7 +1367,7 @@ header p {
   <section class="card paid-card">
 
     <h2>
-      상세 사주풀이
+      더 깊이 있는 사주풀이가 궁금하신가요?
     </h2>
 
     <div class="price">
@@ -1018,7 +1391,7 @@ header p {
       class="button paid-button"
       onclick="goToPayPal()"
     >
-      $9.99 USD 상세 사주풀이 결제하기
+      상세 사주풀이 보기 $9.99 USD  >
     </button>
 
 
