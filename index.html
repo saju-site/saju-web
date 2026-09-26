@@ -1111,10 +1111,83 @@ body {
 
     <div class="form-group">
       <label for="birthDate" style="font-weight: 600; color: #5a4636;">생년월일</label>
-      <input
-        type="date"
-        id="birthDate"
-      >
+     
+        <div style="display:flex; gap:8px; align-items:center;">
+  <input
+    type="text"
+    id="birthYear"
+    inputmode="numeric"
+    maxlength="4"
+    placeholder="년"
+    style="width:90px;"
+  >
+  <input
+    type="text"
+    id="birthMonth"
+    inputmode="numeric"
+    maxlength="2"
+    placeholder="월"
+    style="width:65px;"
+  >
+  <input
+    type="text"
+    id="birthDay"
+    inputmode="numeric"
+    maxlength="2"
+    placeholder="일"
+    style="width:65px;"
+  >
+</div>
+
+<input type="hidden" id="birthDate">
+   <script>
+const birthYear = document.getElementById('birthYear');
+const birthMonth = document.getElementById('birthMonth');
+const birthDay = document.getElementById('birthDay');
+const birthDate = document.getElementById('birthDate');
+
+birthYear.addEventListener('input', function () {
+  this.value = this.value.replace(/\D/g, '').slice(0, 4);
+
+  if (this.value.length === 4) {
+    birthMonth.focus();
+  }
+
+  updateBirthDate();
+});
+
+birthMonth.addEventListener('input', function () {
+  this.value = this.value.replace(/\D/g, '').slice(0, 2);
+
+  if (this.value.length === 2) {
+    birthDay.focus();
+  }
+
+  updateBirthDate();
+});
+
+birthDay.addEventListener('input', function () {
+  this.value = this.value.replace(/\D/g, '').slice(0, 2);
+
+  updateBirthDate();
+});
+
+function updateBirthDate() {
+  const year = birthYear.value;
+  const month = birthMonth.value.padStart(2, '0');
+  const day = birthDay.value.padStart(2, '0');
+
+  if (
+    year.length === 4 &&
+    birthMonth.value.length === 2 &&
+    birthDay.value.length === 2
+  ) {
+    birthDate.value = `${year}-${month}-${day}`;
+  } else {
+    birthDate.value = '';
+  }
+}
+</script>
     </div>
 
 
