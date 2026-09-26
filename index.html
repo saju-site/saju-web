@@ -727,22 +727,7 @@ body {
 }
 
 /* 상단 왼쪽 로고 */
-body::before {
-  content: "☯ 오늘의 사주\A당신의 오늘이 더 좋은 내일로 이어지길";
-  white-space: pre;
-  position: fixed;
-  top: 28px;
-  left: 28px;
-  z-index: 20;
-  color: #ffffff;
- text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
- background: rgba(20, 20, 20, 0.65);
- padding: 8px 12px;
- border-radius: 8px;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 1.3;
-}
+
 
 /* 상단 메뉴 */
 .top-nav {
@@ -923,12 +908,7 @@ select {
 /* 모바일 */
 @media (max-width: 600px) {
 
-  body::before {
-    top: 14px;
-   position: fixed !important;
-    left: 16px;
-    font-size: 14px;
-  }
+  
 
   .top-nav {
    position: fixed !important;
@@ -2877,22 +2857,7 @@ textarea:focus {
   line-height: 1 !important;
 }
 </style>
- /* 좌측 상단 기존 문구 최종 고정 */
-body::before {
-  position: fixed !important;
-  top: 28px !important;
-  left: 28px !important;
-  z-index: 9999 !important;
-  color: #3d3027 !important;
-  background: rgba(255, 248, 235, 0.92) !important;
-  padding: 8px 12px !important;
-  border-radius: 8px !important;
-  font-weight: 700 !important;
-  font-size: 16px !important;
-  line-height: 1.3 !important;
-  white-space: pre !important;
-  pointer-events: none !important;
-}
+ 
 
 /* 새로 추가했던 중복 로고 숨김 */
 .site-logo {
