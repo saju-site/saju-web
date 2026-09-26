@@ -2815,6 +2815,64 @@ textarea:focus {
   box-shadow: 0 0 0 3px rgba(139, 111, 71, 0.15) !important;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
+ /* ===== 4개 사주 카드 가로배열 최종 보정 ===== */
+
+.feature-cards {
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  width: 620px !important;
+  max-width: calc(100% - 20px) !important;
+  gap: 16px !important;
+  margin: 18px auto 28px !important;
+}
+
+.feature-card {
+  width: auto !important;
+  min-width: 0 !important;
+  box-sizing: border-box !important;
+  padding: 18px 10px !important;
+}
+
+/* 모바일에서는 2열 */
+@media (max-width: 600px) {
+  .feature-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    width: calc(100% - 20px) !important;
+    gap: 12px !important;
+  }
+
+  .feature-card {
+    padding: 15px 8px !important;
+  }
+}
+ /* 사주 정보 카드 디테일 효과 */
+
+.feature-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease !important;
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(75, 52, 32, 0.16) !important;
+}
+ /* 카드 글씨 간격 디테일 */
+
+.feature-card h3 {
+  margin: 0 0 7px !important;
+  line-height: 1.35 !important;
+}
+
+.feature-card p {
+  margin: 0 !important;
+  line-height: 1.65 !important;
+}
+ /* 카드 아이콘 디테일 */
+
+.feature-card .feature-icon {
+  font-size: 22px !important;
+  margin-bottom: 8px !important;
+  line-height: 1 !important;
+}
 </style>
 </body>
 
