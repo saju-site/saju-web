@@ -2803,6 +2803,15 @@ button:hover {
 button:active {
   transform: scale(0.97);
 }
+/* 입력칸 선택 효과 */
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none !important;
+  border-color: #8b6f47 !important;
+  box-shadow: 0 0 0 3px rgba(139, 111, 71, 0.15) !important;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
 </style>
 </body>
 
