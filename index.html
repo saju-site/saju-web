@@ -2789,6 +2789,20 @@ gender: gender
     right: 28px !important;
     z-index: 9999 !important;
 }
+/* 버튼 디테일 효과 */
+button {
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease !important;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.04);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18) !important;
+}
+
+button:active {
+  transform: scale(0.97);
+}
 </style>
 </body>
 
