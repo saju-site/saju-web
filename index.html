@@ -1086,7 +1086,7 @@ body {
     isolation: isolate;
 }  
 
-body::before {
+html::before {
     content: "";
     position: fixed;
     inset: -5%;
@@ -1095,6 +1095,11 @@ body::before {
     pointer-events: none;
     animation: sajuBackgroundMove 18s ease-in-out infinite alternate;
     will-change: transform;
+}
+
+body {
+    position: relative;
+    z-index: 1;
 }
 
 @keyframes sajuBackgroundMove {
