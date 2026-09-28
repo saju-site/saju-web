@@ -1074,7 +1074,20 @@ body {
   background: transparent !important;
 }
  /* 좌측 상단 사이트 로고 */
+/* ===== 배경 은은한 움직임 ===== */
+body {
+  background-size: 105% 105% !important;
+  animation: sajuBackgroundMove 28s ease-in-out infinite alternate;
+}
 
+@keyframes sajuBackgroundMove {
+  0% {
+    background-position: 48% 48%;
+  }
+  100% {
+    background-position: 52% 52%;
+  }
+}
     </style>
 </head>
 
