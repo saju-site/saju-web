@@ -1076,19 +1076,33 @@ body {
  /* 좌측 상단 사이트 로고 */
 /* ===== 배경 은은한 움직임 ===== */
 html {
-  background: url('./saju-bg.png') center top / 105% 105% no-repeat fixed ;
-  animation: sajuBackgroundMove 28s ease-in-out infinite alternate;
+    background: #f5eee2;
 }
-  
 
+body {
+    position: relative;
+    min-height: 100vh;
+    background: transparent !important;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: -5%;
+    z-index: -1;
+    background: url('./saju-bg.png') center top / 105% 105% no-repeat;
+    animation: sajuBackgroundMove 18s ease-in-out infinite alternate;
+    will-change: transform;
+}
 
 @keyframes sajuBackgroundMove {
-  0% {
-    background-position: 48% 48%;
-  }
-  100% {
-    background-position: 52% 52%;
-  }
+    0% {
+        transform: translate3d(-2%, -1%, 0) scale(1.03);
+    }
+
+    100% {
+        transform: translate3d(2%, 1%, 0) scale(1.03);
+    }
 }
     </style>
 </head>
