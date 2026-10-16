@@ -3277,6 +3277,63 @@ textarea:focus {
     padding: 15px 12px !important;
   }
 }
+ /* 입력창 높이와 여백 추가 축소 */
+.container > section.saju-input-card {
+  padding-top: 15px !important;
+  padding-bottom: 14px !important;
+  margin-top: 14px !important;
+  margin-bottom: 10px !important;
+}
+
+.container > section.saju-input-card h2 {
+  margin-top: 0 !important;
+  margin-bottom: 10px !important;
+}
+
+.container > section.saju-input-card .form-group {
+  margin-bottom: 7px !important;
+}
+
+.container > section.saju-input-card input,
+.container > section.saju-input-card select {
+  height: 35px !important;
+  min-height: 35px !important;
+  padding: 5px 9px !important;
+  font-size: 14px !important;
+}
+
+.container > section.saju-input-card .free-button {
+  min-height: 42px !important;
+  margin-top: 7px !important;
+  padding-top: 8px !important;
+  padding-bottom: 8px !important;
+}
+
+/* 유료 영역 높이와 내부 여백 축소 */
+.container > section:has(.paid-button) {
+  padding-top: 13px !important;
+  padding-bottom: 13px !important;
+  margin-top: 10px !important;
+  margin-bottom: 14px !important;
+}
+
+.container > section:has(.paid-button) .paid-button {
+  min-height: 40px !important;
+  padding-top: 7px !important;
+  padding-bottom: 7px !important;
+}
+
+@media (max-width: 600px) {
+  .container > section.saju-input-card {
+    padding-top: 13px !important;
+    padding-bottom: 12px !important;
+  }
+
+  .container > section:has(.paid-button) {
+    padding-top: 12px !important;
+    padding-bottom: 12px !important;
+  }
+}
 </style>
  
 
