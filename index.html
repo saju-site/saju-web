@@ -3088,6 +3088,124 @@ textarea:focus {
   }
 }
 /* === 유료 영역 디자인 끝 === */
+ /* ===== 최종 시안: 사주 입력창 배치 ===== */
+.container > section.saju-input-card {
+  width: calc(100% - 32px) !important;
+  max-width: 660px !important;
+  padding: 22px 20px 20px !important;
+}
+
+.container > section.saju-input-card .form-group {
+  display: grid !important;
+  grid-template-columns: 165px minmax(0, 1fr) !important;
+  align-items: center !important;
+  column-gap: 12px !important;
+  row-gap: 5px !important;
+  margin-bottom: 13px !important;
+}
+
+.container > section.saju-input-card .form-group > label {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  margin: 0 !important;
+  color: #f1dfb8 !important;
+  font-size: 15px !important;
+  font-weight: 700 !important;
+}
+
+.container > section.saju-input-card label[for="name"]::before {
+  content: "♟";
+}
+
+.container > section.saju-input-card label[for="birthDate"]::before {
+  content: "▦";
+}
+
+.container > section.saju-input-card label[for="birthHour"]::before {
+  content: "◷";
+}
+
+.container > section.saju-input-card label[for="gender"]::before {
+  content: "⚥";
+}
+
+.container > section.saju-input-card .form-group > label::before {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 34px;
+  width: 34px;
+  height: 34px;
+  border: 1px solid #d9b76e;
+  border-radius: 50%;
+  color: #f6d99a;
+  font-size: 19px;
+}
+
+.container > section.saju-input-card input,
+.container > section.saju-input-card select {
+  width: 100% !important;
+  min-width: 0 !important;
+  min-height: 42px !important;
+  height: 42px !important;
+  padding: 8px 11px !important;
+  box-sizing: border-box !important;
+  border-radius: 8px !important;
+  font-size: 15px !important;
+}
+
+.container > section.saju-input-card #birthYear {
+  width: 100% !important;
+}
+
+.container > section.saju-input-card #birthMonth,
+.container > section.saju-input-card #birthDay {
+  width: 100% !important;
+}
+
+.container > section.saju-input-card .small-note {
+  grid-column: 2 !important;
+  margin-top: 3px !important;
+  font-size: 11px !important;
+}
+
+.container > section.saju-input-card .form-group > div[style*="display:flex"] {
+  display: flex !important;
+  gap: 7px !important;
+  min-width: 0 !important;
+}
+
+.container > section.saju-input-card .free-button {
+  min-height: 50px !important;
+  margin-top: 12px !important;
+  padding: 11px 16px !important;
+  font-size: 17px !important;
+}
+
+@media (max-width: 600px) {
+  .container > section.saju-input-card {
+    width: calc(100% - 24px) !important;
+    padding: 18px 14px !important;
+  }
+
+  .container > section.saju-input-card .form-group {
+    grid-template-columns: 118px minmax(0, 1fr) !important;
+    column-gap: 8px !important;
+  }
+
+  .container > section.saju-input-card .form-group > label {
+    gap: 6px !important;
+    font-size: 13px !important;
+  }
+
+  .container > section.saju-input-card .form-group > label::before {
+    flex-basis: 28px;
+    width: 28px;
+    height: 28px;
+    font-size: 16px;
+  }
+}
 </style>
  
 
