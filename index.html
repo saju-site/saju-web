@@ -3267,10 +3267,16 @@ textarea:focus {
     padding: 16px 12px !important;
   }
 
-  .container > section.saju-input-card .form-group {
-    grid-template-columns: 112px minmax(0, 1fr) !important;
-    column-gap: 7px !important;
-  }
+ .container > section.saju-input-card .form-group {
+  grid-template-columns: 125px minmax(0, 1fr) !important;
+  column-gap: 7px !important;
+}
+
+.container > section.saju-input-card .form-group > label {
+  white-space: nowrap !important;
+  word-break: keep-all !important;
+  font-size: 13px !important;
+}
 
   .container > section:has(.paid-button) {
     width: calc(100% - 24px) !important;
