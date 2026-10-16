@@ -3425,8 +3425,13 @@ textarea:focus {
 
 /* 항목 이름 영역과 입력 칸 폭 조정 */
 .container > section.saju-input-card .form-group {
-  grid-template-columns: 82px minmax(0, 1fr) !important;
+  grid-template-columns: 112px minmax(0, 1fr) !important;
   column-gap: 6px !important;
+}
+
+.container > section.saju-input-card .form-group > label {
+  white-space: nowrap !important;
+  word-break: keep-all !important;
 }
 
 /* 입력 칸 너비 유지 */
