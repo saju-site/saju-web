@@ -2935,77 +2935,61 @@ textarea:focus {
   margin-bottom: 8px !important;
   line-height: 1 !important;
 }
-/* === 최종 디자인: 사주 입력 패널 === */
+/* === 최종 확정 디자인: 입력 패널 === */
 
-/* 입력 패널: 짙은 남색 + 금색 테두리 */
-.container > section.card:has(#name) {
+.container > section.saju-input-card {
   width: calc(100% - 32px) !important;
   max-width: 720px !important;
   margin: 24px auto 18px !important;
   padding: 28px 24px 24px !important;
   box-sizing: border-box !important;
-
   background: rgba(5, 24, 55, 0.94) !important;
-  border: 1px solid rgba(226, 192, 112, 0.9) !important;
+  border: 1px solid #d9b76e !important;
   border-radius: 18px !important;
-  box-shadow:
-    0 0 0 1px rgba(226, 192, 112, 0.18),
-    0 12px 32px rgba(0, 0, 0, 0.38) !important;
-
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.38) !important;
   color: #f8f0dc !important;
 }
 
-/* 입력 패널 제목 */
-.container > section.card:has(#name) h2 {
+.container > section.saju-input-card h2 {
   color: #f3d994 !important;
+  text-align: center !important;
   font-size: 25px !important;
-  font-weight: 700 !important;
-  margin: 0 0 22px !important;
-  letter-spacing: 0.02em !important;
+  margin-bottom: 22px !important;
 }
 
-/* 항목 이름 */
-.container > section.card:has(#name) .form-group label {
-  display: block !important;
-  color: #f8e8bd !important;
-  font-size: 14px !important;
+.container > section.saju-input-card label {
+  color: #f1dfb8 !important;
   font-weight: 700 !important;
-  margin-bottom: 8px !important;
 }
 
-/* 이름·날짜·시간·성별 입력칸 */
-.container > section.card:has(#name) input,
-.container > section.card:has(#name) select {
+.container > section.saju-input-card input,
+.container > section.saju-input-card select {
   width: 100% !important;
   min-width: 0 !important;
   min-height: 46px !important;
   box-sizing: border-box !important;
   padding: 11px 13px !important;
-
   background: #f1f3f8 !important;
   color: #26334a !important;
   border: 1px solid #c8d0df !important;
   border-radius: 9px !important;
   font-size: 16px !important;
-  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05) !important;
 }
 
-/* 입력 중 강조 */
-.container > section.card:has(#name) input:focus,
-.container > section.card:has(#name) select:focus {
+.container > section.saju-input-card input:focus,
+.container > section.saju-input-card select:focus {
   outline: 2px solid #65b8ff !important;
   outline-offset: 1px !important;
   border-color: #65b8ff !important;
 }
 
-/* 무료 사주 버튼: 선명한 파란색 */
-.container > section.card:has(#name) .free-button {
+/* 무료 버튼 */
+.container > section.saju-input-card .free-button {
   display: block !important;
   width: 100% !important;
   min-height: 58px !important;
   margin-top: 18px !important;
   padding: 14px 18px !important;
-
   background: linear-gradient(180deg, #38a9ff 0%, #0875ed 58%, #164ed2 100%) !important;
   color: #ffffff !important;
   border: 1px solid #83d0ff !important;
@@ -3019,21 +3003,71 @@ textarea:focus {
 
 /* 모바일 화면 */
 @media (max-width: 600px) {
-  .container > section.card:has(#name) {
+  .container > section.saju-input-card {
     width: calc(100% - 20px) !important;
     padding: 22px 16px 18px !important;
   }
 
-  .container > section.card:has(#name) h2 {
+  .container > section.saju-input-card h2 {
     font-size: 22px !important;
   }
 
-  .container > section.card:has(#name) .free-button {
+  .container > section.saju-input-card .free-button {
     font-size: 16px !important;
   }
 }
 
-/* === 최종 입력 패널 CSS 끝 === */
+/* === 최종 입력 패널 디자인 끝 === */
+ /* === 최종 디자인: 유료 사주 영역 === */
+.container > section:has(.paid-button) {
+  width: calc(100% - 32px) !important;
+  max-width: 760px !important;
+  margin: 18px auto 24px !important;
+  padding: 22px 24px !important;
+  box-sizing: border-box !important;
+  background: linear-gradient(
+    135deg,
+    rgba(12, 24, 43, 0.97),
+    rgba(40, 30, 20, 0.97)
+  ) !important;
+  border: 2px solid #d9b76e !important;
+  border-radius: 18px !important;
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.4) !important;
+  color: #f8edcf !important;
+}
+
+.container > section:has(.paid-button) h2,
+.container > section:has(.paid-button) h3 {
+  color: #f5dfa0 !important;
+}
+
+.container > section:has(.paid-button) p,
+.container > section:has(.paid-button) .notice {
+  color: #f0e4ca !important;
+}
+
+.container > section:has(.paid-button) .paid-button {
+  background: linear-gradient(180deg, #ffe9ad, #e5b958) !important;
+  color: #302314 !important;
+  border: 1px solid #fff0c4 !important;
+  border-radius: 10px !important;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25) !important;
+  font-weight: 700 !important;
+  transform: none !important;
+}
+
+.container > section:has(.paid-button) .paid-button:hover {
+  background: linear-gradient(180deg, #fff0c7, #edca7c) !important;
+  transform: none !important;
+}
+
+@media (max-width: 600px) {
+  .container > section:has(.paid-button) {
+    width: calc(100% - 20px) !important;
+    padding: 18px 14px !important;
+  }
+}
+/* === 유료 영역 디자인 끝 === */
 </style>
  
 
