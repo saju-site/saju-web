@@ -3423,18 +3423,23 @@ textarea:focus {
   box-sizing: border-box !important;
 }
 
-/* 항목 이름 영역과 흰색 입력 칸 */
+/* 항목 이름 영역과 입력 칸 폭 조정 */
 .container > section.saju-input-card .form-group {
-  grid-template-columns: 100px minmax(0, 1fr) !important;
-  column-gap: 7px !important;
+  grid-template-columns: 82px minmax(0, 1fr) !important;
+  column-gap: 6px !important;
 }
 
-/* 이름·태어난 시간·성별 입력 칸 */
+/* 입력 칸 너비 유지 */
 .container > section.saju-input-card input,
 .container > section.saju-input-card select {
   width: 100% !important;
   min-width: 0 !important;
   box-sizing: border-box !important;
+}
+
+/* 생년월일 세 칸 한 줄 유지 */
+.container > section.saju-input-card .form-group:has(input[type="date"]) {
+  grid-template-columns: 82px minmax(0, 1fr) !important;
 }
 
 /* 유료 영역 폭 축소 */
