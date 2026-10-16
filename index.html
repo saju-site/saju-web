@@ -64,12 +64,25 @@ max-width: 480px !important;
       font-size: 16px;
      font-family: inherit;
      color: #222;
-     input[type="date"]::-webkit-datetime-edit,
+   input,
+select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #d8cec0;
+  min-height: 46px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-family: inherit;
+  color: #222;
+  background: #fffdf8;
+}
+
+input[type="date"]::-webkit-datetime-edit,
 input[type="date"]::-webkit-datetime-edit-text,
 input[type="date"]::-webkit-datetime-edit-year-field,
 input[type="date"]::-webkit-datetime-edit-month-field,
 input[type="date"]::-webkit-datetime-edit-day-field {
-    font-family: inherit;
+  font-family: inherit;
 }
       background: #fffdf8;
     }
@@ -521,7 +534,7 @@ button:hover,
   }
 }
 
-//* ===== 입력창 고급 디자인 ===== */
+/* ===== 입력창 고급 디자인 ===== */
 
 .card {
     background: rgba(255, 250, 238, 0.90);
@@ -793,25 +806,30 @@ body {
 
 input,
 select {
-  min-height: 43px !important;
-  padding: 10px 12px !important;
-  border: 1px solid #ddd2c5 !important;
-  border-radius: 9px !important;
-  background: #fff !important;
-  font-size: 14px !important;
+  min-height: 46px !important;
+  padding: 12px !important;
+  border: 1px solid #d8cec0 !important;
+  border-radius: 10px !important;
+  background: #fffdf8 !important;
+  font-size: 16px !important;
+  font-family: inherit !important;
+  color: #222 !important;
 }
 
 /* 무료 버튼 */
 .free-button {
   min-height: 48px !important;
   border-radius: 9px !important;
-  background: #63462f !important;
+  background: linear-gradient(135deg, #3478d4, #245baf) !important;
+  color: #ffffff !important;
+  border: 1px solid #d8b96f !important;
   box-shadow: none !important;
   font-size: 16px !important;
+  font-weight: 700 !important;
 }
 
 .free-button:hover {
-  background: #513823 !important;
+  background: linear-gradient(135deg, #2868bf, #1d4d96) !important;
   transform: none !important;
 }
 
@@ -848,6 +866,8 @@ select {
 
 .paid-card .paid-button:hover {
   background: #edca7c !important;
+  color: #17263d !important;
+  border-color: #d9b76e !important;
   transform: none !important;
 }
 
@@ -967,7 +987,7 @@ select {
 .paid-card h2 {
   margin: 0 0 14px !important;
   font-size: 21px !important;
-  color: #493529 !important;
+  color: #f8edcf !important;
   border: none !important;
 }
 
@@ -975,7 +995,7 @@ select {
   margin: 8px 0 14px !important;
   font-size: 25px !important;
   font-weight: 700 !important;
-  color: #63462f !important;
+  color: #f6d99a !important;
 }
 
 .paid-card .paid-description {
@@ -988,11 +1008,12 @@ select {
   margin-top: 16px !important;
   min-height: 50px !important;
   padding: 0 24px !important;
-  border: none !important;
+  border: 1px solid #d9b76e !important;
   border-radius: 10px !important;
   background: #f6d99a !important;
-  color: #fff !important;
+  color: #17263d !important;
   font-size: 16px !important;
+  font-weight: 700 !important;
   cursor: pointer !important;
 }
 
@@ -1271,8 +1292,7 @@ function updateBirthDate() {
     <button
       class="button free-button"
       onclick="showFreeSaju()"
-     style="background: #245baf !important; color: #4a3425 !important; border: 1px solid #d8b96f !important;font-size:18px; font-weight:700;"
-    >
+     >
       무료 사주 확인하기
     </button>
 
