@@ -3388,9 +3388,14 @@ textarea:focus {
 /* 모바일에서도 좌우 배치 유지 */
 @media (max-width: 600px) {
   .container > section.saju-input-card .form-group {
-    grid-template-columns: 96px minmax(0, 1fr) !important;
-    column-gap: 6px !important;
-  }
+  grid-template-columns: 112px minmax(0, 1fr) !important;
+  column-gap: 7px !important;
+}
+
+.container > section.saju-input-card .form-group > label {
+  white-space: nowrap !important;
+  word-break: keep-all !important;
+}
 
   .container > section:has(.paid-button) {
     width: calc(100% - 24px) !important;
