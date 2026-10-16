@@ -1087,7 +1087,7 @@ body {
  <p style="font-size:15px; line-height:1.8; color:#5a4636;">문의 이메일: <a href="mailto:myungsoo1974@gmail.com" style="color:#5a4636; text-decoration:underline;">myungsoo1974@gmail.com</a></p>
 </section>
 
-  <section class="card">
+  <section class="card saju-input-card">
 
     <h2 style="font-size:24px; font-weight:700; color:#4b3929; letter-spacing:0.03em;">사주 정보 입력</h2>
 
@@ -2935,68 +2935,53 @@ textarea:focus {
   margin-bottom: 8px !important;
   line-height: 1 !important;
 }
-/* === 사주 입력창 및 버튼 디자인 개선 === */
-
-/* 입력 영역 */
-.container {
-  background: rgba(10, 23, 48, 0.88) !important;
-  border: 1px solid rgba(224, 190, 112, 0.75) !important;
-  border-radius: 18px !important;
-  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.35) !important;
+/* === 승인 디자인: 사주 입력 패널 === */
+.saju-input-card {
+  background: rgba(10, 23, 48, 0.90) !important;
+  border: 1px solid rgba(224, 190, 112, 0.85) !important;
+  border-radius: 20px !important;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.28) !important;
   color: #f8f0dc !important;
+  padding: 26px 22px !important;
 }
 
-/* 입력칸 */
-.container input,
-.container select {
-  background: rgba(255, 255, 255, 0.96) !important;
-  color: #202b40 !important;
-  border: 1px solid #c9ad70 !important;
-  border-radius: 9px !important;
+.saju-input-card h2 {
+  color: #e8ca85 !important;
+}
+
+.saju-input-card .form-group label {
+  color: #f1dfb8 !important;
+}
+
+.saju-input-card input,
+.saju-input-card select {
+  width: 100% !important;
   min-height: 46px !important;
   box-sizing: border-box !important;
+  background: #fffdf7 !important;
+  color: #26334a !important;
+  border: 1px solid #c9ad70 !important;
+  border-radius: 9px !important;
+  font-size: 16px !important;
 }
 
-/* 입력칸 선택 시 */
-.container input:focus,
-.container select:focus {
+.saju-input-card input:focus,
+.saju-input-card select:focus {
   outline: 2px solid #d9b76e !important;
   outline-offset: 1px !important;
 }
 
-/* 무료 버튼 */
-.free-button {
+.saju-input-card .free-button,
+.saju-input-card .paid-button {
   background: #245baf !important;
-  color: #ffffff !important;
   border: 1px solid #d9b76e !important;
   border-radius: 10px !important;
-  font-weight: 700 !important;
-  box-shadow: none !important;
-}
-
-/* 유료 버튼 */
-.paid-button {
-  background: #245baf !important;
   color: #ffffff !important;
-  border: 1px solid #d9b76e !important;
-  border-radius: 10px !important;
-  font-weight: 700 !important;
   box-shadow: none !important;
-}
-
-/* 버튼 간격 및 움직임 제거 */
-.free-button,
-.paid-button {
   transform: none !important;
-  transition: none !important;
 }
 
-/* 사주 정보 카드 간격 */
-.feature-cards {
-  gap: 14px !important;
-}
-
-/* === 디자인 개선 끝 === */
+/* === 입력 패널 디자인 끝 === */
 </style>
  
 
