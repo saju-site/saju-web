@@ -1271,7 +1271,7 @@ function updateBirthDate() {
     <button
       class="button free-button"
       onclick="showFreeSaju()"
-     style="background: #fff8e8 !important; color: #4a3425 !important; border: 1px solid #d8b96f !important;font-size:18px; font-weight:700;"
+     style="background: #245baf !important; color: #4a3425 !important; border: 1px solid #d8b96f !important;font-size:18px; font-weight:700;"
     >
       무료 사주 확인하기
     </button>
@@ -2935,7 +2935,68 @@ textarea:focus {
   margin-bottom: 8px !important;
   line-height: 1 !important;
 }
+/* === 사주 입력창 및 버튼 디자인 개선 === */
 
+/* 입력 영역 */
+.container {
+  background: rgba(10, 23, 48, 0.88) !important;
+  border: 1px solid rgba(224, 190, 112, 0.75) !important;
+  border-radius: 18px !important;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.35) !important;
+  color: #f8f0dc !important;
+}
+
+/* 입력칸 */
+.container input,
+.container select {
+  background: rgba(255, 255, 255, 0.96) !important;
+  color: #202b40 !important;
+  border: 1px solid #c9ad70 !important;
+  border-radius: 9px !important;
+  min-height: 46px !important;
+  box-sizing: border-box !important;
+}
+
+/* 입력칸 선택 시 */
+.container input:focus,
+.container select:focus {
+  outline: 2px solid #d9b76e !important;
+  outline-offset: 1px !important;
+}
+
+/* 무료 버튼 */
+.free-button {
+  background: #245baf !important;
+  color: #ffffff !important;
+  border: 1px solid #d9b76e !important;
+  border-radius: 10px !important;
+  font-weight: 700 !important;
+  box-shadow: none !important;
+}
+
+/* 유료 버튼 */
+.paid-button {
+  background: #245baf !important;
+  color: #ffffff !important;
+  border: 1px solid #d9b76e !important;
+  border-radius: 10px !important;
+  font-weight: 700 !important;
+  box-shadow: none !important;
+}
+
+/* 버튼 간격 및 움직임 제거 */
+.free-button,
+.paid-button {
+  transform: none !important;
+  transition: none !important;
+}
+
+/* 사주 정보 카드 간격 */
+.feature-cards {
+  gap: 14px !important;
+}
+
+/* === 디자인 개선 끝 === */
 </style>
  
 
