@@ -2935,53 +2935,105 @@ textarea:focus {
   margin-bottom: 8px !important;
   line-height: 1 !important;
 }
-/* === 승인 디자인: 사주 입력 패널 === */
-.saju-input-card {
-  background: rgba(10, 23, 48, 0.90) !important;
-  border: 1px solid rgba(224, 190, 112, 0.85) !important;
-  border-radius: 20px !important;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.28) !important;
+/* === 최종 디자인: 사주 입력 패널 === */
+
+/* 입력 패널: 짙은 남색 + 금색 테두리 */
+.container > section.card:has(#name) {
+  width: calc(100% - 32px) !important;
+  max-width: 720px !important;
+  margin: 24px auto 18px !important;
+  padding: 28px 24px 24px !important;
+  box-sizing: border-box !important;
+
+  background: rgba(5, 24, 55, 0.94) !important;
+  border: 1px solid rgba(226, 192, 112, 0.9) !important;
+  border-radius: 18px !important;
+  box-shadow:
+    0 0 0 1px rgba(226, 192, 112, 0.18),
+    0 12px 32px rgba(0, 0, 0, 0.38) !important;
+
   color: #f8f0dc !important;
-  padding: 26px 22px !important;
 }
 
-.saju-input-card h2 {
-  color: #e8ca85 !important;
+/* 입력 패널 제목 */
+.container > section.card:has(#name) h2 {
+  color: #f3d994 !important;
+  font-size: 25px !important;
+  font-weight: 700 !important;
+  margin: 0 0 22px !important;
+  letter-spacing: 0.02em !important;
 }
 
-.saju-input-card .form-group label {
-  color: #f1dfb8 !important;
+/* 항목 이름 */
+.container > section.card:has(#name) .form-group label {
+  display: block !important;
+  color: #f8e8bd !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  margin-bottom: 8px !important;
 }
 
-.saju-input-card input,
-.saju-input-card select {
+/* 이름·날짜·시간·성별 입력칸 */
+.container > section.card:has(#name) input,
+.container > section.card:has(#name) select {
   width: 100% !important;
+  min-width: 0 !important;
   min-height: 46px !important;
   box-sizing: border-box !important;
-  background: #fffdf7 !important;
+  padding: 11px 13px !important;
+
+  background: #f1f3f8 !important;
   color: #26334a !important;
-  border: 1px solid #c9ad70 !important;
+  border: 1px solid #c8d0df !important;
   border-radius: 9px !important;
   font-size: 16px !important;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05) !important;
 }
 
-.saju-input-card input:focus,
-.saju-input-card select:focus {
-  outline: 2px solid #d9b76e !important;
+/* 입력 중 강조 */
+.container > section.card:has(#name) input:focus,
+.container > section.card:has(#name) select:focus {
+  outline: 2px solid #65b8ff !important;
   outline-offset: 1px !important;
+  border-color: #65b8ff !important;
 }
 
-.saju-input-card .free-button,
-.saju-input-card .paid-button {
-  background: #245baf !important;
-  border: 1px solid #d9b76e !important;
-  border-radius: 10px !important;
+/* 무료 사주 버튼: 선명한 파란색 */
+.container > section.card:has(#name) .free-button {
+  display: block !important;
+  width: 100% !important;
+  min-height: 58px !important;
+  margin-top: 18px !important;
+  padding: 14px 18px !important;
+
+  background: linear-gradient(180deg, #38a9ff 0%, #0875ed 58%, #164ed2 100%) !important;
   color: #ffffff !important;
-  box-shadow: none !important;
+  border: 1px solid #83d0ff !important;
+  border-radius: 30px !important;
+  box-shadow: 0 4px 14px rgba(0, 106, 240, 0.35) !important;
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  cursor: pointer !important;
   transform: none !important;
 }
 
-/* === 입력 패널 디자인 끝 === */
+/* 모바일 화면 */
+@media (max-width: 600px) {
+  .container > section.card:has(#name) {
+    width: calc(100% - 20px) !important;
+    padding: 22px 16px 18px !important;
+  }
+
+  .container > section.card:has(#name) h2 {
+    font-size: 22px !important;
+  }
+
+  .container > section.card:has(#name) .free-button {
+    font-size: 16px !important;
+  }
+}
+
+/* === 최종 입력 패널 CSS 끝 === */
 </style>
  
 
