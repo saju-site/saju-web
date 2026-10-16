@@ -3397,6 +3397,55 @@ textarea:focus {
     padding: 10px 12px !important;
   }
 }
+ /* 입력 영역 전체 폭 축소 */
+.container > section.saju-input-card {
+  width: calc(100% - 48px) !important;
+  max-width: 560px !important;
+  padding-left: 14px !important;
+  padding-right: 14px !important;
+  box-sizing: border-box !important;
+}
+
+/* 항목 이름 영역과 흰색 입력 칸 */
+.container > section.saju-input-card .form-group {
+  grid-template-columns: 100px minmax(0, 1fr) !important;
+  column-gap: 7px !important;
+}
+
+/* 이름·태어난 시간·성별 입력 칸 */
+.container > section.saju-input-card input,
+.container > section.saju-input-card select {
+  width: 100% !important;
+  min-width: 0 !important;
+  box-sizing: border-box !important;
+}
+
+/* 유료 영역 폭 축소 */
+.container > section:has(.paid-button) {
+  width: calc(100% - 48px) !important;
+  max-width: 600px !important;
+  padding-left: 14px !important;
+  padding-right: 14px !important;
+  box-sizing: border-box !important;
+}
+
+/* 작은 화면 */
+@media (max-width: 600px) {
+  .container > section.saju-input-card {
+    width: calc(100% - 28px) !important;
+    max-width: 560px !important;
+  }
+
+  .container > section.saju-input-card .form-group {
+    grid-template-columns: 90px minmax(0, 1fr) !important;
+    column-gap: 6px !important;
+  }
+
+  .container > section:has(.paid-button) {
+    width: calc(100% - 28px) !important;
+    max-width: 600px !important;
+  }
+}
 </style>
  
 
