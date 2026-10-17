@@ -3633,6 +3633,82 @@ footer small {
     gap: 12px !important;
   }
 }
+ 
+/* ===== 화면 쏠림 및 입력창 정렬 수정 ===== */
+html,
+body {
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+}
+
+.container {
+  width: 100% !important;
+  max-width: 900px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: 16px !important;
+  padding-right: 16px !important;
+  box-sizing: border-box !important;
+}
+
+/* 입력창 중앙 정렬 */
+.container > section.saju-input-card {
+  width: 100% !important;
+  max-width: 620px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  box-sizing: border-box !important;
+}
+
+/* 항목 이름과 입력 칸의 간격 통일 */
+.container > section.saju-input-card .form-group {
+  grid-template-columns: 112px minmax(0, 1fr) !important;
+  column-gap: 8px !important;
+  min-width: 0 !important;
+}
+
+.container > section.saju-input-card .form-group > label {
+  min-width: 0 !important;
+  white-space: nowrap !important;
+}
+
+/* 생년월일 세 칸이 화면 밖으로 밀리지 않도록 조정 */
+.container > section.saju-input-card .form-group:has(#birthYear) > div {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr) minmax(0, 1fr) !important;
+  gap: 6px !important;
+  min-width: 0 !important;
+}
+
+.container > section.saju-input-card #birthYear,
+.container > section.saju-input-card #birthMonth,
+.container > section.saju-input-card #birthDay {
+  width: 100% !important;
+  min-width: 0 !important;
+  box-sizing: border-box !important;
+}
+
+/* 휴대폰 화면 */
+@media (max-width: 600px) {
+  .container {
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+  }
+
+  .container > section.saju-input-card {
+    width: 100% !important;
+    max-width: 560px !important;
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+
+  .container > section.saju-input-card .form-group {
+    grid-template-columns: 100px minmax(0, 1fr) !important;
+    column-gap: 7px !important;
+  }
+}
+
 </style>
  
 
