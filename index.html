@@ -3774,6 +3774,55 @@ body {
     column-gap: 8px !important;
   }
 }
+ /* ===== 전체 카드 중앙 정렬 통일 ===== */
+.container {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  box-sizing: border-box !important;
+}
+
+.container > section.saju-input-card,
+.container > section.paid-card,
+.container > #freeResult,
+.container > .feature-cards {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  box-sizing: border-box !important;
+}
+
+/* 입력창과 유료창 */
+.container > section.saju-input-card,
+.container > section.paid-card {
+  width: calc(100% - 32px) !important;
+  max-width: 620px !important;
+}
+
+/* 무료 사주 결과창 */
+.container > #freeResult {
+  width: calc(100% - 32px) !important;
+  max-width: 620px !important;
+  position: relative !important;
+  left: auto !important;
+  right: auto !important;
+  transform: none !important;
+}
+
+/* 사주 정보 카드 4개 */
+.container > .feature-cards {
+  width: calc(100% - 32px) !important;
+  max-width: 620px !important;
+}
+
+/* 휴대폰 화면 */
+@media (max-width: 600px) {
+  .container > section.saju-input-card,
+  .container > section.paid-card,
+  .container > #freeResult,
+  .container > .feature-cards {
+    width: calc(100% - 8px) !important;
+    max-width: 100% !important;
+  }
+}
 </style>
  
 
