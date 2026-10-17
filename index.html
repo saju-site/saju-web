@@ -3757,6 +3757,23 @@ body {
     column-gap: 7px !important;
   }
 }
+ /* 태어난 시간 문구 가림 수정 */
+.container > section.saju-input-card .form-group {
+  grid-template-columns: 165px minmax(0, 1fr) !important;
+  column-gap: 10px !important;
+}
+
+.container > section.saju-input-card .form-group > label {
+  white-space: nowrap !important;
+  overflow: visible !important;
+}
+
+@media (max-width: 600px) {
+  .container > section.saju-input-card .form-group {
+    grid-template-columns: 115px minmax(0, 1fr) !important;
+    column-gap: 8px !important;
+  }
+}
 </style>
  
 
