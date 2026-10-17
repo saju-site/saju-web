@@ -2989,7 +2989,29 @@ textarea:focus {
   color: #f1dfb8 !important;
   font-weight: 700 !important;
 }
+/* 입력 항목 문구와 입력칸 정렬 */
+.container > section.saju-input-card .form-group {
+  display: grid !important;
+  grid-template-columns: 140px minmax(0, 1fr) !important;
+  align-items: center !important;
+  column-gap: 10px !important;
+}
 
+.container > section.saju-input-card .form-group > label {
+  display: block !important;
+  width: 140px !important;
+  margin: 0 !important;
+  white-space: nowrap !important;
+  word-break: keep-all !important;
+}
+
+/* 생년월일 입력 세 칸은 한 줄 유지 */
+.container > section.saju-input-card #birthYear,
+.container > section.saju-input-card #birthMonth,
+.container > section.saju-input-card #birthDay {
+  min-width: 0 !important;
+  width: 100% !important;
+}
 .container > section.saju-input-card input,
 .container > section.saju-input-card select {
   width: 100% !important;
