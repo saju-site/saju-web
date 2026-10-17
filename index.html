@@ -47,11 +47,12 @@ max-width: 480px !important;
     
 
     .form-group label {
-      display: block;
-      margin-bottom: 8px;
-      font-weight: bold;
-      color: #49362b;
-    }
+  display: block;
+  margin-bottom: 0;
+  font-weight: bold;
+  color: #49362b;
+  white-space: nowrap;
+}
 
     input,
    
@@ -796,12 +797,19 @@ body {
 /* 입력창 */
 .form-group {
   margin-bottom: 15px !important;
+  display: grid;
+  grid-template-columns: 112px minmax(0, 1fr);
+  align-items: center;
+  column-gap: 6px;
 }
 
 .form-group label {
+  display: block !important;
+  flex: 0 0 88px;
+  white-space: nowrap !important;
   font-size: 14px !important;
   color: #4d3b2e !important;
-  margin-bottom: 6px !important;
+  margin-bottom: 0 !important;
 }
 
 input,
