@@ -3515,6 +3515,18 @@ textarea:focus {
   word-break: keep-all !important;
   overflow: visible !important;
 }
+ /* 무료 사주 입력 박스 폭 최종 조정 */
+.container > section.saju-input-card {
+  width: calc(100% - 48px) !important;
+  max-width: 600px !important;
+  box-sizing: border-box !important;
+}
+
+/* 유료 박스 폭 기준 */
+.container > section:has(.paid-button) {
+  max-width: 600px !important;
+  box-sizing: border-box !important;
+}
 </style>
  
 
