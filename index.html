@@ -3825,6 +3825,20 @@ body {
     transform: none !important;
   }
 }
+ /* 아래 카드 전체 오른쪽 이동 */
+.container > section.paid-card,
+.container > .feature-cards,
+.container > #freeResult {
+  transform: translateX(12px) !important;
+}
+
+@media (max-width: 600px) {
+  .container > section.paid-card,
+  .container > .feature-cards,
+  .container > #freeResult {
+    transform: none !important;
+  }
+}
 </style>
  
 
