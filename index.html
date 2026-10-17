@@ -3814,30 +3814,27 @@ body {
     width: calc(100% - 8px) !important;
     max-width: 100% !important;
   }
-}
- /* 입력 박스 전체를 오른쪽으로 조금 이동 */
-.container > section.saju-input-card {
-  transform: translateX(12px) !important;
+
+/* 전체 컨테이너 중앙 정렬 */
+.container {
+  width: 100% !important;
+  max-width: 900px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  box-sizing: border-box !important;
 }
 
-@media (max-width: 600px) {
-  .container > section.saju-input-card {
-    transform: none !important;
-  }
-}
- /* 아래 카드 전체 오른쪽 이동 */
+/* 주요 박스의 강제 이동 해제 */
+.container > section.saju-input-card,
 .container > section.paid-card,
-.container > .feature-cards,
-.container > #freeResult {
-  transform: translateX(12px) !important;
-}
-
-@media (max-width: 600px) {
-  .container > section.paid-card,
-  .container > .feature-cards,
-  .container > #freeResult {
-    transform: none !important;
-  }
+.container > #freeResult,
+.container > .feature-cards {
+  transform: none !important;
+  left: auto !important;
+  right: auto !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  box-sizing: border-box !important;
 }
 </style>
  
