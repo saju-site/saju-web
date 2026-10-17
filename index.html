@@ -798,17 +798,17 @@ body {
 .form-group {
   margin-bottom: 15px !important;
   display: grid;
-  grid-template-columns: 112px minmax(0, 1fr);
+  grid-template-columns: 140px minmax(0, 1fr);
   align-items: center;
-  column-gap: 6px;
+  column-gap: 10px;
 }
 
 .form-group label {
   display: block !important;
-  flex: 0 0 88px;
+  flex: none;
+  min-width: 0;
   white-space: nowrap !important;
-  font-size: 14px !important;
-  color: #4d3b2e !important;
+  word-break: keep-all !important;
   margin-bottom: 0 !important;
 }
 
