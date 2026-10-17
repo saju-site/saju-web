@@ -3824,17 +3824,30 @@ body {
   box-sizing: border-box !important;
 }
 
-/* 주요 박스의 강제 이동 해제 */
-.container > section.saju-input-card,
-.container > section.paid-card,
+/* 무료 사주 결과와 하단 카드 4개 정렬 */
 .container > #freeResult,
 .container > .feature-cards {
-  transform: none !important;
-  left: auto !important;
-  right: auto !important;
+  display: block !important;
+  width: calc(100% - 32px) !important;
+  max-width: 620px !important;
   margin-left: auto !important;
   margin-right: auto !important;
+  position: relative !important;
+  left: auto !important;
+  right: auto !important;
+  transform: none !important;
   box-sizing: border-box !important;
+}
+
+/* 휴대폰 화면 */
+@media (max-width: 600px) {
+  .container > #freeResult,
+  .container > .feature-cards {
+    width: calc(100% - 16px) !important;
+    max-width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
 }
 </style>
  
