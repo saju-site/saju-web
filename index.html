@@ -3941,14 +3941,17 @@ body {
   transform: none !important;
   box-sizing: border-box !important;
 }
- /* 배경 이미지 중앙 정렬 보정 */
+ /* 배경 이미지와 중앙 콘텐츠 정렬 */
 html {
+  min-height: 100%;
   background-position: center top !important;
-  background-size: 100% auto !important;
-  background-attachment: scroll !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  background-attachment: fixed !important;
 }
 
 body {
+  min-height: 100vh;
   background: transparent !important;
 }
 </style>
