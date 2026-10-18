@@ -3879,6 +3879,20 @@ body {
     box-sizing: border-box;
   }
 }
+ /* 모바일: 고정 메뉴와 콘텐츠 겹침 방지 */
+@media (max-width: 600px) {
+  .top-nav {
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    justify-content: center !important;
+    background: rgba(7, 25, 53, 0.96) !important;
+  }
+
+  .container > #freeResult {
+    scroll-margin-top: 70px !important;
+  }
+}
 </style>
  
 
