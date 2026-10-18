@@ -3925,6 +3925,22 @@ body {
   border-bottom: 1px solid #c9a66b !important;
   box-sizing: border-box !important;
 }
+ /* 쏠림 보정: 전체 컨테이너와 주요 박스 중앙 정렬 */
+.container {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  box-sizing: border-box !important;
+}
+
+.container > section.saju-input-card,
+.container > section.paid-card,
+.container > #freeResult,
+.container > .feature-cards {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  transform: none !important;
+  box-sizing: border-box !important;
+}
 </style>
  
 
