@@ -3965,7 +3965,20 @@ body {
   box-sizing: border-box !important;
   transform: translateX(80px) !important;
 }
- 
+/* 휴대폰 입력 카드 화면 안에 맞춤 */
+@media (max-width: 600px) {
+  .saju-input-card {
+    position: relative !important;
+    left: 0 !important;
+    right: auto !important;
+    transform: none !important;
+    width: calc(100vw - 32px) !important;
+    max-width: calc(100vw - 32px) !important;
+    margin-left: 16px !important;
+    margin-right: 16px !important;
+    box-sizing: border-box !important;
+  }
+} 
 </style>
  
 
